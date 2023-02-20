@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 50%;
+            margin: auto;
+        }
+        #demo, #div, #button{
+            width: 50%;
+            text-align: center;
+            padding: 20px 20px;
+            margin-top: 30px;
+        }
+
+    </style>
+
+    <title>JavaScript</title>
+</head>
+<body>
+    <!------------------------------------------------------- Use of JavaScript in html ------------------------------------------------------ --->
+    <!-- JavaScript can be used either in head or body of an document  -->
+    <div class="container">
+        <p id="demo" onmouseover=changestyle() style="background-color: aqua;font-size: 2rem;">Internal JavaScript</p>
+
+        <div id="div" onmouseover=divstyle() style="background-color:burlywood;">
+            <p id="divp" style="text-align: center; font-size: 2rem;">External JavaScript </p>
+        </div>
+
+        <button type="button" id="button" onclick=gayab() >ERASE EVERYTHING!</button>
+    </div>
+    
+
+<!-------------------------------------------------------INTERNAL JAVASCRIPT------------------------------------------------------------------------------>
+    <script>
+        function changestyle(){
+            document.getElementById("demo").style.backgroundColor="grey";
+            document.getElementById("demo").style.fontFamily="Sans-serif";
+            alert("you have changed the style ");
+        }
+    </script>
+
+<!-- -------------------------------------------------------EXTERNAL JAVASCRIPT ------------------------------------------------------------------------------------ -->
+<script src="/20_Feb/task1.js"></script>
+</body>
+</html>

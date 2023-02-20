@@ -1,0 +1,18 @@
+#myform{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(190, 235, 238);
+    width: 40%;
+    margin: auto;
+    margin-top:8%;
+    padding:20px 20px;
+}
+
+
+body{
+    background-color: rgb(90, 80, 80);
+}

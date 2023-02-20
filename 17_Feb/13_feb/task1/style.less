@@ -1,0 +1,54 @@
+// setting font variables
+@body-font:Sans-serif;
+@container-font:verdana;
+
+// setting background colours variables 
+@body-background:black;
+@container-background1:yellow;
+@container-background2:aqua;
+@container-background3:grey;
+
+//setting flex function
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+//setting flex coloumn property using extend
+.flex-col:extend(.flex){
+    flex-direction: column;
+}
+
+//using independent element
+body{
+    background-color: @body-background;
+    .flex;
+    font-family: @body-font;
+}
+
+// using class selector to set container properties
+.container{
+    .flex-col;
+    background-color: @container-background1;
+    box-shadow: 10px 10px 10px 10px rgb(184, 174, 163);
+    width: 25%;
+    padding: 20px 20px;
+    margin: 20px;
+}
+
+//usind id selector
+#first{
+    background-color: @container-background2;
+    font-style: italic;
+}
+#second{
+    font-weight: bold;
+    background-color: @container-background3;
+}
+#third{
+    font-family: @container-font;
+    background-color: @container-background1;
+    p{
+        text-align: center;
+    }
+}

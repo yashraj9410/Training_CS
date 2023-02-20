@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="task3.js"></script>
+    <style>
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+        }
+         .button{
+            padding: 10px 10px;
+            background-color: black;
+            color: wheat;
+            border-radius: 30px;
+         }
+    </style>
+    <title>Prime Number </title>
+</head>
+<body>
+   <div class="container">
+        <h1 style="text-align: center;">Printing Prime numbers from 1 to the entered number in console</h1>
+        <button type="button" class="button" onclick=using_for()>Using For loop</button>
+        <p id="for">Prime Numbers are:</p>
+        <button type="button" class="button" onclick=using_while()>Using While Loop</button>
+        <p id="while">Prime Numbers are:</p>
+        <button type="button" class="button" onclick=using_dowhile()>Using do while loop</button>
+        <p id="dowhile">Prime Numbers are:</p>
+   </div>
+
+</body>
+</html>

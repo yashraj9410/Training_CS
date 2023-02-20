@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="task2.js"></script>
+
+    <style>
+        .container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 50%;
+            margin: auto;
+            font-size: 2rem;
+        }
+        #p1{
+            background-color: blanchedalmond;
+        }
+        #p2{
+            background-color: aqua;
+        }
+    </style>
+
+    <title>Display Propoperties</title>
+</head>
+<body>
+    <!------------------------Display Properties of JavaScript ---------------------------------------------- -->
+    <!-- 1. using (.innerHTML) to display data on the page
+         2. using (document.write()) to display data on the page if we use document.write() after the page has been loaded then it will vanish all the loaded data on the page 
+         3. using (window.alert()) this gives a alert box type message whenever a event of function is invoked
+         4. using (console.log()) to log some message on the console of the browser  -->
+
+     <div class="container">
+        <p id="p1"> </p>
+        <p id="p2" onmouseover=fun()> MOUSE HERE FOR ALERT </p>
+
+     </div>    
+
+<!-- -----------------------------------------------------------INTERNAL SCRIPT--------------------------------------------------- -->
+    <script>
+        document.getElementById("p1").innerHTML="This is the document.innerHTML part part";
+        let a = prompt("Enter any value between 1 to 100");
+        document.write("you selected " + a);
+        console.log("user entered: " + a);
+    </script>
+
+</body>
+</html>

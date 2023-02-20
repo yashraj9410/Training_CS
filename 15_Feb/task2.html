@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- icon script -->
+    <script src="https://kit.fontawesome.com/04404818fa.js" crossorigin="anonymous"></script>
+
+    <!-- These style ans script tag are used to include bootstrap functionalities inside of our html file  -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <!-- defer attribute is set, it specifies that the script is downloaded in parallel to parsing the page, and executed after the page has finished parsing -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style1.css">
+    <title>FORM</title>
+  </head>
+  <body>
+
+<!----------------------------------------------------BUTTONS------------------------------------------------------------------------------------------------- -->
+    <div class="container d-flex justify-content-center mt-5">
+        <div class="btn-group d-flex align-content-center justify-content-center ">
+            <a href="#" class="btn btn-primary mt-3"><i class="fa-sharp fa-solid fa-plus" style="padding: 10px 10px;"></i>New User</a>
+            <a href="#" class="btn btn-danger mt-3 " ><i class="fa-sharp fa-solid fa-user" style="padding: 10px 10px;"></i>I have a account</a>
+        </div>
+        
+    </div>
+
+    <p class="text-center mt-2"><b>Click to select</b></p>
+
+<!-------------------------------------------------FORM--------------------------------------------------------------------------------------------- -->
+
+    <div class="container d-flex justify-content-center flex-column">
+        <div class="row mt-4" >
+            <div class="input-group">
+                <input type="email" id ="text "class="form-control" placeholder="Email" required>
+                <div class="input-group-text"> <i class="fas fa-envelope"></i></div>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="input-group">
+                <input type="password" id ="text "class="form-control" placeholder="New Password" required>
+                <div class="input-group-text"> <i class="fas fa-key"></i></div>
+            </div>
+        </div>
+        <div class="row mt-4" >
+            <div class="input-group">
+                <input type="password" id ="text "class="form-control" placeholder="Confirm New Password" required>
+                <div class="input-group-text"> <i class="fas fa-key"></i></div>
+            </div>
+        </div>
+    </div>
+   <!----------------------------------------------------------PAY AREA---------------------------------------------------------------------------------------------  -->
+
+   <div class="container d-flex justify-content-center align-items-center mt-5 gap-3">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <p class="nav-link" href="#" style="text-decoration: none; color: black;">Pay With:</p>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"><i class="fa-sharp fa-solid fa-dollar-sign" style="padding:5px 5px;"></i>PayPal</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fa-sharp fa-solid fa-bitcoin-sign"  style="padding:5px 5px;"></i>Bitcoin</a>
+            </li>
+        </ul>
+   </div>
+
+   <!-- --------------------------------------------------------value area--------------------------------------------- -->
+
+   <div class="container d-flex flex-column justify-content-center align-items-center mt-3">
+        <div class="row text-center mt-5">
+            <h2>$9.<sup>99</sup> /mo with <i class="fa-sharp fa-solid fa-dollar-sign" style="padding:5px 5px;"></i></h2>
+        </div>
+
+        <div class="row text-center mt-4">
+            <a href="https://www.bing.com/ck/a?!&&p=0541028dad00ecadJmltdHM9MTY3NjQxOTIwMCZpZ3VpZD0yODZkYjY4OC1mZTA4LTZiYzctMjhmNy1hNDM4ZmZmYTZhOWMmaW5zaWQ9NTIwMw&ptn=3&hsh=3&fclid=286db688-fe08-6bc7-28f7-a438fffa6a9c&psq=paypal&u=a1aHR0cHM6Ly93d3cucGF5cGFsLmNvbS9pbi9ob21l&ntb=1" target="_blank" style="text-decoration: none;"><b>What is PayPal ?</b></a>
+        </div>
+        
+        <div class="row  mt-5 ">
+            <a class="btn btn-primary" href="" style="text-decoration: none; font-size: 1.3rem;"><b>PAY $9.<sup>99</sup> USD WITH PAYPAL</b></a>
+        </div>
+   </div>
+
+  </body>
+</html>

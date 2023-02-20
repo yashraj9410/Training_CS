@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style3.css">
+    <title>Form Student </title>
+    <script type="text/JavaScript">
+        function showMessage(){
+
+            //fetching elements
+            var fname = document.getElementById("fname").value;
+            var age = document.getElementById("age").value;
+            var contact = document.getElementById("phone").value;
+            
+            // for radio buttons
+            function displayradio(){
+                var gen = document.getElementsByName("gender");
+                for(i=0;i<gen.length;i++){
+                    if(gen[i].checked){
+                        return gen[i].value;
+                    }
+                }
+            }
+            var res = displayradio();
+
+            //Function for the checkbox selection
+            var allsub=[];
+            function displaysub(){
+                
+                var subs = document.getElementsByName("subjects");
+                for(i=0;i<subs.length;i++){
+                    if(subs[i].checked){
+                        allsub.push(subs[i].value);
+                    }
+                }
+                return allsub;
+            }
+            var sub = displaysub();
+
+            // displaying all the messages on the page
+            display_message.innerHTML= "Name:"+fname +"\n"+" Age:"+ age + "\n"+ "Gender:"+res+ "\n"+ "\n"+ "Contact:"+contact+ "\n"+ "Subjects:"+sub;
+        }
+     </script>
+    
+
+</head>
+<body>
+    <form action="#" id="myform">
+        <fieldset>         <!--Fieldset property gives a border field to the table-->
+            <legend><B>Student Info </B></legend>      <!--legend gives a caption to the table-->
+
+            <label for="name">Enter your name:</label>   <!--provides a label to the input type-->
+            <input type="text" name="name" placeholder="enter your name " id="fname" pattern="[A-Za-z]{1-100}" required><br><br>
+            
+            <label for="age">Enter your Age:</label>
+            <input type="text" name="age" id="age" placeholder="enter your age "  pattern="[0-9]{1-2}" required><br><br>
+
+            <label for="gender">Gender:&emsp;   
+                Male<input type="radio"  value="male" name="gender"> 
+                Female<input type="radio"  name="gender" value="female"> 
+                Other<input type="radio"  name="gender" value="others"><br><br>
+
+            <label for="address">Enter your address:</label>
+            <input type="text" id="address" name="birth" placeholder="enter your address" required><br><br>
+
+                <!--required, maxlength , placeholder,pattern are validations , maxlength -->
+
+            <label for="phone">Enter your Contact No:</label>
+            <input type="tel" name="phone" id="phone" placeholder="enter your contact  +91" maxlength="10" pattern="[0-9]{10}"><br><br>
+
+            <label for="subjects">Enter Subjects to Enroll:</label> <br>
+            <input type="checkbox" id="math" name="subjects" value="Maths">
+            <label>Maths</label><br>
+            <input type="checkbox" id="english" name="subjects" value="English">
+            <label>English</label><br>
+            <input type="checkbox" id="hindi" name="subjects" value="Hindi">
+            <label>Hindi</label><br>
+            <input type="checkbox" id="physics" name="subjects" value="Physics">
+            <label>Physics</label><br>
+            <input type="checkbox" id="biology" name="subjects" value="Biology">
+            <label>Biology</label><br>
+            <input type="checkbox" id="chemistry" name="subjects" value="Chemistry">
+            <label>Chemistry</label><br>
+            <input type="checkbox" id="civics" name="subjects" value="Civics">
+            <label>Civics</label><br>
+            <input type="checkbox" id="history" name="subjects" value="History">
+            <label>History</label><br>
+            <input type="checkbox" id="economics" name="subjects" value="Economics">
+            <label>Economics</label><br>
+            <input type="checkbox" id="geography" name="subjects" value="Geography">
+            <label>Geography</label><br><br>
+
+            <input type="button" onclick="showMessage()" value="submit" id="button" /><br><br>
+
+            <p> Input:<p id = "display_message"></p><br> </p><br>
+
+        </fieldset>    
+        
+   </form>
+    
+</body>
+</html>

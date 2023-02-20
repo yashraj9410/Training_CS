@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables</title>
+</head>
+<body>
+<!--------------------------------------------Showcasing the use of let,var,const--------------------------------------------------------------- -->
+<script>
+// -----------------------------------------------VAR---------------------------------------------------------------------------------------------------------
+
+    var a =10;                   // a is global scoped variable ,even if we declare var inside a block then also we will be getting its value globally
+    function fun(){
+        console.log(a);
+    }
+    console.log(a);
+
+// -----------------------------------------------LET----------------------------------------------------------------------------------------------------
+
+    let b=10;                     // value assigned using the  let keyword cannot be redeclared but can be reassigned
+                                  // let is block scoped
+    b= 189;
+
+    console.log(b);
+
+    {
+        let c=100;
+    }
+    c=10;                         // it  will give an error as life of c is inside the block only
+    console.log(c);
+
+// ----------------------------------------------CONST---------------------------------------------------------------------------------------------------------------
+
+    const a =10;                 // const neither can be redeclared nor reassigned
+
+                                 // const gives a constant reference to the object , arrrays , values 
+                                 //block scoped 
+</script>
+
+</body>
+</html>

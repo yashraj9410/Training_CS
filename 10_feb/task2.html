@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <title>Form tags</title>
+</head>
+<body>
+   <form action="#" id="myform">
+        <fieldset>         <!--Fieldset property gives a border field to the table-->
+            <legend><B>Personal Info Manager</B></legend>      <!--legend gives a caption to the table-->
+
+            <label for="name">Enter your name:</label>   <!--provides a label to the input type-->
+            <input type="text" name="name" placeholder="enter your name "><br><br>
+            
+            <label for="age">Enter your Age:</label>
+            <input type="text" name="age" placeholder="enter your age "><br><br>
+
+            <label for="birth">Enter your birthdate:</label>
+            <input type="date" name="birth" placeholder="enter your birthdate"><br><br>
+
+            <label for="cars">Choose a car:</label>
+                <select  name="cars" id="cars">
+                    <optgroup label="Indian Cars">
+                        <option value="Mahindra">Mahindra</option>
+                        <option value="DC avanti">DC Avanti</option>
+                        <option value="TATA">TATA</option>
+                    </optgroup>
+                    <optgroup label="German Cars">
+                        <option value="mercedes">Mercedes</option>
+                        <option value="audi">Audi</option>
+                        <option value="Wolkswagen">Wolkswagen</option>
+                    </optgroup>
+                </select><br><br>
+
+            <label for="user">Register here:</label><br><br>
+            <label for="mail">Email:</label>
+            <input type="email" name="mail" placeholder="email"><br><br>
+            <label for="pass">Password:</label>
+            <input type="password" name="pass" placeholder="password">
+
+            </fieldset>
+        
+   </form>
+    
+</body>
+</html>

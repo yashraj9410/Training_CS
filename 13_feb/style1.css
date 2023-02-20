@@ -1,0 +1,47 @@
+/* ----------------------UNIVERSAL SELECTORS--------------------------------------- */
+
+/* ------------------The Universal selector is used to maintan a particula display style by default on the page for all Html Elements  ------------------------------- */
+
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.3rem;
+}
+
+ /*-------------------------------------- ELEMENT SELECTOR (tag name)----------------------------------------------------------- */ 
+
+ body{
+    display: flex;
+    background-color: rgb(58, 53, 53);
+ }
+
+
+/* ---------------------------------------CLASS SELECTOR(.classname)------------------------------------------------------ */
+
+.container{
+
+    background-color: rgb(226, 208, 188);
+    text-align: center;
+    justify-content: center;
+    width: 25%;
+    margin: auto;
+    margin-top: 30px;
+    box-shadow: 10px 10px 10px 10px rgb(184, 174, 163);
+}
+
+/* ---------------------------------------------ID SELECTOR #idname------------------------------------------------------ */
+
+#first{
+   font-style: italic;
+}
+
+#second{
+    background-color: aqua;
+    box-shadow: 10px 10px 10px 10px rgb(96, 146, 144);
+    font-style:inherit;
+    
+}
+
+#third{
+    background-color: rgb(165, 233, 133);
+    box-shadow: 10px 10px 10px 10px rgb(163, 179, 159);
+}

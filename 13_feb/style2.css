@@ -1,0 +1,26 @@
+/* SETTING FIELDSET PROPERTY */
+ fieldset{
+    width: 25%;
+    margin: auto;
+    margin-top: 10%;
+    box-shadow: 0px 15px 40px 0px;
+    background-color: beige;
+ }
+
+ legend{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: large;
+ }
+
+ /* SELECTOR GROUPING */
+
+/* we can use multiple tag at once */
+
+ table,th,td{
+  font-size: 1.3rem;
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 15px 40px;
+ }
+ 
+

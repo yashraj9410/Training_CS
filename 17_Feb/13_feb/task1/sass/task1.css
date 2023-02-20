@@ -1,0 +1,37 @@
+body {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: yellow;
+  box-shadow: 10px 10px 10px 10px rgb(184, 174, 163);
+  width: 25%;
+  padding: 20px 20px;
+  margin: 20px;
+}
+
+#first {
+  background-color: aqua;
+  font-style: italic;
+}
+
+#second {
+  font-weight: bold;
+  background-color: grey;
+}
+
+#third {
+  font-family: verdana;
+  background-color: yellow;
+}
+#third p {
+  text-align: center;
+}/*# sourceMappingURL=task1.css.map */
