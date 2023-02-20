@@ -3,7 +3,8 @@
 
 var a = prompt("enter any number: ");
 var arr=[];
-
+var arr1 =[];
+var arr2=[];
 
 // using for loop
 function using_for(){
@@ -32,14 +33,14 @@ function using_while(){
                 break
             }
             else if(i==j+1){
-                arr.push(i);
+                arr1.push(i);
                 console.log(i);
             }
             j++;
         }
         i++;
     }
-    document.getElementById("while").innerHTML=arr;
+    document.getElementById("while").innerHTML=arr1;
 }
 
 //using do while
@@ -52,14 +53,14 @@ function using_dowhile(){
                 break;
             }
             else if(i==j+1){
-                arr.push(i);
+                arr2.push(i);
                 console.log(i);
             }
         }
         i++;
     }
     while(i<a);
-    document.getElementById("dowhile").innerHTML=arr;
+    document.getElementById("dowhile").innerHTML=arr2;
 }
 
 
