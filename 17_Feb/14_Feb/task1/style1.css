@@ -1,0 +1,90 @@
+
+
+/* BODY STYLE */
+body{
+
+font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-size: 2rem;
+background-color: bisque;
+}
+
+/* HEAD DIV */
+.head{
+    display:flex;
+}
+
+/* Logo Image */
+.logo{
+
+    width: 130px;
+    height:130px;
+    margin:5px 5px;
+    border-radius: 100px;
+}
+
+
+/* Navbar style */
+.nav{
+    padding: 28px 65px;
+    margin-top: 25px;
+}
+/* Link style (PSEUDO CLASS) */
+
+.button{
+    background-color: rgb(53, 59, 57);
+    border-radius: 60px;
+    margin: 10px 20px;
+    padding:20px 30px;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0px 10px 30px 0px  rgb(53, 59, 57) ;
+}
+
+/* ------------------------------------------PSEUDO CLASS---------------------------------------------------------------------------------------- */
+
+/* A pseudo-class is used to define a special state of an element.
+
+For example, it can be used to:
+
+Style an element when a user mouses over it
+Style visited and unvisited links differently
+Style an element when it gets focus    */
+
+/* when mouse is over it  */
+.button:hover{
+    background-color: black;
+    font-size: 1.5rem;   
+}
+
+/* after the user has clicked on the button */
+
+/* .button:visited{
+    color: rgb(201, 230, 230);
+    font-size: 1.5rem;   
+} */
+
+/* when in active state (onclick) */
+.button:active{
+    color: aquamarine;
+}
+/* -------------------------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* HOME SECTION */
+#home{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+/* --------------------------------------PSEUDO ELEMENTS-------------------------------------------------------------------------------------------------- */
+
+#home p::first-line{
+    background-color:rgb(109, 100, 90);
+    color: rgb(255, 255, 255);
+}
+
+/* for selecting anything on page  */
+::selection{
+    background-color: aquamarine;
+    color: brown;
+}

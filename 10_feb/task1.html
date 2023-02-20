@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">s
+    <link rel="stylesheet" href="style1.css">
+    <title>HTML output on same page</title>
+    <script type="text/JavaScript">
+        function showMessage(){
+
+            //fetching elements
+            var fname = document.getElementById("fname").value;
+            var lname = document.getElementById("lname").value;
+            var age = document.getElementById("age").value;
+            
+            
+            // for radio buttons
+            function displayradio(){
+                var gen = document.getElementsByName("gender");
+                for(i=0;i<gen.length;i++){
+                    if(gen[i].checked){
+                        return gen[i].value;
+                    }
+                }
+            }
+
+            var res = displayradio();
+
+            // displaying all the messages on the page
+            display_message.innerHTML= " FirstName:"+fname +"\n"+ "LastName:"+lname+"\n"+" Age:"+ age + "\n"+ "Gender:"+res;
+        }
+     </script>
+</head>
+<body>
+    <form id="myform">
+        First Name:<input type="text" id = "fname"><br>
+
+        Last Name:<br> <input type="text" id = "lname"><br>
+
+        Age:<br> <input type="number" id = "age"><br>
+        
+        <label for="gender">Gender:</label><br> 
+        Male<input type="radio"  value="male" name="gender"> 
+        Female<input type="radio"  name="gender" value="female"> 
+        Other<input type="radio"  name="gender" value="others"><br><br>
+        
+        <input type="button" onclick="showMessage()" value="submit" id="button" /><br><br>
+
+        <p> Input:<p id = "display_message"></p><br> </p><br>
+    </form><br><br><br>
+
+    <!-- section to display elements -->
+        
+</body>
+</html>

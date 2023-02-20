@@ -1,0 +1,77 @@
+.flex-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.logo-set {
+  width: 130px;
+  height: 130px;
+  margin: 5px 5px;
+  border-radius: 100px;
+}
+.nav-set {
+  padding: 28px 65px;
+  margin-top: 25px;
+}
+.button-set {
+  background-color: #353b39;
+  margin: 10px 20px;
+  padding: 20px 30px;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0px 10px 30px 0px #353b39;
+}
+body {
+  background-color: bisque;
+  font-family: Sans-serif;
+  font-size: 2rem;
+}
+.head {
+  display: flex;
+}
+.logo {
+  width: 130px;
+  height: 130px;
+  margin: 5px 5px;
+  border-radius: 100px;
+}
+.nav {
+  padding: 28px 65px;
+  margin-top: 25px;
+}
+@media screen and (max-width: 700px) {
+  .nav {
+    display: block;
+  }
+}
+.button {
+  background-color: #353b39;
+  margin: 10px 20px;
+  padding: 20px 30px;
+  color: white;
+  text-decoration: none;
+  box-shadow: 0px 10px 30px 0px #353b39;
+  border-radius: 100px;
+}
+.button:hover {
+  background-color: black;
+  font-size: 1.5rem;
+}
+.button:active {
+  color: aquamarine;
+}
+#home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#home p::first-line {
+  background-color: #6d645a;
+  color: #ffffff;
+}
+#home p::selection {
+  background-color: aquamarine;
+  color: brown;
+}

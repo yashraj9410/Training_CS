@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style3.css">
+    <script src="https://kit.fontawesome.com/04404818fa.js" crossorigin="anonymous"></script>
+    <title>Navbar</title>
+</head>
+<body>
+<!-- ------------------------------------------------NAVBAR SECTION--------------------------------------------------------------------- -->
+    <div class="nav">
+        <a href="#home" class="link" id="currentpage">HOME</a>
+        <a href="#about" class="link" >ABOUT</a>
+        <a href="/task2.html" class="link">GALLERY</a>
+        <a href="#contact" class="link" >CONTACT</a>
+    </div>
+<!-- ------------------------------------------------HOME SECTION----------------------------------------------------------------------------- -->
+    <div id="home" class="home">
+        <h1>Hello!</h1>
+        <p>Travel is the movement of people between distant geographical locations. Travel can be done by foot, bicycle, automobile, train, boat, bus, airplane, ship or other means, with or without luggage, and can be one way or round trip. Travel can also include relatively short stays between successive movements, as in the case of tourism.</p>
+        <p>Reasons for traveling include recreation, holidays, rejuvenation, tourism or vacationing, research travel, the gathering of information, visiting people, volunteer travel for charity, migration to begin life somewhere else, religious pilgrimages and mission trips, business travel, trade, commuting, obtaining health care, waging or fleeing war, for the enjoyment of traveling, or other reasons. Travelers may use human-powered transport such as walking or bicycling; or vehicles, such as public transport, automobiles, trains, ferries, boats, cruise ships and airplanes.</p>
+
+        <div class="image">
+            <div class="img">
+                <img src="/pic1.jpg" alt="Image 1">
+                <h3>World has a lot to show!</h3><br>
+                <p>Deep Dive into the beauty of nature,culture, heritage and become a part of out valuable chain</p>
+                <button class="button" onclick="ask()">Lets Go!</button>
+            </div>
+            <div class="img">
+                <img src="/pic2.jpg" alt="Image 2">
+                <h3>Pisa has got it for all!</h3><br>
+                <p>Deep Dive into the beauty of pisa and lean with the tower on a perfect side of your life. </p>
+                <button class="button" onclick="ask()">Lets Go!</button>
+            </div>
+
+        </div>
+    </div>
+<!-- -------------------------------------------------ABOUT SECTION--------------------------------------------------------------------- -->
+    <div id="about" class="About">
+            <h1>ABOUT US:</h1>
+            <P class="about1">
+                Travel and tourism is the largest service industry in India. It provides heritage, cultural, medical, business and sports tourism. The main objective of this sector is to develop and promote tourism, maintain competitiveness of India as tourist destination and improve and expand existing tourism products to ensure employment generation and economic growth. In this section, we provide information about various tourist destinations, modes of travel, accommodation and approved travel agents.
+            </P>
+            <h2>SERVICES OFFERED:</h2>
+            <ul class="aboutlist">
+                <li>Travel</li>
+                <li>Adventure Sports</li>
+                <li>Lodging</li>
+                <li>Foreign Trips</li>
+            </ul>
+            <p class="about">
+                The pay INR 1000 and hold the holiday for 24 to 48 hours is one of the top reasons you should book your holiday with Yatra, outside of the very lucrative EMI option for making the payment. So, even if you are strapped for cash, you can still go ahead and book a lavish holiday. Another reason for booking your holiday packages with Yatra is its range of inventory which covers small and big destinations, tiny historical towns, grand beach resorts, sea-side hamlets, backwater retreats, Himalayan ski resorts, Ayurvedic getaways, pilgrimage cities, famous circuits, archaeological towns to jungle safari stays. You simply need to pick your category of holiday whether adventure-based, for honeymoon, for its history, wildlife, nature or a family getaway, and you will be shown expansive itineraries on the same, from which you can choose depending on your budget and interests. Yatra holiday packages clearly state the inclusions and exclusions of your tour, leaving no ambiguity in terms of planning your budget and other essentials. Not to mention, there is the possibility of customising the itinerary with help from Yatras Holiday experts. 
+            </p>
+    </div>
+<!-- ----------------------------------------------------GALLERY SECTION---------------------------------------------------------------------- -->
+   
+<!-- -----------------------------------------------------CONTACT SECTION------------------------------------------------------------------------ -->
+    <footer class="foot" id ="contact">
+        <h1>Contacts</h1>
+        <div class="icon">
+            <i class="fab fa-facebook-square"><a href="https://www.facebook.com/">FACEBOOK</a></i><br><br>
+            <i class="fas fa-heart" ></i><a href="https://www.instagram.com/accounts/emailsignup">INSTAGRAM</a><br><br>
+            <i class="fas fa-envelope"><a href="https://mail.google.com/mail/">GMAIL</a></i><br><br>
+            <i class="fas fa-phone"><a href="">7455022866</a></i><br><br>
+        </div>
+    </footer>
+<!-- ---------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+    <script>
+        const ask =()=>{
+            alert("are you ready????");
+        }
+
+        document.querySelectorAll('.link').forEach(
+            links => {
+                if(links.href=== window.location.href){
+                    links.setAttribute('aria-current','page');
+                }
+            }
+        )
+
+        
+    </script>
+</body>
+</html>
