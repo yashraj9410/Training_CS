@@ -68,7 +68,7 @@ console.log(arr3);
 //creating an array of objects 
 let objarr1 =[{firstname:"yash",lastname:"raj",age:29},
             {firstname:"sourya",lastname:"raj",age:24},
-            {firstname:"mannu",lastname:"raj",age:25}];
+            {firstname:"mannu",lastname:"raj",age:24}];
 
 //we can sort the integer values of object array with the help of sort function and compare function
 
@@ -84,3 +84,54 @@ console.log(objarr1.sort(function(a,b){
     return 0;
 }));
 
+// adding a object to the array 
+objarr1.push({firstname:"himansh", lastname:"rjau",age:24});
+console.log(objarr1);
+
+//finding objects using their propertyname and ascociated value 
+let f = objarr1.find(f => f.age===24);                             // this will give the last item on the list 
+console.log(f);
+
+//finding multiple items that match a test case 
+let filter = objarr1.filter(person=>person.age===24);
+console.log(filter);
+
+//transforming objects using map 
+//it maps array of objects into array of different objects 
+let test = objarr1.map(person => {
+    if(person.age>25){
+        return "disqualified";
+    }
+    return "qualified";
+})
+
+console.log(test);
+
+//we can also add properties and create new array of objects  using the map 
+let addtest = objarr1.map(person=>{
+    let result ={
+        "age": person.age,
+        "status":"qualified"
+    };
+    if(person.age>25){
+        result.status = "disqualified";
+    }
+    return result;
+});
+console.log(addtest);
+
+
+//using foreach to add a property status to every obj in objarr1
+let addstatus = objarr1.forEach(person =>{
+    person.status="qualified";
+    if(person.age>25){
+        person.status= "disqualified";
+    }
+});
+console.log(objarr1);
+
+//checking for a particular property that it exists ,return true,false
+
+console.log(objarr1.some(person => person.firstname ==="himansh"));
+
+//
