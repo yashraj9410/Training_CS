@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patterns</title>
+</head>
+<body>
+    <button id="button1" onclick="star()" type="button">Star pattern</button>
+    <button id="button2" onclick="num()" type="button">Number Pattern</button>
+
+
+
+
+<!--------------------------------------------------------------JAVASCRIPT------------------------------------------------------------------------------------------ -->
+    <script>
+        //function for star pattern
+        function star(){
+            let n = 5,i=1;
+
+            //rows
+            while(i<=n){
+                let j=1;
+
+                //coloumns
+                while(j<=n){
+                    if(i==1|| i==n){
+                        document.write("*"); 
+                        j++;                                        // i is the row and j is the coloumn
+                    }
+                    else{
+                        document.write("*");
+
+                            //spaces
+                            for(let space=1;space<=n-2;space++){   //print spaces nbsp means non breaking spaces 
+                                document.write("&nbsp; ");
+                            }
+                        j=j+n-1;
+                    }
+                }
+                document.write('</br></br>');
+                i++;
+            }
+        }
+
+        //function for number pattern
+        function num(){
+            let n=5;
+            let i=1;
+
+            //rows
+            while(i<=n){
+
+                //spaces
+                for(let space =1; space <=n-i;space++){
+                        document.write("&nbsp; ")
+                    }
+
+                let j=1;    
+                                                            //i is the row and j is the coloumn 
+                //coloumns
+                while(j<=2*i-1){
+                    document.write(j);
+                    j++;
+                }
+                document.write('</br>');
+                i++;
+            }
+
+        }
+    </script>
+
+    
+</body>
+</html>
