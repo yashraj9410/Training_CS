@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+</head>
+<body>
+    <h2>Enter anu number less than 10:</h2>
+    <input type="text" id="test">
+    <button class="test" onclick=test() type="button">Submit</button>
+    <p id="p1"></p>
+    <p id = "finally"></p>
+
+
+    <!----------------------------------------------------EXCEPTION HANDLING--------------------------------------------------------------- -->
+    <script>
+        
+        function test(){
+            let message = document.getElementById("p1");
+            message.innerHTML=" ";
+            const num = document.getElementById("test").value;
+
+            // try catch pair of statement are used to test and display a erro to the user 
+            // throw is used to show a custom error to user 
+
+            try{
+                if(num>10) throw "greater than 10";
+                if(isNaN(num)) throw " not valid";
+            }
+            catch(err){
+                message.innerHTML= "number is  " + err;
+            }
+
+            // finally is used to display the message entered regardless of the try catch
+            finally{
+                document.getElementById("finally").innerHTML= "you entered " + num;
+            }
+        }
+        
+    </script>
+</body>
+</html>
