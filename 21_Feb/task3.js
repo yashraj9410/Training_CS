@@ -63,7 +63,7 @@ let arr3 = num.concat(arr);
 console.log(arr3);
 
 
-// ARRAY OF OBJECTS 
+//------------------------------------------------------------ ARRAY OF OBJECTS -------------------------------------------------------------------- 
 
 //creating an array of objects 
 let objarr1 =[{firstname:"yash",lastname:"raj",age:29},
@@ -134,4 +134,3 @@ console.log(objarr1);
 
 console.log(objarr1.some(person => person.firstname ==="himansh"));
 
-//
