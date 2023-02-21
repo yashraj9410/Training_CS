@@ -65,6 +65,22 @@ console.log(arr3);
 
 // ARRAY OF OBJECTS 
 
-let objarr1 =[{firstname:"yash",lastname:"raj",age:20},
-            {firstname:"yash",lastname:"raj",age:20},
-            {firstname:"yash",lastname:"raj",age:20}];
+//creating an array of objects 
+let objarr1 =[{firstname:"yash",lastname:"raj",age:29},
+            {firstname:"sourya",lastname:"raj",age:24},
+            {firstname:"mannu",lastname:"raj",age:25}];
+
+//we can sort the integer values of object array with the help of sort function and compare function
+
+console.log(objarr1.sort(function(a,b){return a.age - b.age; }));
+
+
+// we can also sort the string values 
+console.log(objarr1.sort(function(a,b){
+    let x = a.firstname.toLowerCase();
+    let y = b.firstname.toLowerCase();
+    if(x<y){return -1}
+    if(x>y){return 1}
+    return 0;
+}));
+
