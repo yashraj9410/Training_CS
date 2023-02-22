@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="task4.js" defer></script>
+    <style>
+        .input,.button{
+            padding:10px 10px;
+        }
+    </style>
+    <title>SI and CI </title>
+
+</head>
+<body>
+    <div class="container" style="display:flex; flex-direction: column; justify-content: center; align-items: center; padding: 30px 30px; gap: 10px;">
+        <input type="number" class="input" id="principal" placeholder="Principal amount">
+        <input type="number" class="input" id="interest" placeholder="Rate of Interest"> 
+        <input type="number" class="input" id="time" placeholder="Time">
+        <p id="output"> </p>
+        <button id="si" type="button" class="button" onclick="simpleinterest()">Calculate Simple Interest </button>
+        <button id="si" type="button" class="button" onclick="compoundinterest()">Calculate Compound Interest </button>
+    </div> 
+   
+</body>
+</html>
