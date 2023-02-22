@@ -32,6 +32,7 @@
         //creating a event function for generating area of square and displaying on the page with the help of button
         function onclicksquare(){
             let side = prompt("enter the side of square");
+            if(isNaN(side)){alert("invalid dimension")}
             let x = classobj.square(side);
             document.getElementById("area").innerHTML= "The area of square with side" + " " + side + " " + "is"+ " " + x;
         }
@@ -40,13 +41,15 @@
         function onclickrect(){
             let len = prompt("enter the length of rectangle");
             let brth = prompt("enter the breadth of rectangle");
+            if(isNaN(len,brth)){alert("invalid dimensions")};
             let y = classobj.rectangle(len,brth); 
             document.getElementById("area").innerHTML= "The area of rectangle with sides" + " " + len +","+brth + " " + "is"+ " " + y;
         }
 
-        
+
         function onclickcircle(){
             let radius = prompt("enter the radius of circle");
+            if(isNaN(radius)){alert("invalid dimension")}
             let z = classobj.circle(radius);
             document.getElementById("area").innerHTML= "The area of circle with radius" + " " + radius + " " + "is"+ " " + z;
         }
