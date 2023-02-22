@@ -29,13 +29,14 @@
         }
         let classobj = new Area();
         
-        //creating a event function for generating area of square
+        //creating a event function for generating area of square and displaying on the page with the help of button
         function onclicksquare(){
             let side = prompt("enter the side of square");
             let x = classobj.square(side);
             document.getElementById("area").innerHTML= "The area of square with side" + " " + side + " " + "is"+ " " + x;
         }
         
+        //function for rectangle
         function onclickrect(){
             let len = prompt("enter the length of rectangle");
             let brth = prompt("enter the breadth of rectangle");
@@ -43,6 +44,7 @@
             document.getElementById("area").innerHTML= "The area of rectangle with sides" + " " + len +","+brth + " " + "is"+ " " + y;
         }
 
+        
         function onclickcircle(){
             let radius = prompt("enter the radius of circle");
             let z = classobj.circle(radius);
