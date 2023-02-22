@@ -6,22 +6,40 @@ const obj1 ={
     firstname:"yash",
     lastname:"raj",
     age:20,
-    fullname:function(){
+    get function(){                                      //the getter nd setter properties are easy to use 
         return this.firstname +" "+ this.lastname ;
     }
 };
 
 // the above is an object which has multiple values
 //e.g firstname is the propertyName and yash is the property value 
-
 // fetching the value out of the object
-console.log("-------------------------------OBJECT PROPERTIES--------------------------------------");
+console.log("-------------------------------OBJECT METHODS--------------------------------------");
 console.log(obj1.firstname);
-console.log(obj1.fullname());
+console.log(obj1.fullname);
 //we can also use function/methods insidde of the object
 
-//ARRAYS
+//converting object to array using values 
+let newarr = Object.values(obj1);
+console.log(newarr); //prints the obj values in array 
 
+// converting object into string using json stringify
+let str1 = JSON.stringify(obj1);
+console.log(str1);
+//stringify will not work for functions inside of objects 
+console.log("-------------------------------CONSTRUCTOR FUNCTION AND NEW KEYWORD--------------------------------------");
+//using constructor function for creating objects using new keyword
+function person(name,age,gender){
+    this.name=name;
+    this.age=age;
+    this. gender=gender;
+}
+//using the above constructor function to create 2 new objects 
+const boy = new person("sam","23","male");
+const girl = new person("Aliya","24","female");
+console.log(boy.name);
+console.log(boy);
+//ARRAYS
 //array is a datatype that can hold multiple values 
 console.log("-------------------------------ARRAY PROPERTIES--------------------------------------");
 let arr = ["yash" , "nancy" ,"shourya", "himanshu"];
