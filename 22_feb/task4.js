@@ -31,4 +31,3 @@ function compoundinterest(){
     validateinput(a,b,c);
     document.getElementById("output").innerHTML = `The Amount is : ${(((1+b/100)**c)*a)-a}`;
 }
-///yash
