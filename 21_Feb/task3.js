@@ -65,7 +65,15 @@ console.log(arr);
 let arr2= arr.slice(2);
 console.log(arr2);
 
-// sort functions in array sare used to sort items of the array 
+//array toString() gives array in comma seprated values 
+console.log("-------------------------------ARRAY CONCATENATE--------------------------------------")
+console.log(arr.toString());
+
+//array join method
+console.log("-------------------------------ARRAY JOIN--------------------------------------")
+console.log(arr.join("+"));
+
+//sorting array 
 console.log("-------------------------------ARRAY SORT PROPERTIES--------------------------------------")
 console.log(arr.sort());
 
