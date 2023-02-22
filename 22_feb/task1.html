@@ -17,14 +17,14 @@
 
         //creating class Area with three methods to calculate areas of square ,circle, rectangle
         class Area{
-            square(a){
+            square(a){                       //area funcrion for square
                 return a*a;
             }
             rectangle(len,brth){
-                return len*brth;
+                return len*brth;             //area function for rectangle
             }
             circle(radius){
-                return 3.14*radius*radius;
+                return 3.14*radius*radius;   // area function for circle 
             }
         }
         let classobj = new Area();
@@ -37,7 +37,7 @@
             document.getElementById("area").innerHTML= "The area of square with side" + " " + side + " " + "is"+ " " + x;
         }
         
-        //function for rectangle
+        
         function onclickrect(){
             let len = prompt("enter the length of rectangle");
             let brth = prompt("enter the breadth of rectangle");
