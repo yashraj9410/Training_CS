@@ -41,10 +41,11 @@ class Manager extends Employee{
     }
 }
 
-
+//creating object of class Employee
 let obj = new Employee("Yash");
 obj.greet();
 
+//creating object of class MAnager 
 let obj1 = new Manager("shourya");
 obj1.greet();
 obj1.managerid();
