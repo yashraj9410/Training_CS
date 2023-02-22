@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AREA</title>
+</head>
+<body>
+    <button type="button" id="square" onclick="onclicksquare()">Square</button>
+    <button type="button" id="rectangle" onclick="onclickrect()">Rectangle</button>
+    <button type="button" id="circle" onclick="onclickcircle()">Circle</button>
+    
+    <p id="area"></p>
+
+    <script>
+
+        //creating class Area with three methods to calculate areas of square ,circle, rectangle
+        class Area{
+            square(a){
+                return a*a;
+            }
+            rectangle(len,brth){
+                return len*brth;
+            }
+            circle(radius){
+                return 3.14*radius*radius;
+            }
+        }
+        let classobj = new Area();
+        
+        //creating a event function for generating area of square
+        function onclicksquare(){
+            let side = prompt("enter the side of square");
+            let x = classobj.square(side);
+            document.getElementById("area").innerHTML= "The area of square with side" + " " + side + " " + "is"+ " " + x;
+        }
+        
+        function onclickrect(){
+            let len = prompt("enter the length of rectangle");
+            let brth = prompt("enter the breadth of rectangle");
+            let y = classobj.rectangle(len,brth); 
+            document.getElementById("area").innerHTML= "The area of rectangle with sides" + " " + len +","+brth + " " + "is"+ " " + y;
+        }
+
+        function onclickcircle(){
+            let radius = prompt("enter the radius of circle");
+            let z = classobj.circle(radius);
+            document.getElementById("area").innerHTML= "The area of circle with radius" + " " + radius + " " + "is"+ " " + z;
+        }
+
+    </script>
+</body>
+</html>
