@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <div class="container">
+        <h1 id="heading"></h1>
+        <p> </p>
+    </div>
+    
+    <script>
+
+        //we can also cahnge style,attributes and also can manipulate the contents 
+        // using the get element by id name we can manipulate or save the date of element, we can also set the style of the element.
+        //we can also add functions along with this using onclick event or any event 
+        let head = document.getElementById("heading"); //taking the initial value and saving them into the head variable
+        head.innerHTML="This Element has been changed using getElementById()";
+        head.style.color= "pink";
+
+        //using the getElementByTag name we can directly use the tag name to manipulate the data present under that tag
+        //we can access all the elements under this tag name because it refers to getElementsByTagName()
+        //indexing is givent to the elements like array
+        let para = document.getElementsByTagName("p");
+        para[0].innerHTML = "This element has been directly accessed using its tag name";
+        para[0].style.color="white"
+        
+
+        //fetching using class name 
+        let main = document.getElementsByClassName("container");// all ements under this classs nmae will be fetched
+        main[0].style.backgroundColor="grey"
+        
+        
+    </script>
+</body>
+</html>
