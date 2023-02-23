@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: bisque;
+            width: 50%;
+            margin: auto;
+            gap: 10px;
+        }
+    </style>
+
+    <title>DOM Manipulation</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1 id="head">Here is a lightbulb</h1>
+        <p>Click on the button to see something new!</p>
+        <img src="task3/pic_bulboff.gif" alt="bulboff" id="image">
+        <button id="button" type="button" onclick="change()">ClickMe!</button>
+    </div>
+
+    <!---------------------------JAVASCRIPT------------------------------------------------>
+    <script>
+        let head = document.getElementById("head");
+        let para = document.getElementsByTagName("p");
+
+        //creating the onclick function
+        function change(){
+            head.innerHTML = "See the new things!"                              //change the hear html
+            para[0].style.fontStyle="italic";                                   //change the font style of p
+            document.getElementById("image").src="task3/pic_bulbon.gif";        //changing the image 
+        }
+    </script>
+    
+</body>
+</html>
