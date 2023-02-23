@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style4.css">
     <title>Document</title>
 </head>
 <body>
@@ -15,9 +16,11 @@
 
         <!-- creating options with the help of arrays  -->
         <div class="source-dest">
-            <select name="source" id="source" onchange="disabledest(this)"> 
+            <label for="from">From:</label>
+            <select name="source" id="source" class="select" onchange="disabledest(this)"> 
             </select>
-            <select name="destination" id="destination" onchange="disablesource(this)">
+            <label for="from">To:</label>
+            <select name="destination" id="destination" class="select" onchange="disablesource(this)">
             </select>
             <button id="checkroute" class="button" type="button" onclick="checkroute()">Check Route!</button>
         </div>
@@ -27,7 +30,7 @@
         </div>
 
         <button type="button" onclick="clearmessage()" id="clearmessage" class="button">Clear Routes</button>
-        
+
     </div>
     
 <script src="task4.js"></script>
