@@ -21,16 +21,36 @@ for(let i=0;i<places.length;i++){
     selectdest.appendChild(opt2);
 }
 
-
+// function to check the source and disable the same for destination
 function disabledest(select){
-   let selectedcity =select.selectedIndex;
-    selectdest.options[selectedcity].disabled = "true";
-   
+    let selectedcity =select.selectedIndex;
+   for(let i=0;i<selectdest.options.length;i++){
+        if(i===selectedcity){selectdest.options[selectedcity].disabled = "true"; continue;}
+        selectdest.options[i].disabled = false;
+   }
 }
 
+// function to check the destination and disable the same for the source 
 function disablesource(select){
-    let selectedcity =select.selectedIndex;
-     selectsource.options[selectedcity].disabled = "true";
-    
+    let selectedtocity =select.selectedIndex;
+    for(let i=0;i<selectsource.options.length;i++){
+         if(i===selectedtocity){selectsource.options[selectedtocity].disabled = "true"; continue;}
+         selectsource.options[i].disabled = false;
+    }
  }
+
+
+//function to display the current routes
+let displayarr=[];
+function checkroute(){
+    let sourceval = selectsource.options[selectsource.selectedIndex].value;
+    let destinationval = selectdest.options[selectdest.selectedIndex].value;
+    displayarr.push(sourceval + " to " +  destinationval + "<br>")
+    document.getElementById("message").innerHTML = displayarr;
+}
+
+//function to clear the display area 
+function clearmessage(){
+    document.getElementById("message").innerHTML=" ";
+}
 

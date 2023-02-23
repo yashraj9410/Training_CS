@@ -7,18 +7,29 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="header">
-        <p id="head">Tour and Travels </p>
+    <div class="container">
+        <!-- creating the header -->
+        <div class="header">
+            <p id="head">Tour and Travels </p>
+        </div>
+
+        <!-- creating options with the help of arrays  -->
+        <div class="source-dest">
+            <select name="source" id="source" onchange="disabledest(this)"> 
+            </select>
+            <select name="destination" id="destination" onchange="disablesource(this)">
+            </select>
+            <button id="checkroute" class="button" type="button" onclick="checkroute()">Check Route!</button>
+        </div>
+
+        <div class="display">
+            <h2 id="message"></h2>
+        </div>
+
+        <button type="button" onclick="clearmessage()" id="clearmessage" class="button">Clear Routes</button>
+        
     </div>
-
-    <div class="source-dest">
-
-        <select name="source" id="source" onchange="disabledest(this)"> 
-        </select>
-        <select name="destination" id="destination" onchange="disablesource(this)">
-        </select>
-
-    </div>
+    
 <script src="task4.js"></script>
 </body>
 </html>
