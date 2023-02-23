@@ -38,21 +38,12 @@ function disablesource(select){
          selectsource.options[i].disabled = false;
     }
  }
-
-
-
-
+ 
 //function to display the current routes
-let displayarr=[];
-let storesource =[];
-let storedest =[];
 function checkroute(){
-
     let sourceval = selectsource.options[selectsource.selectedIndex].value;
     let destinationval = selectdest.options[selectdest.selectedIndex].value;
-
-    displayarr.push(sourceval + " to " +  destinationval + "<br>")
-    document.getElementById("message").innerHTML = displayarr;
+    document.getElementById("message").innerHTML += sourceval + " to " +  destinationval + "<br>";
 }
 
 //function to clear the display area 
