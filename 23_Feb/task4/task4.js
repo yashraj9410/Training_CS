@@ -21,6 +21,16 @@ for(let i=0;i<places.length;i++){
     selectdest.appendChild(opt2);
 }
 
-function disable(){
+
+function disabledest(select){
+   let selectedcity =select.selectedIndex;
+    selectdest.options[selectedcity].disabled = "true";
    
 }
+
+function disablesource(select){
+    let selectedcity =select.selectedIndex;
+     selectsource.options[selectedcity].disabled = "true";
+    
+ }
+
