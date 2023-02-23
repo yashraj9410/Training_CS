@@ -17,10 +17,10 @@
         <!-- creating options with the help of arrays  -->
         <div class="source-dest">
             <label for="from">From:</label>
-            <select name="source" id="source" class="select" onchange="disabledest(this)"> 
+            <select name="source" id="source" class="select" onchange="disabledest(this)"><option value="empty"></option> 
             </select>
             <label for="from">To:</label>
-            <select name="destination" id="destination" class="select" onchange="disablesource(this)">
+            <select name="destination" id="destination" class="select" onchange="disablesource(this)"><option value="empty"></option> 
             </select>
             <button id="checkroute" class="button" type="button" onclick="checkroute()">Check Route!</button>
         </div>
