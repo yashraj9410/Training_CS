@@ -12,18 +12,44 @@
     <!-- exampke preventing the default event that is used on an element -->
     <!-- prevent default can also be used to prevent submitting the form until a value is checked  -->
     <a href="google.com" id ="anchor">Open Google here </a>
-    <form action="#" id="form" onsubmit="check_submit(event)">
+    <form action="#" id="form" onsubmit="check_submit()">
         <label for="name" class="label">Full Name </label>
         <input type="text" class="input" name="name" placeholder="Full Name">
         <label for="branch" class="label">Branch</label>
         <input type="text" class="input" name="branch" placeholder="branch">
         <input type="submit" class="input">
     </form>
+ 
+    <!----Stop propogation is used when we we want to stop the propogation of the parent element whenever a child event is  triggered   -->
+        <div id="div1" onclick="div1()" style="background-color: rgb(156, 153, 153); display: flex; align-items: center; justify-content: center; margin-top: 100px; height: 400px;">
+            <div id="div2" onclick="div2()" style="background-color: rgb(83, 83, 83);">
+                <h1>Div 2 (child ) Click me </h1>
+            </div>
+        </div>
+    <!---CHeck the checkboc to trigger the stop propogation functions --------------------->
+        STOP PROPOGATION:<input type="checkbox" id="checkbox">     
+
+    <!---the child element directly calls the parent element so to stop this behaviour we use a stop propogation method. -->
+
 <script>
+    // using the prevent default functionalities in the form and anchor tag
     document.getElementById("anchor").addEventListener("click",function(event){event.preventDefault();})     //preventing the anchor tag from opening google 
     check_submit=()=>{
-        event.preventDefault();
-    }                                                               //preventing the form from submitting
+        let inputs = document.getElementsByClassName("input");
+        for(let i =0;i<inputs.length-1;i++){
+            if(!inputs[i].value){event.preventDefault();; break;}                                            // check if any of the values are missing
+            //preventing the form from submitting if values are missing                                           
+        }
+    }
+    
+    //using the stop propogation functionalities 
+    div1 =()=>{
+        alert("you are in div 1 ");
+    }
+    div2 =()=>{
+        if(document.getElementById("checkbox").checked){event.stopPropagation();}                             // if checkbox is checked then stop the propogation (parent method is not called )
+        alert("you are in div 2");
+    }
 </script>
 </body>
 </html>
