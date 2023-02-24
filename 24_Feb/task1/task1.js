@@ -5,10 +5,11 @@ var namecheck = /^[a-z][a-z\s]*$/;
 let regexpid =  /((^[0-9]+[a-z]+)|(^[a-z]+[0-9]+))+[0-9a-z]+$/i;
 let branches = ["CSE","ME","CE","ECE","MCA","MBA"];
 let emailformat = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/ ;
+let err = document.getElementById("err");
 
 //button function check onsubmit 
 check_submit=()=>{
-    let err = document.getElementById("err");
+    
     let inputs = document.getElementsByClassName("input");            
     for(let i =0;i<inputs.length-1;i++){
         // check if any of the values are missing
@@ -35,5 +36,8 @@ check_submit=()=>{
         else if(inputs[i].name=="email"){                                                                   
             if(!emailformat.test(inputs[i].value.toLowerCase())){alert("Email not Valid")}
         }
+        err.innerHTML += +inputs[i].value+"<br>"; 
     }
+
+    
 }

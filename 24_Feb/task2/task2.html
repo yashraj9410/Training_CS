@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prevent Default </title>
+</head>
+<body>
+    <!---------------prevent default and stop propogation methods-------------->
+    <!-- prevent default is use to disable the current property of a html element  -->
+    <!-- exampke preventing the default event that is used on an element -->
+    <!-- prevent default can also be used to prevent submitting the form until a value is checked  -->
+    <a href="google.com" id ="anchor">Open Google here </a>
+    <form action="#" id="form" onsubmit="check_submit(event)">
+        <label for="name" class="label">Full Name </label>
+        <input type="text" class="input" name="name" placeholder="Full Name">
+        <label for="branch" class="label">Branch</label>
+        <input type="text" class="input" name="branch" placeholder="branch">
+        <input type="submit" class="input">
+    </form>
+<script>
+    document.getElementById("anchor").addEventListener("click",function(event){event.preventDefault();})     //preventing the anchor tag from opening google 
+    check_submit=()=>{
+        event.preventDefault();
+    }                                                               //preventing the form from submitting
+</script>
+</body>
+</html>
