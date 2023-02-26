@@ -27,7 +27,7 @@ let p = new Promise((resolve,reject)=>{
     },3000)  
 })
 console.log(p);
-
+// if we do not want to throw error so we use catch to handle the error from the console 
 //we can also make the use of promises inside of a function
 // fetching data from apis and logging the response
 function fetch_data(){
