@@ -40,10 +40,18 @@ function disablesource(select){
  }
  
 //function to display the current routes
+let objarr=[];
 function checkroute(){
     let sourceval = selectsource.options[selectsource.selectedIndex].value;
     let destinationval = selectdest.options[selectdest.selectedIndex].value;
+
+    for(let i =0;i<objarr.length;i++){
+        if(objarr[i].from === sourceval && objarr[i].to === destinationval ){return}
+    }
     document.getElementById("message").innerHTML += sourceval + " to " +  destinationval + "<br>";
+    let obj ={from:sourceval,to:destinationval};
+    objarr.push(obj);
+    
 }
 
 //function to clear the display area 
