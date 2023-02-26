@@ -11,9 +11,9 @@ const p = new Promise((resolve,reject)=>{
         reject("not correct");
     }
 })
-p.then((message)=>{
-    console.log(message);
-}).catch((message)=>{
+p.then((message)=>{                        // if resolved (.then) will be executed 
+    console.log(message);       
+}).catch((message)=>{                       // if rejected then (.catch ) will be executed 
     console.log(message);
 })
 
@@ -21,7 +21,7 @@ p.then((message)=>{
 // fetching data from apis and logging the response
 
 function fetch_data(){
-    return new Promise((resolve,reject)=>{
+    return new Promise((resolve,reject)=>{                       //using promise to return the fetched api data 
         fetch('https://pokeapi.co/api/v2/pokemon/ditto')
         .then(response => response.text())                         // we can get the response either in json format or text format
         .then(data=> resolve(data))
