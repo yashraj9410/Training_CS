@@ -45,11 +45,12 @@ function checkroute(){
     let sourceval = selectsource.options[selectsource.selectedIndex].value;
     let destinationval = selectdest.options[selectdest.selectedIndex].value;
 
+    //checking through the array if value of source and destination already exsists 
     for(let i =0;i<objarr.length;i++){
         if(objarr[i].from === sourceval && objarr[i].to === destinationval ){return}
     }
     document.getElementById("message").innerHTML += sourceval + " to " +  destinationval + "<br>";
-    let obj ={from:sourceval,to:destinationval};
+    let obj ={from:sourceval,to:destinationval};           //creating array to store from and to data 
     objarr.push(obj);
     
 }
