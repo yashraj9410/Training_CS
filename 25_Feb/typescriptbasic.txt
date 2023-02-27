@@ -26,4 +26,17 @@ function greet(person:Person){    // argument of type interface
     return "Hello" + person.name;
 }
 
-5. 
+5. Interfaces , type alias represent the object types in javascript 
+
+6 . Property Modifiers in the interface 
+    we can use the property modifiers to set a required or an optional property 
+    use(?:) in case of an optional value 
+
+example:
+
+        interface Person{
+            name:"yash"
+            age?:""
+        }
+
+        age here is an optional property for the interface person 
