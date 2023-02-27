@@ -2,3 +2,28 @@
 
 2. Erased Types
 Roughly speaking, once TypeScript’s compiler is done with checking your code, it erases the types to produce the resulting “compiled” code. This means that once your code is compiled, the resulting plain JS code has no type information.
+
+3. interface User {
+  name: string;     //this is a interface that can be further used to create any object of type user which is an object  
+  id: number;
+}
+
+const user: User = {
+  name: "Hayes",
+  id: 0,
+};
+
+//here interface gives a type for the const user that it belongs to interface user 
+
+4. Objects in JavaScript can be used as an interface in typescript , can also  be used in the functions 
+
+interface Person {
+    name:String;
+    age: number ;
+}
+
+function greet(person:Person){    // argument of type interface 
+    return "Hello" + person.name;
+}
+
+5. 
