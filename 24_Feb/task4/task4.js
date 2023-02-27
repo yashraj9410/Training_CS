@@ -44,3 +44,8 @@ display_api_data=(data)=>{                                  //getting the data u
 
 fetch_data()
     .then(display_api_data);                                // fetching the success response 
+
+//fetch('task/file.json') we can also fetch a local resource using the fetch method 
+//fetch returns a promise that is either resolved or rejected 
+//fetch is only rejected if there is a network error present in the server
+// let a = fetch('url of the api') --> a is a promise here which is initially pending 
