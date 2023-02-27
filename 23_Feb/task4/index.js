@@ -56,6 +56,8 @@ function disablesource(select){
     let destinationval = selectdest.options[selectdest.selectedIndex].value;
     let obj = {from:sourceval,to:destinationval};
     objarr.push(obj);
+    
+    if(sourceval=="empty" || destinationval == "empty"){return};
     document.getElementById("message").innerHTML += sourceval + " to " +  destinationval + "<br>";
 
 
