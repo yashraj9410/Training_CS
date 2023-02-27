@@ -44,10 +44,20 @@ function disabledest(select){
 // function to check the destination and disable the same for the source 
 function disablesource(select){
     let selectedtocity =select.selectedIndex; 
+    
     for(let i=0;i<selectsource.options.length;i++){
          if(i===selectedtocity){selectsource.options[selectedtocity].disabled = "true";}
          else{selectsource.options[i].disabled = false;}
     }
+
+    // disabling the source value for corresponding sources 
+    for(let j =0;j<objarr.length;j++){
+        if(objarr[j].to === select.value){
+            for(let k=0; k< selectdest.length;k++){
+                if(objarr[j].from === selectsource.options[k].value ){ selectsource.options[k].disabled = "true"}
+            }
+        }
+   }   
 
 }
 
