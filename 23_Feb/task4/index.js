@@ -51,14 +51,22 @@ function disablesource(select){
 
 }
 
- 
-
  function checkroute(){
     let sourceval = selectsource.options[selectsource.selectedIndex].value;
     let destinationval = selectdest.options[selectdest.selectedIndex].value;
     let obj = {from:sourceval,to:destinationval};
     objarr.push(obj);
     document.getElementById("message").innerHTML += sourceval + " to " +  destinationval + "<br>";
+
+
+// resetting the control
+    for(let i =0;i<selectsource.length;i++){
+        selectdest.options[i].disabled= false;
+        selectsource.options[i].disabled=false;
+    }
+
+    selectdest.selectedIndex =0
+    selectsource.selectedIndex = 0;
     }
 
 function clearmessage(){
