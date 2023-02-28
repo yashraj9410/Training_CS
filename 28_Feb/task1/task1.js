@@ -8,14 +8,19 @@ var Person = /** @class */ (function () {
     }
     Object.defineProperty(Person.prototype, "getPerson", {
         get: function () {
-            return "firstname:".concat(this.firstName, ",lastname:").concat(this.lastName, ",age:").concat(this.age);
+            return "firstname: ".concat(this.firstName, ", lastname: ").concat(this.lastName, ", age: ").concat(this.age);
         },
         enumerable: false,
         configurable: true
     });
     return Person;
 }());
-//creating a new person object
-var newPerson = new Person("Yash", "Raj", 21);
-//displaying the data entered by the person 
-console.log(newPerson.getPerson);
+function showdata() {
+    var fname = document.getElementById("firstname").value;
+    var lname = document.getElementById("lastname").value;
+    var age = document.getElementById("age").value;
+    var newPerson = new Person(fname, lname, parseInt(age));
+    var display = document.getElementById("displaycontent");
+    display.innerHTML += newPerson.getPerson + "<br>";
+    console.log(newPerson.getPerson);
+}
