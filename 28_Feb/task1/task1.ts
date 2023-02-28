@@ -10,9 +10,12 @@ class Person {
         this.lastName = lastName
         this.age=age
      }
+     get getPerson():string{
+        return `firstname:${this.firstName},lastname:${this.lastName},age:${this.age}`
+     }
 }
 
 //creating a new person object
-const yash = new Person("Yash","Raj",21);
+const newPerson = new Person("Yash","Raj",21)
 //displaying the data entered by the person 
-console.log(yash);
+console.log(newPerson.getPerson);
