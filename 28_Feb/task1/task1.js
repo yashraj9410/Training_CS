@@ -15,12 +15,14 @@ var Person = /** @class */ (function () {
     });
     return Person;
 }());
+// function to display the data entered on th html page 
 function showdata() {
     var fname = document.getElementById("firstname").value;
     var lname = document.getElementById("lastname").value;
     var age = document.getElementById("age").value;
+    //creating a new object of class Person
     var newPerson = new Person(fname, lname, parseInt(age));
+    //displaying data on the html page 
     var display = document.getElementById("displaycontent");
     display.innerHTML += newPerson.getPerson + "<br>";
-    console.log(newPerson.getPerson);
 }
