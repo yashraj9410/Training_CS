@@ -1,0 +1,1 @@
+//typescript is mainly used in static checking 
