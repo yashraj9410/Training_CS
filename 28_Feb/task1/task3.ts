@@ -8,7 +8,7 @@
 
 //example of enum 
 
-enum itemstatus{
+enum itemstatus {
     removed,
     bought,
     wishlisted,
@@ -23,24 +23,69 @@ console.log(itemremoved);
 
 //we can also assign constant string values to enum member 
 
-enum userdata{
+enum userdata {
     valid = "yes",
-    age ="age"             // we can assign constant string literals to enum members 
+    age = "age"             // we can assign constant string literals to enum members 
 }
 
 // an enum member can contain value belonging to :
-   // 1. any string literal 
-   // 2. any numeric value 
-   // 3. any negative numeric value 
+// 1. any string literal 
+// 2. any numeric value 
+// 3. any negative numeric value 
 
 //enums behave like an objects at the runtime and can be passed around to functions as an object
 enum E {
-    x=10,y
+    x = 10, y
 }
 
-function func(obj:{x:number}):number {
+function func(obj: { x: number }): number {
     return obj.x;
 }
 console.log(func(E)); //enum passed as an object in the runtime 
+
+export { }
+
+
+//enum at compile time are stored in the form of key value pairs 
+
+type enumstring = keyof typeof E;
+function printenum(key: enumstring, message: string) {
+    const num = E[key];
+    if (num <= E.y) {
+        console.log("key:", key)
+        console.log("value:", num)
+        console.log(message)
+    }
+}
+
+printenum("x", "key and value at compile time ")
+
+// ----------------------------------INTERFACES------------------
+//interfaces in typescript 
+//interfaces are similar to types in typesript 
+//interface also contains method \
+//interface hides the things that are happening behind the scenes
+interface product {
+    name: string,
+    readonly id: number,
+    status(): string,
+    getpurchaseId(prodname: string): number
+
+}
+
+//we can redeclare a interface and modify the properties 
+interface product {
+    use: string
+}
+//added one more member use
+const shampoo = { name: "clinic+", id: 23234, status: () => { return "product dispatched" }, getpurchaseId: (prodname: "shampoo") => { return 123 }, use: "hairs" }
+shampoo.status();
+
+// we can do inheritence in interface 
+
+interface childproduct extends product {
+    producttype: string
+}
+const babyshampoo = { name: "clinic+", producttype: "childcare", id: 234, status: () => { return "product in cart " }, getpurchaseId: (prodname: "shampoo") => { return 145 }, use: "hairs" }
 
 export{}

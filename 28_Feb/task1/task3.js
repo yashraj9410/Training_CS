@@ -38,3 +38,16 @@ function func(obj) {
     return obj.x;
 }
 console.log(func(E)); //enum passed as an object in the runtime 
+function printenum(key, message) {
+    var num = E[key];
+    if (num <= E.y) {
+        console.log("key:", key);
+        console.log("value:", num);
+        console.log(message);
+    }
+}
+printenum("x", "key and value at compile time ");
+//added one more member use
+var shampoo = { name: "clinic+", id: 23234, status: function () { return "product dispatched"; }, getpurchaseId: function (prodname) { return 123; }, use: "hairs" };
+shampoo.status();
+var babyshampoo = { name: "clinic+", producttype: "childcare", id: 234, status: function () { return "product in cart "; }, getpurchaseId: function (prodname) { return 145; }, use: "hairs" };
