@@ -1,3 +1,4 @@
+"use strict";
 //Polymorphism , abstraction , Encapsulation in typescript 
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
@@ -14,6 +15,7 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+Object.defineProperty(exports, "__esModule", { value: true });
 // polymorphism , abstraction , encapsulation
 //abstract class for defining methods 
 var Product = /** @class */ (function () {
@@ -63,6 +65,6 @@ var MemberShampoo = /** @class */ (function (_super) {
     return MemberShampoo;
 }(Shampoo));
 var guest = new Shampoo("Dove", 1213, "12/10/2025", 249); //creating object of type shampoo for a guest user 
-console.log(guest.display());
+guest.display();
 var user = new MemberShampoo("Dove", "1213", "2025", 249); // same product for an old user 
-console.log(user.display());
+user.display();

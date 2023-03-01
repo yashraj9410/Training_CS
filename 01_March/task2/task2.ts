@@ -3,15 +3,18 @@
 // polymorphism , abstraction , encapsulation
 
 //abstract class for defining methods 
-abstract class Product {                                                         //creating abstract class product 
+abstract class Product {
+                                                             //creating abstract class product 
     name: string;
     protected id: number | string;                                               // using protected members to hide data (Encapsulation )
     exp: string;
+
     constructor(name: string, id: number | string, exp: string) {
         this.name = name;
         this.id = id;
         this.exp = exp;
     }
+
     protected abstract available(): boolean;                                     // abstract method to check availability of product
 
     protected abstract status(): string;
@@ -22,7 +25,9 @@ abstract class Product {                                                        
 
 //class for a guest user 
 class Shampoo extends Product {
+
     protected price: number;
+    
     constructor(name: string, id: number | string, exp: string, price: number) {
         super(name, id, exp);
         this.price = price;
@@ -58,10 +63,10 @@ class MemberShampoo extends Shampoo {
 
 
 const guest = new Shampoo("Dove", 1213, "12/10/2025", 249)                           //creating object of type shampoo for a guest user 
-console.log(guest.display());
+guest.display();
 
 const user = new MemberShampoo("Dove", "1213", "2025", 249);                           // same product for an old user 
-console.log(user.display());
+user.display();
 
 
-export{}
+export { }
