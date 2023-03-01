@@ -1,5 +1,5 @@
 "use strict";
-//Polymorphism , abstraction , Encapsulation in typescript 
+// polymorphism , abstraction , encapsulation
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
@@ -15,27 +15,27 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
-// polymorphism , abstraction , encapsulation
+exports.__esModule = true;
 //abstract class for defining methods 
 var Product = /** @class */ (function () {
-    function Product(name, id, exp) {
+    function Product(name, id, exp, quan) {
         this.name = name;
         this.id = id;
         this.exp = exp;
+        this.quan = quan;
     }
     return Product;
 }());
 //class for a guest user 
 var Shampoo = /** @class */ (function (_super) {
     __extends(Shampoo, _super);
-    function Shampoo(name, id, exp, price) {
-        var _this = _super.call(this, name, id, exp) || this;
+    function Shampoo(name, id, exp, price, quan) {
+        var _this = _super.call(this, name, id, exp, quan) || this;
         _this.price = price;
         return _this;
     }
     Shampoo.prototype.display = function () {
-        console.log("Product Name: ".concat(this.name, ", Status: ").concat(this.status(), ",  Price:").concat(this.price));
+        console.log("Product Name: ".concat(this.name, ", Status: ").concat(this.status(), ",  Price:").concat(this.price, " , Quantity: ").concat(this.quan, " , Cart Value : ").concat(this.cartval("dove", "dove")));
     };
     Shampoo.prototype.available = function () {
         if (this.name === "Dove") {
@@ -49,6 +49,17 @@ var Shampoo = /** @class */ (function (_super) {
         }
         return " Not Available";
     };
+    Shampoo.prototype.cartval = function (item1, item2, item3) {
+        if (item1 && item2 && item3) {
+            return this.price * 3;
+        }
+        else if (item1 && item2) {
+            return this.price * 2;
+        }
+        else {
+            return this.price;
+        }
+    };
     return Shampoo;
 }(Product));
 //class for already a user
@@ -60,11 +71,11 @@ var MemberShampoo = /** @class */ (function (_super) {
         return _this;
     }
     MemberShampoo.prototype.display = function () {
-        console.log("Product Name: ".concat(this.name, ", Status: ").concat(this.status(), ", Discounted Price:").concat(this.price - this.discount));
+        console.log("Product Name: ".concat(this.name, ", Status: ").concat(this.status(), ", Discounted Price:").concat(this.price - this.discount, " Quantitiy:").concat(this.quan, "  Cart Value : ").concat(this.cartval("dove")));
     };
     return MemberShampoo;
 }(Shampoo));
-var guest = new Shampoo("Dove", 1213, "12/10/2025", 249); //creating object of type shampoo for a guest user 
+var guest = new Shampoo("Dove", 1213, "12/10/2025", 249, 2); //creating object of type shampoo for a guest user 
 guest.display();
-var user = new MemberShampoo("Dove", "1213", "2025", 249); // same product for an old user 
+var user = new MemberShampoo("Dove", "1213", "2025", 249, 1); // same product for an old user 
 user.display();
