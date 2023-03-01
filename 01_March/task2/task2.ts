@@ -64,7 +64,6 @@ class MemberShampoo extends Shampoo {
 
 }
 
-
 const guest = new Shampoo("Dove", 1213, "12/10/2025", 249,2)                           //creating object of type shampoo for a guest user 
 guest.display();
 
