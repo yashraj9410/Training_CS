@@ -1,0 +1,1 @@
+//Polymorphism , abstraction , Encapsulation in typescript 
