@@ -8,3 +8,5 @@ for (let i = 0; i < arr.length; i++) {
 }
 
 console.log(newarr);                                                                // printing the new array 
+
+export{}
