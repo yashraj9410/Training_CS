@@ -7,7 +7,7 @@ class Employee{
         this.age = age ;
     }
 
-    public data():string{
+    public get data():string{
         return `Name: ${this.name} , Age: ${this.age} `;
     }
 }
@@ -24,8 +24,8 @@ class Fresher extends Employee{
         this.batchyear=batchyear;
         this.salary=15000;
     }
-    public data():string{
-        return `${super.data()} , College: ${this.collegename} , Department: ${this.department},Batchyear: ${this.batchyear}, Salary: ${this.salary} `;
+    public get data():string{
+        return `${super.data} , College: ${this.collegename} , Department: ${this.department},Batchyear: ${this.batchyear}, Salary: ${this.salary} `;
     }
 
 }
@@ -40,13 +40,13 @@ class Developer extends Fresher{                                               /
         this.salary =salary;
     }
     
-    public data():string{
-        return `${super.data()} , Experience: ${this.experience} , Role: ${this.role}`;
+    public get data():string{
+        return `${super.data} , Experience: ${this.experience} , Role: ${this.role}`;
     }
 
 }
 
 const developer = new Developer("XYZ",25,"ABC institute","CSE",500000,2019,"3years","Full Stack Developer");
-console.log(developer.data());
+console.log(developer.data);
 
-export{}
+//
