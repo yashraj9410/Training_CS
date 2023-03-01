@@ -5,12 +5,12 @@ abstract class Product {                                                        
     name: string;
     protected id: number | string;                                               // using protected members to hide data (Encapsulation )
     exp: string;
-    quan:number;
-    constructor(name: string, id: number | string, exp: string , quan:number) {
+    quan: number;
+    constructor(name: string, id: number | string, exp: string, quan: number) {
         this.name = name;
         this.id = id;
         this.exp = exp;
-        this.quan=quan
+        this.quan = quan
     }
     protected abstract available(): boolean;                                     // abstract method to check availability of product
 
@@ -22,14 +22,14 @@ abstract class Product {                                                        
 //class for a guest user 
 class Shampoo extends Product {
     protected price: number;
-    constructor(name: string, id: number | string, exp: string, price: number,quan:number) {
-        super(name, id, exp,quan);
+    constructor(name: string, id: number | string, exp: string, price: number, quan: number) {
+        super(name, id, exp, quan);
         this.price = price;
     }
 
 
     public display(): void {
-        console.log(`Product Name: ${this.name}, Status: ${this.status()},  Price:${this.price} , Quantity: ${this.quan} , Cart Value : ${this.cartval("dove","dove")}`)
+        console.log(`Product Name: ${this.name}, Status: ${this.status()},  Price:${this.price} , Quantity: ${this.quan} , Cart Value : ${this.cartval("dove", "dove")}`)
     }
 
     available() {                                                       // using the abstract methods 
@@ -43,10 +43,10 @@ class Shampoo extends Product {
         return ` Not Available`;
     }
 
-    cartval(item1:string,item2?:string,item3?:string):number{                      // overloading function cart value for different cart items 
-        if(item1 && item2 && item3){return this.price*3 }
-        else if(item1 && item2){return this.price*2}
-        else{
+    cartval(item1: string, item2?: string, item3?: string): number {                      // overloading function cart value for different cart items 
+        if (item1 && item2 && item3) { return this.price * 3 }
+        else if (item1 && item2) { return this.price * 2 }
+        else {
             return this.price;
         }
     }
@@ -64,10 +64,10 @@ class MemberShampoo extends Shampoo {
 
 }
 
-const guest = new Shampoo("Dove", 1213, "12/10/2025", 249,2)                           //creating object of type shampoo for a guest user 
+const guest = new Shampoo("Dove", 1213, "12/10/2025", 249, 2)                           //creating object of type shampoo for a guest user 
 guest.display();
 
-const user = new MemberShampoo("Dove", "1213", "2025", 249,1);                           // same product for an old user 
+const user = new MemberShampoo("Dove", "1213", "2025", 249, 1);                           // same product for an old user 
 user.display();
 //
-export{}
+export { }
