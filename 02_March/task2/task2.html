@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 100px;
+        }
+    </style>
+    <title>Charts</title>
+</head>
+<body>
+
+    <!-- bar graph  -->
+    <div style="width:30%;">
+        <canvas class="canavas" id="barChart" ></canvas>
+    </div>
+    <!-- scatter and line graph  -->
+      <div  style=" width: 30%; display: flex; gap: 20px;">
+        <canvas class="canavas" id="scatterChart"></canvas>
+        <canvas class="canavas" id="lineChart"></canvas>
+      </div>
+      
+      <!-- crypto line chart  -->
+      <div style="width:30%;">
+        <canvas class="canavas" id="cryptoLineChart" ></canvas>
+      </div>
+
+      <!-- pie and doughnut chart  -->
+      <div style="width:20%; display: flex; gap: 30px; ">
+        <canvas class="canavas" id="pieChart" ></canvas>
+        <canvas class="canavas" id="dnutChart" ></canvas>
+      </div>
+
+      <!-- script for chart js  -->
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="/02_March/task2/task2.js"></script>
+
+</body>
+</html>
+
+<!-- node_modules/chart.js/dist/chart.umd.js -->
