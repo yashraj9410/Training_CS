@@ -13,19 +13,19 @@ class Employee {
 }
 
 class Fresher extends Employee {
-    protected collegename: string;
+    protected collegeName: string;
     protected department: string;
     protected salary: number;
-    protected batchyear: number;                                                  //single level inheritence 
-    constructor(name: string, age: number, collegename: string, department: string, salary: number, batchyear: number) {
+    protected batchYear: number;                                                  //single level inheritence 
+    constructor(name: string, age: number, collegeName: string, department: string, salary: number, batchYear: number) {
         super(name, age);
-        this.collegename = collegename;
+        this.collegeName = collegeName;
         this.department = department;
-        this.batchyear = batchyear;
+        this.batchYear = batchYear;
         this.salary = 15000;
     }
     public get data(): string {
-        return `${super.data} , College: ${this.collegename} , Department: ${this.department},Batchyear: ${this.batchyear}, Salary: ${this.salary} `;
+        return `${super.data} , College: ${this.collegeName} , Department: ${this.department},batchYear: ${this.batchYear}, Salary: ${this.salary} `;
     }
 
 }
@@ -33,8 +33,8 @@ class Fresher extends Employee {
 class Developer extends Fresher {                                               //multi level inheritence 
     protected experience: number | string
     protected role: string;
-    constructor(name: string, age: number, collegename: string, department: string, salary: number, batchyear: number, experience: string, role: string) {
-        super(name, age, collegename, department, salary, batchyear);
+    constructor(name: string, age: number, collegeName: string, department: string, salary: number, batchYear: number, experience: string, role: string) {
+        super(name, age, collegeName, department, salary, batchYear);
         this.experience = experience
         this.role = role;
         this.salary = salary;
