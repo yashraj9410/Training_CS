@@ -29,10 +29,10 @@ class Shampoo extends Product {
 
 
     public display(): void {
-        console.log(`Product Name: ${this.name}, Status: ${this.status()},  Price:${this.price} , Quantity: ${this.quan} , Cart Value : ${this.cartval("dove", "dove")}`)
+        console.log(`Product Name: ${this.name}, Status: ${this.status()},  Price:${this.price} , Quantity: ${this.quan} , Cart Value : ${this.cartVal("dove", "dove")}`)
     }
 
-    available() {                                                       // using the abstract methods 
+    available():boolean {                                                       // using the abstract methods 
         if (this.name === "Dove") { return true }
         return false;
 
@@ -43,7 +43,7 @@ class Shampoo extends Product {
         return ` Not Available`;
     }
 
-    cartval(item1: string, item2?: string, item3?: string): number {                      // overloading function cart value for different cart items 
+    cartVal(item1: string, item2?: string, item3?: string): number {                      // overloading function cart value for different cart items 
         if (item1 && item2 && item3) { return this.price * 3 }
         else if (item1 && item2) { return this.price * 2 }
         else {
@@ -59,7 +59,7 @@ class MemberShampoo extends Shampoo {
     discount: number = 50;                                                                   // member user will get a discount of 50
 
     public display(): void {                                                                  // overriding the method (Runtime Polymorphism)                 
-        console.log(`Product Name: ${this.name}, Status: ${this.status()}, Discounted Price:${this.price - this.discount} Quantitiy:${this.quan}  Cart Value : ${this.cartval("dove")}`)
+        console.log(`Product Name: ${this.name}, Status: ${this.status()}, Discounted Price:${this.price - this.discount} Quantitiy:${this.quan}  Cart Value : ${this.cartVal("dove")}`)
     }
 
 }

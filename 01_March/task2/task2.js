@@ -35,7 +35,7 @@ var Shampoo = /** @class */ (function (_super) {
         return _this;
     }
     Shampoo.prototype.display = function () {
-        console.log("Product Name: ".concat(this.name, ", Status: ").concat(this.status(), ",  Price:").concat(this.price, " , Quantity: ").concat(this.quan, " , Cart Value : ").concat(this.cartval("dove", "dove")));
+        console.log("Product Name: ".concat(this.name, ", Status: ").concat(this.status(), ",  Price:").concat(this.price, " , Quantity: ").concat(this.quan, " , Cart Value : ").concat(this.cartVal("dove", "dove")));
     };
     Shampoo.prototype.available = function () {
         if (this.name === "Dove") {
@@ -49,7 +49,7 @@ var Shampoo = /** @class */ (function (_super) {
         }
         return " Not Available";
     };
-    Shampoo.prototype.cartval = function (item1, item2, item3) {
+    Shampoo.prototype.cartVal = function (item1, item2, item3) {
         if (item1 && item2 && item3) {
             return this.price * 3;
         }
@@ -71,7 +71,7 @@ var MemberShampoo = /** @class */ (function (_super) {
         return _this;
     }
     MemberShampoo.prototype.display = function () {
-        console.log("Product Name: ".concat(this.name, ", Status: ").concat(this.status(), ", Discounted Price:").concat(this.price - this.discount, " Quantitiy:").concat(this.quan, "  Cart Value : ").concat(this.cartval("dove")));
+        console.log("Product Name: ".concat(this.name, ", Status: ").concat(this.status(), ", Discounted Price:").concat(this.price - this.discount, " Quantitiy:").concat(this.quan, "  Cart Value : ").concat(this.cartVal("dove")));
     };
     return MemberShampoo;
 }(Shampoo));
