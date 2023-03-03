@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- /<link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
     <title>RES-TURANT</title>
 </head>
@@ -18,17 +18,17 @@
     </div>
 
     <div id="selectContainer">
-        <select name="timeslot" id="timeslot" onchange="changeTable(this)">Time Slot:
-            <option value=""></option>
+        <select name="timeslot" id="timeslot" onchange="changeTable(this)">
+            <option value="">Time</option>
         </select>
-        <select name="table" id="table">Table No.:
-            <option value=""></option>
+        <select name="table" id="table">
+            <option value="">Table</option>
         </select>
     </div>
 
-    <div class="confirm">
-        <button id="confirmButton" type="button" onclick="confirmBooking()">Confirm Booking</button>
-        <button id="cancelButton" type="button" onclick="cancel()">Cancel Booking </button>
+    <div id="confirm">
+        <button id="confirmButton" type="button" class="button" onclick="confirmBooking()">Confirm Booking</button>
+        <button id="cancelButton" type="button" class="button" onclick="cancel()">Cancel Booking </button>
     </div>
 
     <div id="display">

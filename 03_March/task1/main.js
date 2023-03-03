@@ -7,8 +7,13 @@ let table = [
     { tabel: 4, capacity: 7 },
     { tabel: 5, capacity: 7 }
 ]
+
 // array of objects from time and table value 
 let objarr = [];
+
+// selecting the DOM elements 
+let confirmArea = document.getElementById("confirm");
+confirmArea.style.display = "none";
 let display = document.getElementById("disp");
 let inputArea = document.getElementById("inputContainer");
 let selectArea = document.getElementById("selectContainer");
@@ -16,15 +21,18 @@ let selectArea = document.getElementById("selectContainer");
 // creating the new booking function
 const newBooking = () => {
     inputArea.innerHTML = "";
-    selectArea.style.display = "";
+    display.innerHTML = ""
+    selectArea.style.display = "flex";
+    timeOptions.style.display = "block";
     tableOptions.style.display = "none";
+    confirmArea.style.display = "block";
     document.getElementById("confirmButton").style.display = "block";
     document.getElementById("cancelButton").style.display = "none";
     let inputName = document.createElement("input");
     var inputPersons = document.createElement("input");
     inputName.placeholder = "Enter Your Name";
     inputName.type = "text"
-    inputName.id="name"
+    inputName.id = "name"
     inputPersons.placeholder = "Number of Persons";
     inputPersons.type = "number";
     inputPersons.id = "persons";
@@ -35,6 +43,8 @@ const newBooking = () => {
 //creating the cancel booking function
 const cancelBooking = () => {
     inputArea.innerHTML = "";
+    display.innerHTML = ""
+    confirmArea.style.display = "block";
     document.getElementById("cancelButton").style.display = "block";
     document.getElementById("confirmButton").style.display = "none";
     selectArea.style.display = "none";
@@ -63,15 +73,16 @@ for (let i = 0; i < timeSlots.length; i++) {
     opt.value = timeSlots[i];
     timeOptions.appendChild(opt);
 }
+timeOptions.style.display = "none";
 
-//creating onchange function on time options
+//creating onchange function on time options and checking for the availability of table at that time slot
 const changeTable = (select) => {
-    tableOptions.style.display = "";
+    tableOptions.style.display = "block";
     let timeIndex = select.selectedIndex;
     let timeVal = timeOptions.options[timeIndex].value;
     let num = document.getElementById("persons").value;
-    for(let i=0;i<tableOptions.length;i++){tableOptions.options[i].disabled =false;}
-    if (parseInt(num) > 0 && parseInt(num) < 7){
+    for (let i = 0; i < tableOptions.length; i++) { tableOptions.options[i].disabled = false; }
+    if (parseInt(num) > 0 && parseInt(num) < 7) {
         for (let i = 0; i < objarr.length; i++) {
             if (timeVal === objarr[i].Time) {
                 for (let j = 0; j < tableOptions.length; j++) {
@@ -96,11 +107,11 @@ const confirmBooking = () => {
     let id = Math.floor(Math.random() * 10000);
     let personName = document.getElementById("name").value
     display.innerHTML = `Booking Confirmed  with ID: ${id}`;
-    let obj = {Name:personName, Time: timeVal, Table: tableVal, orderId: id };
+    let obj = { Name: personName, Time: timeVal, Table: tableVal, orderId: id };
     console.log(personName);
     console.log("Confirmed", obj);
     objarr.push(obj);
-    localStorage.setItem(JSON.stringify(personName),JSON.stringify(obj));
+    localStorage.setItem(JSON.stringify(personName), JSON.stringify(obj));
     tableOptions.selectedIndex = null;
     timeOptions.selectedIndex = null;
     console.log(objarr)
