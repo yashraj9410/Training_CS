@@ -109,7 +109,7 @@ const cancel =()=>{
     for(let i =0;i<objarr.length;i++){
         if(objarr[i].orderId===bookId){objarr.splice(i,1)}
     }
-    display.innerHTML = `Booking Cancelled  with ID: ${id}`;
+    display.innerHTML = `Booking Cancelled`;
     console.log(objarr);
 
 }
