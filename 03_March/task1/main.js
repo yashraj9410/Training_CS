@@ -105,6 +105,7 @@ const changeTable = (select) => {
 const confirmBooking = () => {
     let timeVal = timeOptions.options[timeOptions.selectedIndex].value;
     let tableVal = tableOptions.options[tableOptions.selectedIndex].value;
+    let id = Math.floor(Math.random() * 10000);
     let row = document.createElement("tr");
     let td1 = document.createElement("td");
     td1.textContent = timeVal;
@@ -112,8 +113,10 @@ const confirmBooking = () => {
     let td2 = document.createElement("td");
     td2.textContent = tableVal;
     row.appendChild(td2);
+    let td3 = document.createElement("td");
+    td3.textContent=id;
+    row.appendChild(td3);
     read.appendChild(row);
-    let id = Math.floor(Math.random() * 10000);
     let personName = document.getElementById("name").value
     display.innerHTML = `Booking Confirmed  with ID: ${id}`;
     let obj = { Name: personName, Time: timeVal, Table: tableVal, orderId: id };
@@ -135,5 +138,5 @@ const cancel = () => {
     }
     display.innerHTML = `Booking Cancelled`;
     console.log(objarr);
-
+    let td = document.getElementsByTagName("td");
 }
