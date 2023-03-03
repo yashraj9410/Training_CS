@@ -1,5 +1,5 @@
 // restaurant boooking site 
-let timeSlots = ["11AM", "12NOON", "1PM", "2PM"]
+let timeSlots = ["11AM", "12PM", "1PM", "2PM"]
 let table = [
     { tabel: 1, capacity: 7 },
     { tabel: 2, capacity: 7 },
@@ -12,6 +12,7 @@ let table = [
 let objarr = [];
 
 // selecting the DOM elements 
+let read = document.getElementById("readtable")
 let confirmArea = document.getElementById("confirm");
 confirmArea.style.display = "none";
 let display = document.getElementById("disp");
@@ -104,6 +105,14 @@ const changeTable = (select) => {
 const confirmBooking = () => {
     let timeVal = timeOptions.options[timeOptions.selectedIndex].value;
     let tableVal = tableOptions.options[tableOptions.selectedIndex].value;
+    let row = document.createElement("tr");
+    let td1 = document.createElement("td");
+    td1.textContent = timeVal;
+    row.appendChild(td1);
+    let td2 = document.createElement("td");
+    td2.textContent = tableVal;
+    row.appendChild(td2);
+    read.appendChild(row);
     let id = Math.floor(Math.random() * 10000);
     let personName = document.getElementById("name").value
     display.innerHTML = `Booking Confirmed  with ID: ${id}`;
