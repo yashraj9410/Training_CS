@@ -94,7 +94,6 @@ const changeTable = (select) => {
             }
         }
     }
-
     else {
         alert("Max Seating Capacity is for 6 people , Please try again");
     }
@@ -104,7 +103,11 @@ const changeTable = (select) => {
 const confirmBooking = () => {
     let timeVal = timeOptions.options[timeOptions.selectedIndex].value;
     let tableVal = tableOptions.options[tableOptions.selectedIndex].value;
-    let id = Math.floor(Math.random() * 10000);
+    let personName = document.getElementById("name").value;
+    let id = Math.floor(Math.random() * 10000); // generating the order id
+    let obj = { Name: personName, Time: timeVal, Table: tableVal, orderId: id }; //creating the new array of object
+    objarr.push(obj); //pushing the values in the array 
+    localStorage.setItem(JSON.stringify(id), JSON.stringify(obj));
     let row = document.createElement("tr"); //creating table rows 
     let td1 = document.createElement("td"); // creating tabke data 
     td1.textContent = timeVal; // adding the data to table 
@@ -116,13 +119,7 @@ const confirmBooking = () => {
     td3.textContent=id;
     row.appendChild(td3);
     read.appendChild(row);
-    let personName = document.getElementById("name").value;
     display.innerHTML = `Booking Confirmed  with ID: ${id}`;
-    let obj = { Name: personName, Time: timeVal, Table: tableVal, orderId: id };
-    console.log(personName);
-    console.log("Confirmed", obj);
-    objarr.push(obj);
-    localStorage.setItem(JSON.stringify(id), JSON.stringify(obj));
     tableOptions.selectedIndex = null;
     timeOptions.selectedIndex = null;
     console.log(objarr)
@@ -134,12 +131,16 @@ const cancel = () => {
     let bookId = parseInt(x);
     for (let i = 0; i < objarr.length; i++) {
         if (objarr[i].orderId === bookId) {
-             objarr.splice(i, 1);
-             localStorage.removeItem(x);
+             objarr.splice(i, 1);         // removing the object from the array
+             localStorage.removeItem(x);  //removing the data from local storage related to  that booking ID 
          }
     }
     display.innerHTML = `Booking Cancelled`;
     console.log(objarr);
-    let td = document.getElementsByTagName("td");
-    
+    let tableData = document.getElementsByTagName("td");     //deleting the row from display table
+    for(let i =0;i<tableData.length;i++){
+        if(tableData[i].textContent===x){
+            tableData[i].parentNode.parentNode.removeChild(tableData[i].parentNode);
+        }
+    }
 }
