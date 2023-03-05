@@ -104,6 +104,10 @@ const changeTable = (select) => {
 
 // confirm booking function
 const confirmBooking = () => {
+    if(tableOptions.selectedIndex == 0 || timeOptions.selectedIndex == 0){
+        alert("please select time/table");
+        return;
+    }
     let timeVal = timeOptions.options[timeOptions.selectedIndex].value;
     let tableVal = tableOptions.options[tableOptions.selectedIndex].value;
     let personName = document.getElementById("name").value;
