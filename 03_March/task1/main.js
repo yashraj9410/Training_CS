@@ -15,6 +15,8 @@ if(localStorage.getItem('array')==null){
 let objarr = JSON.parse(localStorage.getItem('array'));
 
 // selecting the DOM elements 
+let readDiv = document.getElementById("readDiv");
+readDiv.style.display = "none"
 let read = document.getElementById("readtable")
 let confirmArea = document.getElementById("confirm");
 confirmArea.style.display = "none";
@@ -97,17 +99,13 @@ const changeTable = (select) => {
             }
         }
     }
-    else {
+    else{
         alert("Max Seating Capacity is for 6 people , Please try again");
     }
 }
 
 // confirm booking function
 const confirmBooking = () => {
-    if(tableOptions.selectedIndex == 0 || timeOptions.selectedIndex == 0){
-        alert("please select time/table");
-        return;
-    }
     let timeVal = timeOptions.options[timeOptions.selectedIndex].value;
     let tableVal = tableOptions.options[tableOptions.selectedIndex].value;
     let personName = document.getElementById("name").value;
@@ -115,22 +113,9 @@ const confirmBooking = () => {
     let obj = { Name: personName, Time: timeVal, Table: tableVal, orderId: id }; //creating the new array of object
     objarr.push(obj); //pushing the values in the array 
     localStorage.setItem('array',JSON.stringify(objarr));
-    //localStorage.setItem(JSON.stringify(id), JSON.stringify(obj));
-    let row = document.createElement("tr"); //creating table rows 
-    let td1 = document.createElement("td"); // creating tabke data 
-    td1.textContent = timeVal; // adding the data to table 
-    row.appendChild(td1);
-    let td2 = document.createElement("td");
-    td2.textContent = tableVal;
-    row.appendChild(td2);
-    let td3 = document.createElement("td");
-    td3.textContent=id;
-    row.appendChild(td3);
-    read.appendChild(row);
     display.innerHTML = `Booking Confirmed  with ID: ${id}`;
     tableOptions.selectedIndex = null;
     timeOptions.selectedIndex = null;
-    console.log(objarr)
 }
 
 // function for cancel booking 
@@ -140,7 +125,7 @@ const cancel = () => {
     for (let i = 0; i < objarr.length; i++) {
         if (objarr[i].orderId === bookId) {
              objarr.splice(i, 1);         // removing the object from the array
-             localStorage.removeItem(x);  //removing the data from local storage related to  that booking ID 
+             localStorage.setItem('array',JSON.stringify(objarr));  //removing the data from local storage related to  that booking ID 
          }
     }
     display.innerHTML = `Booking Cancelled`;
@@ -150,5 +135,22 @@ const cancel = () => {
         if(tableData[i].textContent===x){
             tableData[i].parentNode.parentNode.removeChild(tableData[i].parentNode);
         }
+    }
+}
+
+const showBooking = ()=>{   
+    readDiv.style.display="";
+    for(let i =0;i<objarr.length;i++){
+        let row = document.createElement("tr"); //creating table rows 
+        let td1 = document.createElement("td"); // creating tabke data 
+        td1.textContent = objarr[i].Time; // adding the data to table 
+        row.appendChild(td1);
+        let td2 = document.createElement("td");
+        td2.textContent = objarr[i].Table;
+        row.appendChild(td2);
+        let td3 = document.createElement("td");
+        td3.textContent=objarr[i].orderId;
+        row.appendChild(td3);
+        read.appendChild(row);
     }
 }
