@@ -97,7 +97,6 @@ const changeTable = (select) => {
 
     else {
         alert("Max Seating Capacity is for 6 people , Please try again");
-        window.location.reload();
     }
 }
 
@@ -106,9 +105,9 @@ const confirmBooking = () => {
     let timeVal = timeOptions.options[timeOptions.selectedIndex].value;
     let tableVal = tableOptions.options[tableOptions.selectedIndex].value;
     let id = Math.floor(Math.random() * 10000);
-    let row = document.createElement("tr");
-    let td1 = document.createElement("td");
-    td1.textContent = timeVal;
+    let row = document.createElement("tr"); //creating table rows 
+    let td1 = document.createElement("td"); // creating tabke data 
+    td1.textContent = timeVal; // adding the data to table 
     row.appendChild(td1);
     let td2 = document.createElement("td");
     td2.textContent = tableVal;
@@ -117,13 +116,13 @@ const confirmBooking = () => {
     td3.textContent=id;
     row.appendChild(td3);
     read.appendChild(row);
-    let personName = document.getElementById("name").value
+    let personName = document.getElementById("name").value;
     display.innerHTML = `Booking Confirmed  with ID: ${id}`;
     let obj = { Name: personName, Time: timeVal, Table: tableVal, orderId: id };
     console.log(personName);
     console.log("Confirmed", obj);
     objarr.push(obj);
-    localStorage.setItem(JSON.stringify(personName), JSON.stringify(obj));
+    localStorage.setItem(JSON.stringify(id), JSON.stringify(obj));
     tableOptions.selectedIndex = null;
     timeOptions.selectedIndex = null;
     console.log(objarr)
@@ -134,9 +133,13 @@ const cancel = () => {
     let x = document.getElementById("bookId").value;
     let bookId = parseInt(x);
     for (let i = 0; i < objarr.length; i++) {
-        if (objarr[i].orderId === bookId) { objarr.splice(i, 1) }
+        if (objarr[i].orderId === bookId) {
+             objarr.splice(i, 1);
+             localStorage.removeItem(x);
+         }
     }
     display.innerHTML = `Booking Cancelled`;
     console.log(objarr);
     let td = document.getElementsByTagName("td");
+    
 }
