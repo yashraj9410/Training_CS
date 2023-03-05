@@ -8,8 +8,11 @@ let table = [
     { tabel: 5, capacity: 7 }
 ]
 
-// array of objects from time and table value 
-let objarr = [];
+// array of objects from time and table value
+if(localStorage.getItem('array')==null){
+    localStorage.setItem('array','[]');
+}
+let objarr = JSON.parse(localStorage.getItem('array'));
 
 // selecting the DOM elements 
 let read = document.getElementById("readtable")
@@ -107,7 +110,8 @@ const confirmBooking = () => {
     let id = Math.floor(Math.random() * 10000); // generating the order id
     let obj = { Name: personName, Time: timeVal, Table: tableVal, orderId: id }; //creating the new array of object
     objarr.push(obj); //pushing the values in the array 
-    localStorage.setItem(JSON.stringify(id), JSON.stringify(obj));
+    localStorage.setItem('array',JSON.stringify(objarr));
+    //localStorage.setItem(JSON.stringify(id), JSON.stringify(obj));
     let row = document.createElement("tr"); //creating table rows 
     let td1 = document.createElement("td"); // creating tabke data 
     td1.textContent = timeVal; // adding the data to table 
