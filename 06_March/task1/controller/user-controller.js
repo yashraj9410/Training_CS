@@ -1,5 +1,7 @@
 const User = require("../model/User")
 
+
+// all the database methods are fetched and used under async and await 
 // creating the READ user operation on database
 const getAllUSers = async(req,res,next)=>{
     let users;
@@ -36,7 +38,7 @@ const addUser = async(req,res,next) => {
     if(!user){
         return res.status(500).json({message: "Unable to save data  "});  // internal server error 
     }
-    res.status(201).json({ user })    //something has been added
+    return  res.status(201).json({ user })    //something has been added
 };  
 
 // update the user with the id param  
@@ -55,13 +57,30 @@ const updateUser = async(req,res,next) => {
     }
 
     if(!user){
-        res.status(500).json({message:"unable to save user "})
+        return res.status(500).json({message:"unable to save user "})
     }
 
     return res.status(200).json({message:"updated successfully"});
+}
+
+
+//deleting the user from database 
+const deleteUser = async(req,res,next) =>{
+    const id = req.params.id;
+    let user;
+    try{
+        user =await  User.findByIdAndDelete(id);
+    }catch(err){
+        return next(err);
+    }
+    if(!user){
+        return res.staus(500).json({message:"not found"})
+    }
+    return res.status(200).json({message:"User deleted"})
 }
 
 // exporting the created functions to the user-routes 
 exports.getAllUSers = getAllUSers;
 exports.addUser = addUser;
 exports.updateUser = updateUser;
+exports.deleteUser = deleteUser;
