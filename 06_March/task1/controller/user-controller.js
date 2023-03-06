@@ -79,8 +79,27 @@ const deleteUser = async(req,res,next) =>{
     return res.status(200).json({message:"User deleted"})
 }
 
+
+//getting user by its id 
+const getUserById = async(req,res,next) => {
+    const id = req.params.id;
+    let user;
+    try{
+        user = await User.findById(id);
+    }catch{(err)
+        return next(err);
+    }
+    if(!user){
+        return res.staus(500).json({message:"User not found "});
+    }
+
+    return res.status(200).json({user});
+}
+
+
 // exporting the created functions to the user-routes 
 exports.getAllUSers = getAllUSers;
 exports.addUser = addUser;
 exports.updateUser = updateUser;
 exports.deleteUser = deleteUser;
+exports.getUserById = getUserById;
