@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const router = require("./routes/user-routes");
 const app =express();
 
+app.use(express.json()); // accept the data which is converted to json format 
+
 // callling the route module which contains the controller and user model 
 app.use("/users",router);  // use creates a middleware for a path
 
@@ -14,3 +16,5 @@ mongoose.connect(
 ).catch((err)=> 
     console.log("Got Error",err)
 );
+
+// we can all the api using the postman 
