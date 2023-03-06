@@ -7,7 +7,28 @@
 4. All the Node script runs under a process and process provides different functions to get all the details of current processs
    eg. process.cwd() gives the curren t working directory 
 5. after all this the fs module provide function to read and write on a created file. [readfilesync(),writefilesync()]
-6.  
+6. Runs in Node REPL (Read , Evaluate , Print , Loop )
+7. Modules:=>
+            > Local Module --> module created in the application
+            > Built-in modules --> Modules already made under node js 
+            > Third party modules --> Module written by other developers in the web which we can integrate in our progaram. 
+
+8. By default each file in js is treated like a module in node, isolated by default 
+9. CommomJS is a standard taht tells how these modules must be designed and used.
+10. require("path") imports the local module in our current module 
+11. require imports all the functionality even if we dont need It
+12. module.exports is used to call a certain functionality 
+13. if we use module .exports then we hae to save the reference of require and use it whenever we want 
+14. Module Scope -> every module has its own scope in js. 
+15. Scope of module is created by the IIFE in javacript (Immediately invoked function expression )
+16. IIFE helps in resolving conflicting problems by giving private scope to each functionalities
+17. Module Wrapper->Module is wrapped under am IIFE and they are injected to the current files 
+18. Some variables are created in the variable scope and are immediately changed whenever a module is called using require 
+19. Module Caching -> the last value that has been given to a module is cached in the memory ,
+    if we create a new instance using require also then the obj already conatins the last cached value in the module.
+20. For creating a new instance of module class we can call direclty the class and not the constructor.
+21. There are different patterns of exporting and importing the module 
+22. Module.exports VS exports => exports is justa reference to module.exports 
 
 ----------------------------EXPRESS JS ------------------------------------------------------
 
@@ -32,7 +53,6 @@
 -------------------------------MVC-----------------------
 
 1. Model View Control approach eg.
-
 2. building a model user containing the schema of user that is nmae username id 
 ---schema can be build using the schema under the mongoose
 3. Controller is used to set api calls 
@@ -41,4 +61,3 @@
 5. Model -> contains the schema of the stored data 
    Controller -> controls the api calls made eg. api call to fetch any data 
    Routes -> stores the route structures of the server in which the calls will be made 
-   
