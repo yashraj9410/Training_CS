@@ -1,0 +1,44 @@
+
+--------------------------------NODE JS -------------------------------------------------
+
+1. Node is a JS runtime that provides JS with the ability to be used outside the browser console 
+2. It is used  to create and maintain the backend server of a website 
+3. Modules are JavaScript files that contain functionalities that can be used by different files 
+4. All the Node script runs under a process and process provides different functions to get all the details of current processs
+   eg. process.cwd() gives the curren t working directory 
+5. after all this the fs module provide function to read and write on a created file. [readfilesync(),writefilesync()]
+6.  
+
+----------------------------EXPRESS JS ------------------------------------------------------
+
+1. Express js is an application framework for node js that is used to build REST APIs ,single/multiple webpage application
+2. npm install Express
+3. we can make a reference to express using any name after importing the express
+4. const app = express();
+5. app.use("/",(req,res,next)=>{
+        res.send("Yash"); // any data can be send as a response 
+    })
+6. req means request will be made on the current path "/" and then response will be send according to path 
+7. we can set different response on different paths 
+8. app.listen(5000,()=>{console.log("Running at this local host )}) //5000 is the localhost on which our server is running 
+
+------------------------------MONGO DB----------------------------------------------------
+
+1. Mongo DB is a NO SQL database that does not stores data in the form of rows and colomns instead
+   data is stored in the form of collections.
+2. mogoose provide connectivity to a mongodb database 
+3. mongoose.connect is a promise that takes a connection url for the database connectivity
+
+-------------------------------MVC-----------------------
+
+1. Model View Control approach eg.
+
+2. building a model user containing the schema of user that is nmae username id 
+---schema can be build using the schema under the mongoose
+3. Controller is used to set api calls 
+4. route har a router js file which takes all the controller and model exports and sets a route for accesing the data from  app.js file 
+
+5. Model -> contains the schema of the stored data 
+   Controller -> controls the api calls made eg. api call to fetch any data 
+   Routes -> stores the route structures of the server in which the calls will be made 
+   
