@@ -4,15 +4,15 @@ let Schema = mongoose.Schema;
 let studentSchema = new Schema({
     student_name:{
         type:String,
-        require:true
+        required:true
     },
     roll_no:{
         type:Number,
-        require:true
+        required:true
     },
     class_section:{
         type:String,
-        require:true
+        required:true
     }
 });
 
