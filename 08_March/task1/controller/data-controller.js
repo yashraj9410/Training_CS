@@ -16,3 +16,7 @@ const displayData =async(req,res)=>{
     new_data = await new_data.save();
     return res.status(200).json({new_data});
 }
+
+
+
+exports.displayData =displayData;

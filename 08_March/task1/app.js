@@ -9,8 +9,7 @@ const app=express();
 app.use(express.static(path.join((__dirname,"public"))));
 app.use(express.urlencoded({extended:true}));
 
-
-
+app.get("/",router);
 mongoose.connect(
     "mongodb+srv://yash:B1PnvPP2EL3KlTZ3@cluster0.n7nnj4z.mongodb.net/?retryWrites=true&w=majority"
 ).then(()=>{
