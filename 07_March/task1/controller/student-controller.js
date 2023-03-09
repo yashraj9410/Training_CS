@@ -23,7 +23,7 @@ const add_Student = async(req,res,next)=>{
             subjects,
         });
         console.log(studentData);
-        // studentData = await studentData.save();
+        studentData = await studentData.save();
     }catch(err){
         return next(err);
      }
@@ -47,7 +47,7 @@ const getStudents = async(req,res,next)=>{
 }
 
 // update the student according to the roll no 
-const updateStudent = async(req,res,next)=>{
+const updateStudent = async(req,res)=>{
     console.log(req);
     let {student_name , roll_no , class_section, subjects} = req.body;
     console.log(roll_no);
@@ -60,7 +60,20 @@ const updateStudent = async(req,res,next)=>{
     return res.status(200).json({ updated });
 }
 
+
+//delete the student according to the roll number 
+const deleteStudent = async(req,res)=>{
+    let {roll_no} = req.body;
+    console.log(roll_no);
+    let deleted;
+    deleted = await student.deleteOne({roll_no:roll_no});
+    console.log(deleted);
+    return res.status(200).json({message:"deleted successfully "});
+}
+
 exports.add_Student= add_Student;
 exports.displayForm = displayForm;
 exports.getStudents = getStudents;
 exports.updateStudent = updateStudent;
+exports.deleteStudent =deleteStudent;
+
