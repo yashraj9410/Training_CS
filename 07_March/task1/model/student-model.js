@@ -13,6 +13,9 @@ let studentSchema = new Schema({
     class_section:{
         type:String,
         required:true
+    },
+    subjects:{
+        type:Array
     }
 });
 

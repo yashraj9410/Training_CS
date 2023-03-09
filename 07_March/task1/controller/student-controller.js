@@ -8,9 +8,9 @@ const displayForm =(req,res)=>{
 // adding a new student to database
 const add_Student = async(req,res,next)=>{
     console.log(req);
-    const { student_name , roll_no ,class_section } = req.body;
+    const { student_name , roll_no ,class_section, subjects } = req.body;
 
-    if(student_name?.trim()==="" && isNaN(roll_no) && class_section?.trim===""){
+    if(student_name?.trim()==="" && isNaN(roll_no) && class_section?.trim==="" && subjects.length ===0){
         return res.status(422).json({message:"data not valid"})
     }
 
@@ -20,9 +20,10 @@ const add_Student = async(req,res,next)=>{
             student_name,
             roll_no,
             class_section,
+            subjects,
         });
         console.log(studentData);
-       // studentData = await studentData.save();
+        studentData = await studentData.save();
     }catch(err){
         return next(err);
      }
@@ -34,5 +35,5 @@ const add_Student = async(req,res,next)=>{
      return res.status(200).json({studentData});
 }
 
-exports.add_Student=add_Student;
+exports.add_Student= add_Student;
 exports.displayForm = displayForm;
