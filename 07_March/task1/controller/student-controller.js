@@ -55,7 +55,7 @@ const updateStudent = async(req,res)=>{
         return res.status(422).json({message:"data not valid"})
     }
     let updated;
-    updated = await student.findOneAndUpdate(roll_no,{student_name , roll_no , class_section, subjects})
+    updated = await student.findOneAndUpdate({roll_no:roll_no},{student_name , roll_no , class_section, subjects})
     console.log(updated);
     return res.status(200).json({ updated });
 }
