@@ -8,6 +8,8 @@
 </head>
 <body>
 
+    
+
     <!-- Note: the name property of input is used in the backend part in creating the student schema   -->
     <div class="studentdetails">
         <form action="/create" method="post">
@@ -20,7 +22,30 @@
             <label>Subjects</label>
             <input type="text" placeholder="Add Subjects" name="subjects" required>
             <button type="submit">Submit</button>
+        </form>
     </div>
+
+    <div class="getdetails">
+        <form action="/display" method="get">
+            <button>See Students</button>
+        </form>
+    </div>
+
+    <div class="updatedetails">
+        <form action="/updateData" method="post">
+            <label>Full Name</label>
+            <input type="text" placeholder="Updated Full Name" name="student_name" required >
+            <label>Roll No</label>
+            <input type="number" placeholder="Enter Roll No" name="roll_no" required>
+            <label>Class/Section</label>
+            <input type="text" placeholder="Update the Class" name="class_section" required>
+            <label>Subjects</label>
+            <input type="text" placeholder="Updated Subjects" name="subjects" required>
+            <button>Update Student</button>
+        </form>
+    </div>
+
+    
     
 </body>
 </html>

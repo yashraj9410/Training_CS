@@ -23,7 +23,7 @@ const add_Student = async(req,res,next)=>{
             subjects,
         });
         console.log(studentData);
-        studentData = await studentData.save();
+        // studentData = await studentData.save();
     }catch(err){
         return next(err);
      }
@@ -35,5 +35,32 @@ const add_Student = async(req,res,next)=>{
      return res.status(200).json({studentData});
 }
 
+// read all students from database 
+const getStudents = async(req,res,next)=>{
+    let data;
+    data =await student.find();
+    if(!data){
+        return res.status(422).json({message:"no records found "});
+    }
+
+    return res.status(200).json({data});
+}
+
+// update the student according to the roll no 
+const updateStudent = async(req,res,next)=>{
+    console.log(req);
+    let {student_name , roll_no , class_section, subjects} = req.body;
+    console.log(roll_no);
+    if(student_name?.trim()==="" && isNaN(roll_no) && class_section?.trim==="" && subjects.length ===0){
+        return res.status(422).json({message:"data not valid"})
+    }
+    let updated;
+    updated = await student.findOneAndUpdate(roll_no,{student_name , roll_no , class_section, subjects})
+    console.log(updated);
+    return res.status(200).json({ updated });
+}
+
 exports.add_Student= add_Student;
 exports.displayForm = displayForm;
+exports.getStudents = getStudents;
+exports.updateStudent = updateStudent;
