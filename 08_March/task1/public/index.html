@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./main.js" defer></script>
+    <title>RES-TURANT</title>
+</head>
+<body>
+    <div class="buttonContainer">
+        <button class="button" onclick="newBooking()" id="newBook">New Booking</button>
+        <button class="button" id="cancelBooking" type="button" onclick="cancelBooking()">Cancel Booking</button>
+    </div>
+
+    <div id="inputContainer">
+    </div>
+
+    <div id="selectContainer">
+        <select name="timeslot" id="timeslot" onchange="changeTable(this)">
+            <option value="">Time</option>
+        </select>
+        <select name="table" id="table">
+            <option value="">Table</option>
+        </select>
+    </div>
+
+    <div id="confirm">
+        <button id="confirmButton" type="button" class="button" onclick="confirmBooking()">Confirm Booking</button>
+        <button id="cancelButton" type="button" class="button" onclick="cancel()">Cancel Booking </button>
+    </div>
+
+    <div id="display">
+        <h4 id="disp"></h4>
+    </div>
+
+    <button class="button" type="button" onclick="showBooking()" style="margin-top: 0px;">Show Bookings</button>
+    <div class="read" id="readDiv">
+        <table class="table" id="readtable">
+            <tr>
+                <th>Time Slot</th>
+                <th>Table Booked</th>
+                <th>Bookin ID</th>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
