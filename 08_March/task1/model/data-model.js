@@ -17,7 +17,7 @@ const bookingData = new Schema({
         required:true
     },
     table:{
-        type:Number,
+        type:String,
         required:true
     },
     _id:{

@@ -22,15 +22,15 @@ let confirmArea = document.getElementById("confirm");
 confirmArea.style.display = "none";
 let display = document.getElementById("disp");
 let inputArea = document.getElementById("inputContainer");
-let selectArea = document.getElementById("selectContainer");
+// let selectArea = document.getElementById("selectContainer");
 
 // creating the new booking function
 const newBooking = () => {
     display.innerHTML = ""
-    selectArea.style.display = "flex";
+    // selectArea.style.display = "flex";
     timeOptions.style.display = "block";
     tableOptions.style.display = "none";
-    confirmArea.style.display = "block";
+    confirmArea.style.display = "none";
     document.getElementById("confirmButton").style.display = "block";
     document.getElementById("cancelButton").style.display = "none";
     // let inputName = document.createElement("input");
@@ -53,12 +53,12 @@ const cancelBooking = () => {
     confirmArea.style.display = "block";
     document.getElementById("cancelButton").style.display = "block";
     document.getElementById("confirmButton").style.display = "none";
-    selectArea.style.display = "none";
-    let input_book_Id = document.createElement("input");
-    input_book_Id.placeholder = "Booking Id";
-    input_book_Id.type = "number";
-    input_book_Id.id = "bookId";
-    inputArea.appendChild(input_book_Id);
+    // selectArea.style.display = "none";
+    // let input_book_Id = document.createElement("input");
+    // input_book_Id.placeholder = "Booking Id";
+    // input_book_Id.type = "number";
+    // input_book_Id.id = "bookId";
+    // inputArea.appendChild(input_book_Id);
 }
 
 // creating the options for tables 
@@ -111,18 +111,16 @@ const confirmBooking = () => {
     let timeVal = timeOptions.options[timeOptions.selectedIndex].value;
     let tableVal = tableOptions.options[tableOptions.selectedIndex].value;
     let personName = document.getElementById("name").value;
-    let id = Math.floor(Math.random() * 10000); // generating the order id
-    let obj = { Name: personName, Time: timeVal, Table: tableVal, orderId: id }; //creating the new array of object
+    let id = document.getElementById("phone").value // generating the order id
+    let obj = { Name: personName, Time: timeVal, Table: tableVal, orderId:parseInt(id) }; //creating the new array of object
     objarr.push(obj); //pushing the values in the array 
     localStorage.setItem('array',JSON.stringify(objarr));
     display.innerHTML = `Booking Confirmed  with ID: ${id}`;
-    tableOptions.selectedIndex = null;
-    timeOptions.selectedIndex = null;
 }
 
 // function for cancel booking 
 const cancel = () => {
-    let x = document.getElementById("bookId").value;
+    let x = document.getElementById("phone").value;
     let bookId = parseInt(x);
     for (let i = 0; i < objarr.length; i++) {
         if (objarr[i].orderId === bookId) {
