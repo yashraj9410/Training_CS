@@ -138,19 +138,46 @@ const cancel = () => {
     }
 }
 
-const showBooking = ()=>{   
+const showBooking = async(table)=>{   
     readDiv.style.display="";
-    for(let i =0;i<objarr.length;i++){
-        let row = document.createElement("tr"); //creating table rows 
-        let td1 = document.createElement("td"); // creating tabke data 
-        td1.textContent = objarr[i].Time; // adding the data to table 
-        row.appendChild(td1);
-        let td2 = document.createElement("td");
-        td2.textContent = objarr[i].Table;
-        row.appendChild(td2);
-        let td3 = document.createElement("td");
-        td3.textContent=objarr[i].orderId;
-        row.appendChild(td3);
-        read.appendChild(row);
+    table = document.querySelector("table");
+    let tablehead = table.querySelector("thead");
+    let tablebody = table.querySelector("tbody");
+    const url = "http://localhost:4000/details";
+    const response = await fetch(url);
+    const {users} = await response.json();
+
+    // clear table 
+    tablehead.innerHTML="<tr></tr>";
+    tablebody.innerHTML=" ";
+    //setiing the text content
+    for( let key in users[0]){
+        const headElement = document.createElement("th");
+        headElement.textContent = key;
+        tablehead.querySelector("tr").appendChild(headElement);
+    }
+
+    for(let i=0;i<users.length;i++){
+        const row = document.createElement("tr");
+        for(let key in users[i]){
+            const data = document.createElement("td");
+            data.textContent= users[i][key];
+            row.appendChild(data);
+        }
+        tablebody.appendChild(row);
     }
 }
+
+// for(let i =0;i<objarr.length;i++){
+    //     let row = document.createElement("tr"); //creating table rows 
+    //     let td1 = document.createElement("td"); // creating tabke data 
+    //     td1.textContent = objarr[i].Time; // adding the data to table 
+    //     row.appendChild(td1);
+    //     let td2 = document.createElement("td");
+    //     td2.textContent = objarr[i].Table;
+    //     row.appendChild(td2);
+    //     let td3 = document.createElement("td");
+    //     td3.textContent=objarr[i].orderId;
+    //     row.appendChild(td3);
+    //     read.appendChild(row);
+    // }

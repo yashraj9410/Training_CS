@@ -40,6 +40,14 @@ const updatebooking =(req,res)=>{
     }
 }
 
+// get all the booking details 
+const getDetails =async(req,res)=>{
+    let users;
+    users = await user_data.find();
+    res.status(200).json({users});
+}
+
+exports.getDetails =getDetails;
 exports.displayData =displayData;
 exports.deleteBooking =deleteBooking;
 exports.updatebooking = updatebooking;

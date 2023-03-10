@@ -2,9 +2,9 @@
 
 const express = require("express");
 const router = express.Router();
-const { displayData, deleteBooking, updatebooking } = require("../controller/data-controller");
+const { displayData, deleteBooking, updatebooking, getDetails } = require("../controller/data-controller");
 
-
+router.get("/details",getDetails)
 router.post("/display", displayData)
 router.post("/delete",deleteBooking)
 router.post("/update", updatebooking);
