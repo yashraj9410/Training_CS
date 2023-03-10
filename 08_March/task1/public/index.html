@@ -43,46 +43,18 @@
     </form>
 
     <div id="display">
-        <h4 id="disp"></h4>
+        <h4 id="disp"></h4>            <!--Area to display messsage -->
     </div>
 
-    <!-- -----------------------------------------------UPDATE AREA---------------------------------------------------------------------------------------------- -->
-
-    <form action="/update" method="post" id ="confirm">
-        <input type="text" name="name" placeholder="Name" id="update_name" class="input">
-        <input type="text" name="num_people" placeholder="Persons" id="persons" class="input">
-        <input type="number" name="_id" placeholder="Phone Number" id="update_phone" class="input">
-
-        <select title="timeOptions" name="time" id="timeslot" onchange="changeTable(this)">
-            <option name="time" value="">Time</option>
-            <option value="11AM" name ="time">11AM</option>
-            <option value="12PM" name="time">12PM</option>
-            <option value="1PM" name="time">1PM</option>
-        </select>
-
-        <select title="tableOptions" name="table" id="table">
-            <option name="table" value="">Table</option>
-            <option value="1" name ="table">1</option>
-            <option value="2" name="table">2</option>
-            <option value="3" name="table">3</option>
-        </select>
-
-        <button  type="submit" class="button" >Update Booking </button>
-    </form>
-
     <!---------------------------------------SHOW BOOKING ---------------------------------------------- -->
-    <button class="button" type="submit" onclick=showBooking(this) style="margin-top: 0px;">Show Bookings</button>
+    <button class="button" type="submit" onclick=showBooking() style="margin-top: 0px;">Show Bookings</button>
     <div class="read" id="readDiv">
         <table class="table" id="readtable">
             <thead></thead>
             <tbody></tbody>
         </table>
     </div>
+
+    <!-- END -->
 </body>
 </html>
-
-<!-- <tr>
-    <th>Time Slot</th>
-    <th>Table Booked</th>
-    <th>Bookin ID</th>
-</tr> -->

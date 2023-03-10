@@ -2,12 +2,11 @@
 
 const express = require("express");
 const router = express.Router();
-const { displayData, deleteBooking, updatebooking, getDetails } = require("../controller/data-controller");
+const { displayData, deleteBooking, getDetails } = require("../controller/data-controller");
 
-router.get("/details",getDetails)
-router.post("/display", displayData)
-router.post("/delete",deleteBooking)
-router.post("/update", updatebooking);
+router.get("/details",getDetails)  //READ
+router.post("/display", displayData) //WRITE
+router.post("/delete",deleteBooking) // DELETE
 module.exports = router;
 
 // node:13096) MaxListenersExceededWarning: Possible EventEmitter memory leak detected. 11 exit listeners added to [Bus]. Use emitter.setMaxListeners() to increase limit

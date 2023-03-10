@@ -29,6 +29,10 @@ body{
     cursor: pointer;
 }
 
+#confirmButton{
+    margin-top: 10px;
+}
+
 /* setting gaps */
 .input{
     padding: 10px 10px;
@@ -51,6 +55,7 @@ body{
     box-shadow: 0px 10px 20px 0px rgb(178, 196, 178);
 }
 
+/* -------------------------------Table Read Area----------------------------------- */
 .read{
     background-color: rgb(224, 224, 197);
     width: 25%;
@@ -61,6 +66,7 @@ body{
 
 }
 
+/* ---------------------------TABLE STYLE ------------------------------------------- */
 .table{
     width: 100%;
 }
