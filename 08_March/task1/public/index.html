@@ -14,20 +14,35 @@
         <button class="button" id="cancelBooking" type="button" onclick="cancelBooking()">Cancel Booking</button>
     </div>
 
-    <div id="inputContainer">
-    </div>
+    <form action="/display" method="post" id="inputContainer">
+
+        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="num_people" placeholder="Persons" id="persons">
+        <input type="number" name="_id" placeholder="Phone Number">
+
+        <select title="timeOptions" name="time" id="timeslot" onchange="changeTable(this)">
+            <option name="table" value="">Time</option>
+            <option value="11AM" name ="time">11AM</option>
+            <option value="12PM" name="time">12PM</option>
+            <option value="1PM" name="time">1PM</option>
+        </select>
+
+        <select title="tableOptions" name="table" id="table">
+            <option name="Table" value="">Table</option>
+            <option value="1" name ="table">1</option>
+            <option value="2" name="table">2</option>
+            <option value="3" name="table">3</option>
+        </select>
+
+        <button id="confirmButton" type="submit" class="button" onclick="confirmBooking()">Confirm Booking</button>
+    </form>
  
     <div id="selectContainer">
-        <select name="timeslot" id="timeslot" onchange="changeTable(this)">
-            <option value="">Time</option>
-        </select>
-        <select name="table" id="table">
-            <option value="">Table</option>
-        </select>
+        
     </div>
 
     <div id="confirm">
-        <button id="confirmButton" type="button" class="button" onclick="confirmBooking()">Confirm Booking</button>
+        
         <button id="cancelButton" type="button" class="button" onclick="cancel()">Cancel Booking </button>
     </div>
 

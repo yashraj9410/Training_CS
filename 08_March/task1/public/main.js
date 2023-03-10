@@ -1,12 +1,12 @@
 // restaurant boooking site 
 let timeSlots = ["11AM", "12PM", "1PM", "2PM"]
-let table = [
-    { tabel: 1, capacity: 7 },
-    { tabel: 2, capacity: 7 },
-    { tabel: 3, capacity: 7 },
-    { tabel: 4, capacity: 7 },
-    { tabel: 5, capacity: 7 }
-]
+// let table = [
+//     { tabel: 1, capacity: 7 },
+//     { tabel: 2, capacity: 7 },
+//     { tabel: 3, capacity: 7 },
+//     { tabel: 4, capacity: 7 },
+//     { tabel: 5, capacity: 7 }
+// ]
 
 // array of objects from time and table value
 if(localStorage.getItem('array')==null){
@@ -26,7 +26,6 @@ let selectArea = document.getElementById("selectContainer");
 
 // creating the new booking function
 const newBooking = () => {
-    inputArea.innerHTML = "";
     display.innerHTML = ""
     selectArea.style.display = "flex";
     timeOptions.style.display = "block";
@@ -34,21 +33,22 @@ const newBooking = () => {
     confirmArea.style.display = "block";
     document.getElementById("confirmButton").style.display = "block";
     document.getElementById("cancelButton").style.display = "none";
-    let inputName = document.createElement("input");
-    var inputPersons = document.createElement("input");
-    inputName.placeholder = "Enter Your Name";
-    inputName.type = "text"
-    inputName.id = "name"
-    inputPersons.placeholder = "Number of Persons";
-    inputPersons.type = "number";
-    inputPersons.id = "persons";
-    inputArea.appendChild(inputName);
-    inputArea.appendChild(inputPersons);
+    // let inputName = document.createElement("input");
+    // var inputPersons = document.createElement("input");
+    // inputName.placeholder = "Enter Your Name";
+    // inputName.type = "text"
+    // inputName.id = "name"
+    // inputName.name = "name"
+    // inputPersons.placeholder = "Number of Persons";
+    // inputPersons.type = "number";
+    // inputPersons.name = "num_people";
+    // inputPersons.id = "persons";
+    // inputArea.appendChild(inputName);
+    // inputArea.appendChild(inputPersons);
 }
 
 //creating the cancel booking function
 const cancelBooking = () => {
-    inputArea.innerHTML = "";
     display.innerHTML = ""
     confirmArea.style.display = "block";
     document.getElementById("cancelButton").style.display = "block";
@@ -63,22 +63,24 @@ const cancelBooking = () => {
 
 // creating the options for tables 
 let tableOptions = document.getElementById("table");
-for (let i = 0; i < table.length; i++) {
-    let opt = document.createElement("option");
-    opt.textContent = table[i].tabel;
-    opt.value = table[i].tabel;
-    tableOptions.appendChild(opt);
-}
+// for (let i = 0; i < table.length; i++) {
+//     let opt = document.createElement("option");
+//     opt.textContent = table[i].tabel;
+//     opt.value = table[i].tabel;
+//     opt.setAttribute("name","table");
+//     tableOptions.appendChild(opt);
+// }
 tableOptions.style.display = "none";
 
 //creating the options for the timeslots 
 let timeOptions = document.getElementById("timeslot");
-for (let i = 0; i < timeSlots.length; i++) {
-    let opt = document.createElement("option");
-    opt.textContent = timeSlots[i];
-    opt.value = timeSlots[i];
-    timeOptions.appendChild(opt);
-}
+// for (let i = 0; i < timeSlots.length; i++) {
+//     let opt = document.createElement("option");
+//     opt.textContent = timeSlots[i];
+//     opt.value = timeSlots[i];
+//     opt.setAttribute("name","time");
+//     timeOptions.appendChild(opt);
+// }
 timeOptions.style.display = "none";
 
 //creating onchange function on time options and checking for the availability of table at that time slot

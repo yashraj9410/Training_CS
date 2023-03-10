@@ -5,7 +5,7 @@ const router = express.Router();
 const { displayData } = require("../controller/data-controller");
 
 
-router.get("/display", displayData)
+router.post("/display", displayData)
 
 module.exports = router;
 

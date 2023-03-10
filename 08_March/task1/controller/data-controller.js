@@ -5,15 +5,16 @@ const user_data = require("../model/data-model");
 // display all the booking data
 const displayData =async(req,res)=>{
     console.log(req);
-    const {name,time,table,bookingId}=req.body;
+    const {time,table,name,num_people,_id}=req.body;
     let new_data;
     new_data = new user_data({
-        name,
         time,
         table,
-        bookingId,
+        name,
+        num_people,
+        _id
     })
-    new_data = await new_data.save();
+    //new_data = await new_data.save();
     return res.status(200).json({new_data});
 }
 

@@ -8,6 +8,10 @@ const bookingData = new Schema({
         type:String,
         required:true
     },
+    num_people:{
+        type:Number,
+        required:true,
+    },
     time:{
         type:String,
         required:true
@@ -16,10 +20,11 @@ const bookingData = new Schema({
         type:Number,
         required:true
     },
-    bookingId:{
+    _id:{
         type:Number,
-        required:true 
+        required:true
     }
+    
 })
 
 module.exports = mongoose.model("user_data", bookingData);
