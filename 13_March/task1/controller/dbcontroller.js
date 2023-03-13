@@ -18,6 +18,7 @@ exports.create =(req,res)=>{
         name:req.body.name,
         class: req.body.class,
         roll_number:req.body.roll_number,
+        subjects:req.body.subjects,
     };
     console.log(student);
 
@@ -71,4 +72,20 @@ exports.delete = (req,res) => {
     .catch(err => {
         res.status(500).send({message:`${err} this is the error`});
     })
+}
+
+// deleting all data 
+
+exports.deleteAll = (req,res) => {
+    Student.destroy({
+        where:{},
+        truncate:false
+    })
+    .then(data =>{
+        res.send({data});
+    })
+    .catch(err =>{
+        req.send({message:`${err}`});
+    })
+    
 }
