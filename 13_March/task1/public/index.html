@@ -31,17 +31,20 @@
         </form>
     </div>
 
-    <!-- <div class="updatedetails">
-        <label>Full Name</label>
+    <div class="updatedetails">
+        
+        <form action="/update" method="post">
+            <label>Full Name</label>
             <input type="text" placeholder="Enter Full Name" name="name" required >
-            <label>Roll No</label>
-            <input type="text" placeholder="Enter the Class" name="class" required>
-            <label>Subjects</label>
-            <input type="number" placeholder="Enter Roll No" name="roll_number" required>
             <label>Class/Section</label>
+            <input type="text" placeholder="Enter the Class" name="class" required>
+            <label>Roll No</label>
+            <input type="number" placeholder="Enter Roll No" name="roll_number" required>
+            <label>Subjects</label>
+            <input type="text" placeholder="Add Subjects" name="subjects" required>
             <button type="submit">Update</button>
         </form>
-    </div> -->
+    </div>
 
     <div class="getdetails">
         <form action="/delete" method="post">

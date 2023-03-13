@@ -47,10 +47,10 @@ exports.findAll =(req,res) => {
 // update student 
 
 exports.update = (req,res) => {
-    const id = req.params.id;
-
+    const id = req.body.roll_number;
+    console.log(id);
     Student.update(req.body,{                          // promise returns true if updated 
-        where:{id:id}
+        where:{roll_number:id}
     })
     .then(data => {
         res.send({data});
