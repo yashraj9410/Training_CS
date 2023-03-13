@@ -2,9 +2,9 @@
 
 module.exports = {
     HOST: "localhost",
-    PORT: "1434",
+    PORT: "1433",
     USER: "yash",
-    PASSWORD: "1234",
+    PASSWORD: "123456",
     DB: "student_db",
     dialect: "mssql",
     pool: {

@@ -3,7 +3,11 @@
 // setting  up  the web server 
 const express = require("express");
 const cors = require("cors");       // cors stand for cross origin resource sharing 
+
+const db = require("./model");
 const app =express();
+
+db.sequelize.sync();
 
 let corsOptions = {
     origin:"http://localhost:5000"                   // setting up origin to 5000
