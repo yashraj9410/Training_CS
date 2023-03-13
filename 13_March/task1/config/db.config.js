@@ -3,8 +3,8 @@
 module.exports = {
     HOST: "localhost",
     PORT: "1433",
-    USER: "yash",
-    PASSWORD: "123456",
+    USER: "sa",
+    PASSWORD: "1234",
     DB: "student_db",
     dialect: "mssql",
     pool: {
@@ -14,3 +14,4 @@ module.exports = {
       idle: 10000            // time in ms the connection will be idle before getting released 
     }
   };
+

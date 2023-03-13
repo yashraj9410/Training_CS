@@ -11,7 +11,7 @@ module.exports = (sequelize,Sequelize) =>{
             type:Sequelize.STRING,
         },
         roll_number:{
-            type:Sequelize.NUMBER,
+            type:Sequelize.INTEGER,
         },
     });
 
