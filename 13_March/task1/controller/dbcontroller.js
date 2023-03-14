@@ -4,7 +4,7 @@ const db = require("../model");
 // importing the sequelized model
 const Student = db.student;
 
-const Op = db.Sequelize.Op;
+const Op = db.Sequelize.Op;      // for using the operators of sql
 
 
 // creating a new student 
