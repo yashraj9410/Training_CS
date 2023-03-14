@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./main.js " defer></script>
+    <title>RES-TURANT</title>
+</head>
+<body>
+    <div class="buttonContainer">
+        <button class="button" onclick="newBooking()" id="newBook">New Booking</button>
+        <button class="button" id="cancelBooking" type="button" onclick="cancelBooking()">Cancel Booking</button>
+    </div>
+<!-------------------------------------------------------------CREATE AREA------------------------------------------------------------------ -->
+    <form action="/display" method="post" id="inputContainer">
+
+        <input type="text" name="name" placeholder="Name" id="name" class="input">
+        <input type="text" name="num_people" placeholder="Persons" id="persons" class="input">
+        <input type="number" name="_id" placeholder="Phone Number" id="phone" class="input">
+
+        <select title="timeOptions" name="time" id="timeslot" onchange="changeTable(this)">
+            <option name="time" value="">Time</option>
+            <option value="11AM" name ="time">11AM</option>
+            <option value="12PM" name="time">12PM</option>
+            <option value="1PM" name="time">1PM</option>
+        </select>
+
+        <select title="tableOptions" name="table" id="table">
+            <option name="table" value="">Table</option>
+            <option value="1" name ="table">1</option>
+            <option value="2" name="table">2</option>
+            <option value="3" name="table">3</option>
+        </select>
+
+        <button id="confirmButton" type="submit" class="button" onclick="confirmBooking()">Confirm Booking</button>
+    </form>
+ <!--------------------------------------------------------DELETE AREA------------------------------------------------------------------------ -->
+    <form action="/delete" method="post" id="confirm">
+        <input type="number" name="_id" placeholder="Phone Number" id="phone" class="input">
+        <button id="cancelButton" type="submit" class="button" onclick="cancel()">Cancel Booking </button>
+    </form>
+
+    <div id="display">
+        <h4 id="disp"></h4>            <!--Area to display messsage -->
+    </div>
+
+    <!---------------------------------------SHOW BOOKING ---------------------------------------------- -->
+    <button class="button" type="submit" onclick=showBooking() style="margin-top: 0px;">Show Bookings</button>
+    <div class="read" id="readDiv">
+        <table class="table" id="readtable">
+            <thead></thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <!-- END -->
+</body>
+</html>
