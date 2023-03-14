@@ -1,4 +1,4 @@
-// exporting the student model 
+// exporting the booking model 
 const db = require("../model");
 
 // importing the sequelized model
@@ -7,7 +7,7 @@ const Booking = db.booking;
 const Op = db.Sequelize.Op;      // for using the operators of sql
 
 
-// creating a new student 
+// creating a new booking 
 
 exports.create =(req,res)=>{
     if(!req.body.name){
@@ -33,7 +33,7 @@ exports.create =(req,res)=>{
 }
 
 
-// find all the students 
+// find all the bookings
 
 exports.findAll =(req,res) => {
     Booking.findAll()
@@ -46,23 +46,7 @@ exports.findAll =(req,res) => {
         })
 }
 
-// update student 
-
-exports.update = (req,res) => {
-    const id = req.body.phone;
-    console.log(id);
-    Booking.update(req.body,{                          // promise returns true if updated 
-        where:{phone:id}
-    })
-    .then(data => {
-        res.send({data});
-    })
-    .catch(err => {
-        res.status(500).send({message:`${err}`});
-    })
-}
-
-// delete student 
+// delete booking 
 
 exports.delete = (req,res) => {
     const phone = req.body.phone;
