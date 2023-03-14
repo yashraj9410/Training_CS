@@ -3,26 +3,29 @@
 //const { sequelize } = require(".");
 
 module.exports = (sequelize,Sequelize) =>{
-    const Student = sequelize.define("student",{
+    const Booking = sequelize.define("booking",{
         name:{
             type: Sequelize.STRING,
             allowNull:false,
         },
-        class:{
+        num_people:{
             type:Sequelize.STRING,
             allowNull:false,
         },
-        roll_number:{
+        phone:{
             type:Sequelize.INTEGER,
             allowNull:false,
         },
-        subjects:{
+        time:{
             type: Sequelize.STRING,
             allowNull:false,
-
+        },
+        table:{
+            type: Sequelize.STRING,
+            allowNull:false,
         },
     });
 
-    return Student;
+    return Booking;
 
 };

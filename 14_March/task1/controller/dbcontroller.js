@@ -2,7 +2,7 @@
 const db = require("../model");
 
 // importing the sequelized model
-const Student = db.student;
+const Booking = db.booking;
 
 const Op = db.Sequelize.Op;      // for using the operators of sql
 
@@ -14,20 +14,21 @@ exports.create =(req,res)=>{
         res.status(400).json({message:"name cannot be  empty "});
     }
 
-    const student = {
+    const booking = {
         name:req.body.name,
-        class: req.body.class,
-        roll_number:req.body.roll_number,
-        subjects:req.body.subjects,
+        num_people: req.body.num_people,
+        phone:req.body.phone,
+        time:req.body.time,
+        table:req.body.table,
     };
-    console.log(student);
+    console.log(booking);
 
-    Student.create(student)
+    Booking.create(booking)
         .then(data => {
             res.send(data);
         })
         .catch(err =>{
-            res.status(500).send({message:`${err} Some Error occured in creating a new student  `});
+            res.status(500).send({message:`${err} Some Error occured in creating a new booking  `});
         })
 }
 
@@ -35,8 +36,9 @@ exports.create =(req,res)=>{
 // find all the students 
 
 exports.findAll =(req,res) => {
-    Student.findAll()
+    Booking.findAll()
         .then(data => {
+            // console.log(data);
             res.send({data});
         })
         .catch(err => {
@@ -47,10 +49,10 @@ exports.findAll =(req,res) => {
 // update student 
 
 exports.update = (req,res) => {
-    const id = req.body.roll_number;
+    const id = req.body.phone;
     console.log(id);
-    Student.update(req.body,{                          // promise returns true if updated 
-        where:{roll_number:id}
+    Booking.update(req.body,{                          // promise returns true if updated 
+        where:{phone:id}
     })
     .then(data => {
         res.send({data});
@@ -63,9 +65,9 @@ exports.update = (req,res) => {
 // delete student 
 
 exports.delete = (req,res) => {
-    const roll_number = req.body.roll_number;
+    const phone = req.body.phone;
     console.log(roll_number)
-    Student.destroy({where:{roll_number}})
+    Booking.destroy({where:{phone}})
     .then(data =>{
         res.send({data});
     })
@@ -77,7 +79,7 @@ exports.delete = (req,res) => {
 // deleting all data 
 
 exports.deleteAll = (req,res) => {
-    Student.destroy({
+    Booking.destroy({
         where:{},
         truncate:false
     })

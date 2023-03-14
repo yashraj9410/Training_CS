@@ -14,11 +14,11 @@
         <button class="button" id="cancelBooking" type="button" onclick="cancelBooking()">Cancel Booking</button>
     </div>
 <!-------------------------------------------------------------CREATE AREA------------------------------------------------------------------ -->
-    <form action="/display" method="post" id="inputContainer">
+    <form action="/create" method="post" id="inputContainer">
 
         <input type="text" name="name" placeholder="Name" id="name" class="input">
         <input type="text" name="num_people" placeholder="Persons" id="persons" class="input">
-        <input type="number" name="_id" placeholder="Phone Number" id="phone" class="input">
+        <input type="number" name="phone" placeholder="Phone Number" id="phone" class="input">
 
         <select title="timeOptions" name="time" id="timeslot" onchange="changeTable(this)">
             <option name="time" value="">Time</option>

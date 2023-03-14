@@ -43,17 +43,17 @@ const changeTable = async(select) => {
     let timeIndex = select.selectedIndex;
     let timeVal = timeOptions.options[timeIndex].value;
     let num = document.getElementById("persons").value;
-    const url = "http://localhost:4000/details";                             //fetching data from the api
+    const url = "http://localhost:2000/display";                             //fetching data from the api
     const response = await fetch(url);
-    const {users} = await response.json();
-    console.log(users);
+    const {data} = await response.json();
+    console.log(data);
     for (let i = 0; i < tableOptions.length; i++) { tableOptions.options[i].disabled = false; }
     if (parseInt(num) > 0 && parseInt(num) < 7) {
 
-        for(let i=0;i<users.length;i++){
-            if(timeVal === users[i].time){
+        for(let i=0;i<data.length;i++){
+            if(timeVal === data[i].time){
                 for(let j =0;j<tableOptions.length;j++){
-                    if(users[i].table=== tableOptions.options[j].value){
+                    if(data[i].table=== tableOptions.options[j].value){
                         tableOptions.options[j].disabled = true;                //disabling the table value
                     }
                 }
@@ -84,26 +84,26 @@ const showBooking = async(table)=>{
     table = document.querySelector("table");
     let tablehead = table.querySelector("thead");
     let tablebody = table.querySelector("tbody");
-    const url = "http://localhost:4000/details";
+    const url = "http://localhost:2000/display";
     const response = await fetch(url);
-    const {users} = await response.json();
-    console.log(users);
+    const {data} = await response.json();
+    console.log(data);
     // clear table 
     tablehead.innerHTML="<tr></tr>";
     tablebody.innerHTML=" ";
     //setiing the text content
-    for( let key in users[0]){
+    for( let key in data[0]){
         const headElement = document.createElement("th");
         headElement.textContent = key;
         tablehead.querySelector("tr").appendChild(headElement);
     }
 
-    for(let i=0;i<users.length;i++){
+    for(let i=0;i<data.length;i++){
         const row = document.createElement("tr");
-        for(let key in users[i]){
-            const data = document.createElement("td");
-            data.textContent= users[i][key];
-            row.appendChild(data);
+        for(let key in data[i]){
+            const data_td = document.createElement("td");
+            data_td.textContent= data[i][key];
+            row.appendChild(data_td);
         }
         tablebody.appendChild(row);
     }
