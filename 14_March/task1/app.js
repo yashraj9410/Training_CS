@@ -4,7 +4,8 @@ const tedious =require("tedious");
 const path = require("path");
 const router = require("./route/restaurantRoutes.js")
 const db = require("./model");
-db.sequelize.sync();
+db.sequelize.sync({alter:true});  // checks the table for any modifications in coloumn , rows and datatypes if done 
+                                  // instead of alter we can also do force:true which means drop the table evertime when created a new 
 
 const app =express();
 
