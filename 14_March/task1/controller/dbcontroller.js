@@ -66,7 +66,7 @@ exports.update = (req,res) => {
 
 exports.delete = (req,res) => {
     const phone = req.body.phone;
-    console.log(roll_number)
+    console.log(phone)
     Booking.destroy({where:{phone}})
     .then(data =>{
         res.send({data});
