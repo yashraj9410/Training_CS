@@ -8,6 +8,11 @@ const sequelize = new Sequelize(dbconfig.DB,dbconfig.USER,dbconfig.PASSWORD,{
     port:dbconfig.PORT,
     dialect:dbconfig.dialect,
 
+    dialectOptions: {
+        supportBigNumbers: true,
+        bigNumberStrings:true,
+    },
+
     pool:{
 
         max:dbconfig.pool.max,
@@ -15,6 +20,7 @@ const sequelize = new Sequelize(dbconfig.DB,dbconfig.USER,dbconfig.PASSWORD,{
         acquire:dbconfig.pool.acquire,
         idle:dbconfig.pool.idle,
     },
+    
 });
 
 const db = {};
