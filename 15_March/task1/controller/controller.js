@@ -41,7 +41,6 @@ const create = async(req,res) => {
 
 const display = async(req,res) => {
 
-
     let data =await student.find();
     res.status(200).json({data})
 }
