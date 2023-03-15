@@ -7,8 +7,9 @@ const showdata = async() => {
     let response = await fetch(url);
     let {data} = await response.json();
     console.log(data);
+
     for(let i=0;i<data.length;i++){
-        studentImage.innerHTML =`<img src="${data[i].profile.data.data.toString('base64')}" style="width:100px; height:100px">`;
+        studentImage.innerHTML += `<img src="${data[i].profile.data}" alt="${data[i].name}" style="width:100px; height:100px">`;
     }
 
 } 
