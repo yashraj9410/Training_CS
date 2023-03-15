@@ -3,10 +3,10 @@ const path = require("path");
 const student = require("../model/model.js");
 const upload = require("../middleware/upload.js")
 const fs = require("fs");
-// create a new student data 
 
+// create a new student data 
 const create = async(req,res) => {
-    console.log(req);
+    console.log(req.body);
 
     const data = {
         name:req.body.name,
@@ -22,7 +22,8 @@ const create = async(req,res) => {
 
     await student.create(data)
     .then(data => {
-        res.status(200).send({message:"Submitted and Uploaded"});
+        console.log
+        res.status(200).send({message:`${req.file.filename} Data Submitted Successfully`});
     })
     .catch(err => {
         res.send({message:err})
@@ -30,4 +31,14 @@ const create = async(req,res) => {
     
 }
 
+// read data from the table 
+
+const display = async(req,res) => {
+
+
+    let data =await student.find();
+    res.status(200).json({data})
+}
+
 exports.create =create;
+exports.display = display;
