@@ -16,9 +16,6 @@ app.use('/uploads', express.static('uploads'));          // midddleware to rende
 app.use("/",router);  // creating the middle ware for routes and controller for get and post request 
 
 
-
-
-
 // connecting the database running the port
 mongoose.connect(
     "mongodb+srv://yash:1234@cluster0.kk6e0c7.mongodb.net/?retryWrites=true&w=majority"

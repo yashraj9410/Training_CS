@@ -45,5 +45,20 @@ const display = async(req,res) => {
     res.status(200).json({data})
 }
 
+const update = async(req,res) => {
+    const data = {
+        name:req.body.name,
+        profile:{
+            data:req.file.filename,
+            contentType:req.file.mimetype,
+        }
+    }
+
+    await student.findOneAndUpdate({name:data.name},{name:data.name,profile:data.profile})
+
+    return res.status(200).send({message:"Updated succeessfully"});
+}
+
 exports.create =create;
 exports.display = display;
+exports.update =update;
