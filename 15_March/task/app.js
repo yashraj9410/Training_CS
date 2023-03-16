@@ -10,7 +10,7 @@ const port = 3000;
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname , "public")))
-app.use('/uploads', express.static('uploads'));
+app.use('/uploads', express.static('uploads'));          // midddleware to render the images
 
 
 app.use("/",router);  // creating the middle ware for routes and controller for get and post request 
