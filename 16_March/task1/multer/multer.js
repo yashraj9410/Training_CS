@@ -20,6 +20,6 @@ const imageFilter = (req, file, cb) => {
     }
   };
 
-const upload = multer({storage:storage,filter:imageFilter});
+const upload = multer({storage:storage,fileFilter:imageFilter});
 
 module.exports = upload;

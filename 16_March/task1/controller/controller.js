@@ -4,6 +4,8 @@ const db = require("../model");
 const Student = db.students;
 const op = db.Sequelize.Op;
 
+
+// create a new student 
 exports.create = (req,res) => {
     console.log(req.file.filename);
     const picname = req.file.filename;
@@ -26,7 +28,7 @@ exports.create = (req,res) => {
 
 }
 
-
+// display all the data 
 exports.display = (req,res) => {
      Student.findAll()
         .then(data => {
@@ -38,6 +40,7 @@ exports.display = (req,res) => {
                 
 }
 
+// delete all existing data 
 exports.deleteAll = (req,res) => {
     Student.destroy({
         where:{},

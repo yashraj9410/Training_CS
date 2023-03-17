@@ -22,6 +22,7 @@ const create = async(req,res) => {
             contentType:req.file.mimetype,
         }
     }
+
     console.log(data.profile.data);
     console.log(req.file.mimetype)
 
@@ -48,20 +49,40 @@ const display = async(req,res) => {
     res.status(200).json({data})
 }
 
+// updating a student
 const update = async(req,res) => {
     const data = {
         name:req.body.name,
+        class:req.body.class,
+        roll_no:req.body.roll_no,
+        subjects:req.body.subjects,
         profile:{
             data:req.file.filename,
             contentType:req.file.mimetype,
         }
     }
 
-    await student.findOneAndUpdate({name:data.name},{name:data.name,profile:data.profile})
+    await student.findOneAndUpdate({roll_no:data.roll_no},{name:data.name,profile:data.profile})
 
     return res.status(200).send({message:"Updated succeessfully"});
+}
+
+// deleting a data 
+
+const deleteStudent = async(req,res) => {
+    const {roll_no} = req.body.roll_no;
+    if(await student.findOne({roll_no:roll_no})){
+        await student.deleteOne({roll_no:roll_no});
+        return res.status(200).send({message:"Deletd succeessfully"});
+    }
+    else{
+       return  res.send({message:"No Student Found"});
+    }
+    
+
 }
 
 exports.create =create;
 exports.display = display;
 exports.update =update;
+exports.deleteStudent = deleteStudent;

@@ -18,6 +18,7 @@ app.use("/",router);  // creating the middle ware for routes and controller for 
 
 
 // connecting the database running the port
+// Database Name :- Practice
 mongoose.connect(
     "mongodb+srv://yash:1234@cluster0.kk6e0c7.mongodb.net/?retryWrites=true&w=majority"
 ).then(()=> {

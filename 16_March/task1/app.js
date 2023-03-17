@@ -3,7 +3,7 @@ const app = express();
 const db = require("./model")
 const router =require("./route/route");
 
-db.sequelize.sync({force:true});
+db.sequelize.sync({force:true});              // database name: Student_manage 
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
