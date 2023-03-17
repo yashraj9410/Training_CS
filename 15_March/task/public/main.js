@@ -6,8 +6,13 @@ let button = document.createElement("button");
 let submit = document.getElementById("submit");
 let update = document.getElementById("update");
 update.style.display = "none";
+studentData.style.display="none";
 
+
+// display all the data
 const showdata = async() => {
+
+    studentData.style.display="flex";
 
     studentData.innerHTML =" ";
 
@@ -16,7 +21,7 @@ const showdata = async() => {
     console.log(data);
 
     for(let i=0;i<data.length;i++){
-        studentData.innerHTML += `<img src="/uploads/${data[i].profile.data}" alt="${data[i].name}" style="width:100px; height:100px"><br><br>`;
+        studentData.innerHTML += `Profile:<img src="/uploads/${data[i].profile.data}" alt="${data[i].name}" style="width:100px; height:100px"><br><p>Name:${data[i].name}  Class:${data[i].class}  Roll_No:${data[i].roll_no} Subjetcs:${data[i].subjects}</p>`;
 
         button.type = "button";
         button.value= data[i]._id;
@@ -28,12 +33,14 @@ const showdata = async() => {
 } 
 
 const edit = async(value) =>{
+    
     let url = `http://localhost:3000/${value}`
     console.log(button.value);
     let response = await fetch(url);
     let {data} = await response.json();
     console.log(data);
-    
+    console.log(inputElements);
+
    inputElements[0].value = data.name;
    inputElements[1].value = data.class;
    inputElements[2].value = data.roll_no;

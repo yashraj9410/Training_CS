@@ -11,7 +11,7 @@ const controller = require("../controller/controller.js");
 
 router.get("/display", controller.display);
 router.post("/create", upload.single('profile'),controller.create);
-router.post("/update", upload.single('updatedprofile'), controller.update);
+router.post("/update", upload.single('profile'), controller.update);
 router.post("/delete", controller.deleteStudent);
 router.get("/:id", controller.edit);
 
