@@ -37,6 +37,15 @@ const create = async(req,res) => {
     
 }
 
+// dipslay image api
+
+const displayImage = async(req,res) => {
+    let data = await student.find();
+    let imageData = Buffer.from(data[0].profile.data,"base64");
+    let image = fs.writeFileSync("image.png",imageData);
+    res.send({image});
+}
+
 // read data from the table 
 
 const display = async(req,res) => {
@@ -47,3 +56,5 @@ const display = async(req,res) => {
 
 exports.create =create;
 exports.display = display;
+exports.displayImage = displayImage;
+

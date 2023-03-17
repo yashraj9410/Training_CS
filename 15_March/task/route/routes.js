@@ -13,5 +13,6 @@ router.get("/display", controller.display);
 router.post("/create", upload.single('profile'),controller.create);
 router.post("/update", upload.single('updatedprofile'), controller.update);
 router.post("/delete", controller.deleteStudent);
+router.get("/:id", controller.edit);
 
 module.exports = router ;

@@ -8,7 +8,7 @@
         required:true
     },
     profile:{
-        data:Buffer,
+        data:String,
         contentType:String
     },
 

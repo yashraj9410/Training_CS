@@ -78,10 +78,17 @@ const deleteStudent = async(req,res) => {
     else{
        return  res.send({message:"No Student Found"});
     }
-    
-
 }
 
+// send data ont the edit request 
+const edit = async(req,res) => {
+    const id = req.params.id;
+    console.log(id);
+    let data = await student.findById(id);
+    res.status(200).json({data});
+}
+
+exports.edit =edit;
 exports.create =create;
 exports.display = display;
 exports.update =update;

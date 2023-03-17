@@ -6,5 +6,6 @@ const controller = require("../controller/controller.js");
 
 router.get("/display", controller.display);
 router.post("/create", upload.single('profile'),controller.create);
+router.get("/displayImage", controller.displayImage);
 
 module.exports = router ;
