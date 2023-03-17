@@ -10,7 +10,13 @@ const storage = multer.diskStorage({
         cb(null, Date.now() + '-' + file.originalname );
     }
 });
-
+const imageFilter = (req, file, cb) => {
+    if (file.mimetype.startsWith("image")) {
+      cb(null, true);
+    } else {
+      cb("Please upload only images.", false);
+    }
+  };
 const  upload = multer({ storage: storage });
 
 module.exports = upload;
