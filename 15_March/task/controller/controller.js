@@ -70,14 +70,11 @@ const update = async(req,res) => {
 // deleting a data 
 
 const deleteStudent = async(req,res) => {
-    const {roll_no} = req.body.roll_no;
-    if(await student.findOne({roll_no:roll_no})){
-        await student.deleteOne({roll_no:roll_no});
+    const id = req.params.id;
+        console.log(id);
+        await student.deleteOne({_id:id});
         return res.status(200).send({message:"Deletd succeessfully"});
-    }
-    else{
-       return  res.send({message:"No Student Found"});
-    }
+
 }
 
 // send data ont the edit request 
