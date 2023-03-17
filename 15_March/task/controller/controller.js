@@ -14,6 +14,9 @@ const create = async(req,res) => {
     console.log(req.file.filename);
     const data = {
         name:req.body.name,
+        class:req.body.class,
+        roll_no:req.body.roll_no,
+        subjects:req.body.subjects,
         profile:{
             data:req.file.filename,
             contentType:req.file.mimetype,

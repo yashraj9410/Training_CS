@@ -17,7 +17,7 @@ const imageFilter = (req, file, cb) => {
       cb("Please upload only images.", false);
     }
   };
-const  upload = multer({ storage: storage });
+const  upload = multer({ storage: storage , fileFilter:imageFilter });
 
 module.exports = upload;
 
