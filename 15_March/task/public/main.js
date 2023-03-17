@@ -3,6 +3,9 @@ let url = "http://localhost:3000/display"
 let studentData = document.getElementById("student-data");
 let inputElements = document.getElementsByClassName("input");
 let button = document.createElement("button");
+let submit = document.getElementById("submit");
+let update = document.getElementById("update");
+update.style.display = "none";
 
 const showdata = async() => {
 
@@ -35,6 +38,8 @@ const edit = async(value) =>{
    inputElements[1].value = data.class;
    inputElements[2].value = data.roll_no;
    inputElements[3].value = data.subjects;
+   update.style.display = "inline-block";
+   submit.style.display="none";
    //inputElements[4].value = JSON.stringify(data.profile.data);
 
 }

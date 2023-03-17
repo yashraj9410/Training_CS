@@ -14,7 +14,12 @@
         <input type="text" name="roll_no" placeholder="roll_no" class="input">
         <input type="text" name="subjects" placeholder="subjects" class="input">
         <input type="file" name="profile" placeholder="Upload image" class="input">
-        <button type="submit">Submit Details</button>
+        <button type="submit" id="submit">Submit Details</button>
+
+        <form action="/update" method="post" enctype="multipart/form-data">
+            <button type="submit" id="update">Update Details</button>
+        </form>
+
     </form>
 
     <div class="imagecontainer">
@@ -25,13 +30,6 @@
         </div>
     </div>
 
-    <form action="/update" method="post" enctype="multipart/form-data">
-        <input type="text" name="name" placeholder="Enter Name ">
-        <input type="text" name="class" placeholder="Class">
-        <input type="text" name="roll_no" placeholder="roll_no">
-        <input type="text" name="subjects" placeholder="subjects">
-        <input type="file" name="updatedprofile" placeholder="Upload image">
-        <button type="submit">Submit Details</button>
-    </form>
+   
 </body>
 </html>
