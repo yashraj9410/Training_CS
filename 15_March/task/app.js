@@ -1,7 +1,7 @@
 
 const express = require('express')
 const mongoose = require("mongoose");
-const router = require("./route/routes.js");
+const router = require("./route/routes");
 const path = require("path");
 const multer = require("multer");             // provides middleware for uploading images 
 const app = express()
@@ -13,7 +13,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(express.static(path.join(__dirname , "public")))
 app.use('/uploads', express.static('uploads'));          // midddleware to render the images
 
-app.use("/",router);  // creating the middle ware for routes and controller for get and post request 
+app.use("/", router);  // creating the middle ware for routes and controller for get and post request 
 
 
 
@@ -31,4 +31,4 @@ mongoose.connect(
     console.log(err);
 });
 
-// facing problem in router
+// facing problem in router when reloading the server 
