@@ -44,7 +44,8 @@ const create = async(req,res) => {
 // read data from the table 
 
 const display = async(req,res) => {
-
+     console.log("Rezuest Rec");
+      
     let data =await student.find();
     res.status(200).json({data})
 }
