@@ -5,7 +5,7 @@ const router = require("./route/routes");
 const path = require("path");
 const multer = require("multer");             // provides middleware for uploading images 
 const app = express()
-const port = 3000;
+const port = 4000;
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -37,4 +37,4 @@ mongoose.connect("mongodb+srv://yash:1234@cluster0.kk6e0c7.mongodb.net/?retryWri
 // });
 
 // facing problem in router when reloading the server 
-app.listen(3000, ()=> console.log("Server is running"))
+app.listen(port, ()=> console.log("Server is running"))

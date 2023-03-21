@@ -1,5 +1,5 @@
 // making the show data function 
-let url = "http://localhost:3000/api/display"
+let url = "http://localhost:4000/api/display"
 let studentData = document.getElementById("student-data");
 let inputElements = document.getElementsByClassName("input");
 let button = document.createElement("button");
@@ -36,7 +36,7 @@ const showdata = async() => {
 
 const edit = async(value) =>{
     
-    let url = `http://localhost:3000/api/${value}`
+    let url = `http://localhost:4000/api/${value}`
     console.log(button.value);
     let response = await fetch(url);
     let {data} = await response.json();
