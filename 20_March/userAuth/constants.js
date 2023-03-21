@@ -1,0 +1,6 @@
+exports.code = {
+    VALIDATION_ERROR:400,
+    NOT_FOUND:404,
+    FORBIDDEN:403,
+    UNAUTHORISED:401,
+};
