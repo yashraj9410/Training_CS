@@ -8,7 +8,7 @@ const app = express();
 // authenticating our database connection 
 try {
     db.authenticate();
-    db.sync({force:true})               // recreating data everytime 
+    db.sync({force:true})               // drop the existing table and then recreate  
     console.log("Database connected");
     start_server();
     

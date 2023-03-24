@@ -2,10 +2,7 @@
 
 import express from 'express';
 const router = express.Router();
+import {createUser} from '../controller/user-controller';
 
-router.get("/",(req,res)=> {
-    res.send("working")
-})
-
-
+router.post("/", createUser);
 export default router ;

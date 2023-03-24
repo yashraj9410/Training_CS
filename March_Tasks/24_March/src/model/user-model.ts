@@ -9,7 +9,7 @@ const user_model = db.define('User_model', {
         type:DataTypes.STRING,
     },
     age:{
-        type:DataTypes.NUMBER
+        type:DataTypes.STRING
     },
     department:{
         type:DataTypes.STRING
