@@ -23,8 +23,15 @@ export const readUser = async(req:Request, res:Response) => {
     await User.findAll({
         where:{}
     })
-    .then(data => res.send({data}))
-    .catch(err => res.status(404).send("No Records Found "))
+    .then(data => {
+        if(data && data.length){
+           return res.send(data);
+        }
+        else{
+            return res.status(404).send("Database Empty");
+        }
+    })
+    .catch(err => res.status(404).send(err))
 
 }
 
@@ -35,22 +42,38 @@ export const updateUser = (req:Request,res:Response) => {
     const {id} = req.params;
     const data = req.body;
 
-    User.update(data,{where:{id}})           // new values to be updated 
-    .then(data => res.send("Updated the user"))
-    .catch(err => console.log("user not updated",err))
- 
+    User.findByPk(id)
+    .then(data => {
+        if(data){
+            User.update(data,{where:{id}})           // new values to be updated 
+            .then(data => res.send("Updated the user"))
+            .catch(err => console.log("user not updated",err))
+        }else{
+            res.status(404).send("No user found with this id ")
+        }
+    })
+    .catch(err => res.send(err));
 }
 
 // delete user using id 
 
 export const deleteUser = (req:Request, res:Response) => {
-    const id = req.params.id;
+    const {id} = req.params;
     
-    User.destroy({
-        where:{
-            id:id
+    User.findByPk(id)
+    .then(data => {
+        if(data){
+            User.destroy({
+                where:{
+                    id:id
+                }
+            })
+            .then(data =>res.send("data deleted successfull"))
+            .catch(err => console.log("Data not deleted"));
+        }else{
+            res.status(404).send("No records with the given id ")
         }
     })
-    .then(data =>res.send("data deleted successfull"))
-    .catch(err => console.log("Data not deleted"));
+    .catch(er => {res.send(er)})
+    
 }
