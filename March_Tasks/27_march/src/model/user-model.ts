@@ -18,5 +18,17 @@ export default class User extends Model {
         allowNull:false
     })
     declare age:number
+
+    @Column({
+        type:DataType.TEXT,
+        allowNull:false
+    })
+    declare department:string
+
+    @Column({
+        type:DataType.BOOLEAN,
+        allowNull:false
+    })
+    declare isActive:boolean
 }
 
