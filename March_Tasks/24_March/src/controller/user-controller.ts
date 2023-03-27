@@ -7,7 +7,7 @@ import express, {Request , Response} from 'express';
 export const createUser = (req:Request,res:Response) => {
     const data = req.body ;
     if(!data || !data.name || !data.age || !data.department){
-        res.status(404).send("Data is not valid")
+       return  res.status(404).send("Data is not valid")
     }
 
     User.create(data)
