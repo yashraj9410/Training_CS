@@ -33,6 +33,13 @@ export const ProfileSchema = () => {
                 options:{min:5, max:100},
                 errorMessage:('Please enter compete address')
             },
+        },
+        userid:{
+            isNumeric:true,
+            isLength:{
+                options:{min:1},
+                errorMessage:("enter a valid user id ")
+            }
         }
     })
 }
