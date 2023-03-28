@@ -25,7 +25,7 @@ export const readUser = async(req:Request, res:Response) => {
     })
     .then(data => {
         if(data && data.length){
-           return res.send(data);
+           return res.status(200).send(data);
         }
         else{
             return res.status(404).send("Database Empty");
@@ -46,7 +46,7 @@ export const updateUser = (req:Request,res:Response) => {
     .then(data => {
         if(data){
             User.update(data,{where:{id}})           // new values to be updated 
-            .then(data => res.send("Updated the user"))
+            .then(data => res.status(200).send("Updated the user"))
             .catch(err => console.log("user not updated",err))
         }else{
             res.status(404).send("No user found with this id ")
@@ -68,7 +68,7 @@ export const deleteUser = (req:Request, res:Response) => {
                     id:id
                 }
             })
-            .then(data =>res.send("data deleted successfull"))
+            .then(data =>res.status(200).send("data deleted successfull"))
             .catch(err => console.log("Data not deleted"));
         }else{
             res.status(404).send("No records with the given id ")
@@ -77,3 +77,13 @@ export const deleteUser = (req:Request, res:Response) => {
     .catch(er => {res.send(er)})
     
 }
+
+// status codes
+// 200 - OK
+// 201 - Created 
+// 202 - Accepted
+// 400 - Bad Request 
+// 401 - Unauthorised
+// 403 - Forbidden
+// 404 - Not Found 
+// 500 - Interna Server error 
