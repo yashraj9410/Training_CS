@@ -15,15 +15,30 @@ export const createUser = async(req:Request,res:Response) => {
 
 }
 
+//getting all profiles for user 
+
+export const getUserProfiles = async(req:Request,res:Response) => {
+    const {userId}  = req.params;
+    model.Profile.findAll({where:{userId}})
+    .then(data => res.status(200).send(data));
+}
+
 // creating a profile correponding to the user 
 export const createProfile = async(req:Request,res:Response) => {
     console.log("in create Profile ")
 
     const {id} = req.params
+    const userid = req.params.id;
     const data = req.body;
-    console.log(id,data);
-
-    model.Profile.create(data)
-    .then(data => res.status(201).send({data}))
-    .catch(err => res.status(400).send("Profile data not added to the database"))
+    console.log(id);
+    data.userId = userid;
+    model.User.findByPk(id)
+    .then(result => {
+        if(result){
+            model.Profile.create(data)
+            .then(data => res.status(201).send({data}))
+            .catch(err => res.status(400).send("Profile data not added to the database"))
+        }
+    })
+    .catch(err => res.status(404).send("No User found with this id"))
 }

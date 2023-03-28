@@ -45,7 +45,7 @@ class Profile extends dec.Model{
     @dec.ForeignKey(()=> User)
     @dec.Column({
         type:dec.DataType.INTEGER,
-        allowNull:false
+        allowNull:false,
     })
     declare userId:Number
     @dec.BelongsTo(()=> User)            // pofile belongs to the user 

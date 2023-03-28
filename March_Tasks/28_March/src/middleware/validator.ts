@@ -8,8 +8,8 @@ export const UserSchema = [
 ] 
 
 // checking the schema for profile 
-export const ProfileSchema = () => {
-    checkSchema({
+export const ProfileSchema = {
+    checkProfile:checkSchema({
         name:{
             isString:true,
             isAlpha:true,
@@ -28,20 +28,20 @@ export const ProfileSchema = () => {
             isNumeric:true
         },
         address:{
-            isAlphanumeric:true,
             isLength:{
                 options:{min:5, max:100},
                 errorMessage:('Please enter compete address')
             },
         },
-        userid:{
-            isNumeric:true,
-            isLength:{
-                options:{min:1},
-                errorMessage:("enter a valid user id ")
-            }
-        }
+        // userid:{
+        //     isNumeric:true,
+        //     isLength:{
+        //         options:{min:1},
+        //         errorMessage:("enter a valid user id ")
+        //     }
+        // }
     })
+    
 }
 
 
