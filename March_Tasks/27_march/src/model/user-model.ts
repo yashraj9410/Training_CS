@@ -4,12 +4,12 @@ import {Model , Table , Column , DataType } from 'sequelize-typescript';
 // import { DataTypes } from 'sequelize';
 
 @Table({
-    timestamps:false
+    timestamps:false             // removes updatedAt and createdAt coloumns from the table 
 })
 export default class User extends Model {
     @Column({
         type:DataType.TEXT,
-        allowNull:false
+        allowNull:false         // allow no null values 
     })
     declare name:string
 
@@ -31,4 +31,3 @@ export default class User extends Model {
     })
     declare isActive:boolean
 }
-
