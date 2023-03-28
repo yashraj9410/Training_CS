@@ -1,6 +1,6 @@
 import { Sequelize } from 'sequelize-typescript';
 import config from '../config/dbconfig';
-
+import models from '../model/user-model'
 // creating a new connection instance for database 
 
 const db = new Sequelize({
@@ -10,7 +10,7 @@ const db = new Sequelize({
     password: config.password,
     host:config.host,
     port:config.port,
-    models:[]      // either we can add model here 
+    models:[models.User, models.Profile]      // either we can add model here 
 });
 
 // db.addModels([__dirname, '../models'])
