@@ -18,6 +18,7 @@ try {
     console.log("database Not cconnected ");
 }
 
+// making the start server function 
 const startServer = () => {
     app.use(express.json());
     app.use(express.urlencoded({extended:true}));
