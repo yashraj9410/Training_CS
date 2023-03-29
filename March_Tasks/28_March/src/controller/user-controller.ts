@@ -29,7 +29,7 @@ export const createUser =(req:Request,res:Response) => {
 //getting all profiles for user 
 
 export const getUserProfiles = async(req:Request,res:Response) => {
-    const {userId}  = req.params;
+    const {userId}  = req.params;          
     model.Profile.findAll({where:{userId}})
     .then(data => res.status(200).send(data))
     .catch(err => res.status(404).send(err));
@@ -55,4 +55,27 @@ export const createProfile = async(req:Request,res:Response) => {
         }
     })
     .catch(err => res.status(404).send("No User found with this id"))
+}
+
+// deleteing a profile corresponding to the user
+
+export const deleteProfile = (req:Request,res:Response) => {
+    const userid = req.params.userid;
+    const profileId = req.params.profileId;
+
+    model.Profile.findAll({
+        where:{
+            id:profileId,
+            userId:userid
+        }
+    })
+    .then(data => {
+        if(data.length){
+            model.Profile.destroy({where:{id:profileId}})
+            .then(del => res.status(200).send("Data Deleted"))
+        }else{
+            res.status(404).send("No Profile found for this user")
+        }
+    })
+    .catch(err => res.send(err))
 }

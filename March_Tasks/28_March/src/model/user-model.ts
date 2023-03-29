@@ -1,9 +1,9 @@
 // creating the model for user nd profiles 
 import * as dec from 'sequelize-typescript';
 
-// creating the user table 
+// creating the user table (parent)
 @dec.Table({
-    timestamps:false
+    timestamps:false,
 })
 class User extends dec.Model {
     @dec.Column({
@@ -22,7 +22,7 @@ class User extends dec.Model {
     declare pofiles:Profile[]
 }
 
-// creating the profile table 
+// creating the profile table (Child)
 @dec.Table({
     timestamps:false
 })
