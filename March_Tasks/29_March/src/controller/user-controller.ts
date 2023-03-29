@@ -5,11 +5,12 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 // ceating a new user 
-export const registerUser =(req:Request,res:Response) => {
+export const registerUser =async(req:Request,res:Response) => {
     console.log("in create User");
-
+    
     // if there are no errors 
     const {email,password} = req.body ;
+    const hashedpass = await  bcrypt.hash(password,10); // hashing the password
 
     User.findOne({where:{
         email
@@ -17,8 +18,9 @@ export const registerUser =(req:Request,res:Response) => {
     .then(isPresent => {
         if(isPresent){
             res.status(401).send("User is already present")
-        }else{
-             const hashedpass = bcrypt.hash(password,10);      // hashing the password of user 
+        }else{      
+
+             console.log(hashedpass)
              User.create({email,password:hashedpass})
             .then(data => res.status(201).send({data}))
             .catch(err => res.status(400).send("data not added to the database"))
@@ -54,5 +56,5 @@ export const signInUser = async(req:Request,res:Response) => {
 }
 
 export const currentUser = (req:Request,res:Response) => {
-    
+    res.send({req});
 }

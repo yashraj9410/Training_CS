@@ -8,13 +8,11 @@ export const verifyToken = async(req:Request,res:Response, next:NextFunction) =>
 
     if(authHeader && authHeader.toString().startsWith("Bearer")){
         token = authHeader.toString().split(" ")[1];
-        console.log(token);
 
-        const decoded = jwt.verify(token, 'yash1234');
+        const decoded = jwt.verify(token, 'yash1234');  // verifying the generated token using verify 
 
         if(decoded){
            console.log(decoded);
-        //    req = decoded
         next();
         }
         else{
