@@ -6,4 +6,6 @@ import {verifyToken} from '../middleware/validateToken'
 const router = express.Router();
 
 router.use(verifyToken);  // verify the token for the current user when any request is made 
-router.post("/" , ProfileSchema.checkProfile ,  validateSchema , createProfile);
+router.post("/:id" , ProfileSchema.checkProfile ,  validateSchema , createProfile);
+
+export default router

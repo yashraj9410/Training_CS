@@ -56,5 +56,5 @@ export const signInUser = async(req:Request,res:Response) => {
 }
 
 export const currentUser = (req:Request,res:Response) => {
-    res.send({req});
+    res.send("Current user in console")
 }
