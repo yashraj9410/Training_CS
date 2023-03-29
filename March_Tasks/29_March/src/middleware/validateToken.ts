@@ -12,7 +12,7 @@ export const verifyToken = async(req:Request,res:Response, next:NextFunction) =>
         const decoded = jwt.verify(token, 'yash1234');  // verifying the generated token using verify 
 
         if(decoded){
-           console.log(decoded);
+           console.log(decoded);       // send decoded as a request
         next();
         }
         else{
