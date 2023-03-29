@@ -2,9 +2,10 @@
   "name": "29_march",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/app.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node build/app.js",
+    "build": "rm -rf build && tsc"
   },
   "keywords": [],
   "author": "",
