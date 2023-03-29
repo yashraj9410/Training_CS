@@ -52,3 +52,7 @@ export const signInUser = async(req:Request,res:Response) => {
     }
     
 }
+
+export const currentUser = (req:Request,res:Response) => {
+    
+}
