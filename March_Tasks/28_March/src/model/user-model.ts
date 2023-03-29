@@ -8,7 +8,8 @@ import * as dec from 'sequelize-typescript';
 class User extends dec.Model {
     @dec.Column({
         type:dec.DataType.TEXT,
-        allowNull:false
+        allowNull:false,
+        // unique:true,
     })
     declare email:string
     @dec.Column({

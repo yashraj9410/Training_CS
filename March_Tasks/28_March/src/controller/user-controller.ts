@@ -3,15 +3,26 @@ import model from '../model/user-model';
 import {Request, Response} from 'express'
 
 // ceating a new user 
-export const createUser = async(req:Request,res:Response) => {
+export const createUser =(req:Request,res:Response) => {
     console.log("in create User");
 
     // if there are no errors 
     const data = req.body ;
     console.log(data);
-    await model.User.create(data)
-    .then(data => res.status(201).send({data}))
-    .catch(err => res.status(400).send("data not added to the database"))
+
+    model.User.findOne({where:{
+        email:data.email
+    }})
+    .then(isPresent => {
+        if(isPresent){
+            res.status(401).send("User is already present")
+        }else{
+             model.User.create(data)
+            .then(data => res.status(201).send({data}))
+            .catch(err => res.status(400).send("data not added to the database"))
+        }
+    })
+    .catch(err => res.send(err));
 
 }
 
@@ -20,7 +31,8 @@ export const createUser = async(req:Request,res:Response) => {
 export const getUserProfiles = async(req:Request,res:Response) => {
     const {userId}  = req.params;
     model.Profile.findAll({where:{userId}})
-    .then(data => res.status(200).send(data));
+    .then(data => res.status(200).send(data))
+    .catch(err => res.status(404).send(err));
 }
 
 // creating a profile correponding to the user 
@@ -32,6 +44,8 @@ export const createProfile = async(req:Request,res:Response) => {
     const data = req.body;
     console.log(id);
     data.userId = userid;
+
+    // check if a user exists y thr id
     model.User.findByPk(id)
     .then(result => {
         if(result){
