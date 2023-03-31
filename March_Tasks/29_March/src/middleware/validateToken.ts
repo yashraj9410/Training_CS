@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import {Request , Response, NextFunction} from 'express'
-import { error } from 'console';
+
 
 export const verifyToken = async(req:Request,res:Response, next:NextFunction) => {
     let token:string;
