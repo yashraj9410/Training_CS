@@ -12,7 +12,7 @@ export const createProfile = async(req:Request,res:Response) => {
     const userid = req.params.id;
     const data = req.body;
     console.log(id);
-    data.userId = userid;
+    data.userId = userid;    // the data.userid is the foreign key referencing to the user table 
 
     // check if a user exists y thr id
     User.findByPk(id)
@@ -29,7 +29,23 @@ export const createProfile = async(req:Request,res:Response) => {
 
 // reading the profile corresponding to the user 
 export const readProfile = async(req:Request,res:Response) => {
-    res.send("Read user profiles ")
+    const {id} = req.params;
+
+    ///checking for user with that id 
+    User.findOne({where:{id}})
+    .then(data => {
+        if(data){
+            Profile.findAll({where:{id}})
+            .then(profiles => {
+                if(profiles){
+                    res.status(200).send({profiles});
+                }else {
+                    res.status(404).send("No Profile exist for the user");
+                }
+            })
+            .catch(err => res.status(404).send("No user exist with this id "))
+        }
+    })
 }
 
 // updtaing the profile corresponding to the user 
@@ -39,5 +55,21 @@ export const updateProfile = async(req:Request,res:Response) => {
 
 // deleting the profile corresponding to the user 
 export const deleteProfile = async(req:Request,res:Response) => {
-    res.send("Read user profiles ")
+    const {id} = req.params;
+
+    ///checking for user with that id 
+    User.findOne({where:{id}})
+    .then(data => {
+        if(data){
+            Profile.destroy({where:{id}})
+            .then(profiles => {
+                if(profiles){
+                    res.status(200).send("Profile deleted successfully ");
+                }else {
+                    res.status(403).send("User not allowed to delete this profile");
+                }
+            })
+            .catch(err => res.status(404).send("No user exist with this id "))
+        }
+    })
 }
