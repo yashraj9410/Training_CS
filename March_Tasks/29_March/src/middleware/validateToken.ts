@@ -14,14 +14,14 @@ export const verifyToken = async(req:Request,res:Response, next:NextFunction) =>
         const decoded = jwt.verify(token, 'yash1234');  // verifying the generated token using verify 
 
         if(decoded){
-           console.log(decoded);       // send decoded as a request
-        next();
+           console.log("Verified",decoded);       // send decoded as a request
+            next();
         }
         else{
-            res.send("token validation failed")
+           return res.send("token validation failed for the user ")
         }
     }else{
-        res.send("invalid token ")
+        return res.send("invalid token ")
     }
 
 }
