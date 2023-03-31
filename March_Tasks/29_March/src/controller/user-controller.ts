@@ -62,7 +62,7 @@ export const deleteUser = (req:Request,res:Response) => {
     User.findByPk(id)
     .then(user => {
         if(user){
-            User.destroy({where:{id}})
+            User.destroy({where:{id}, truncate:true , cascade:true})
             .then(data => res.status(200).send("user deleted"))
             .catch(err => res.status(401).send("User not deleted"))
         }
