@@ -12,7 +12,6 @@ export const ProfileSchema = {
     checkProfile:checkSchema({
         name:{
             isString:true,
-            isAlpha:true,
             isLength:{
                 options:{min:3},
                 errorMessage:('name should be of atleast 3 letters')
