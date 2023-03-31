@@ -50,7 +50,7 @@ export const signInUser = async(req:Request,res:Response) => {
         res.status(200).json({accessToken});          // sending the acceess token to the user 
 
     }else{
-        res.status(400).send("Invalid email or password")
+        res.status(401).send("Invalid email or password")
     }
     
 }
