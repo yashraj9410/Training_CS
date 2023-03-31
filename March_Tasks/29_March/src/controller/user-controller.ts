@@ -55,6 +55,18 @@ export const signInUser = async(req:Request,res:Response) => {
     
 }
 
-export const currentUser = (req:Request,res:Response) => {
-    res.send("Current user in console")
+export const deleteUser = (req:Request,res:Response) => {
+    const {id} = req.params;
+
+    // check if user exists 
+    User.findByPk(id)
+    .then(user => {
+        if(user){
+            User.destroy({where:{id}})
+            .then(data => res.status(200).send("user deleted"))
+            .catch(err => res.status(401).send("User not deleted"))
+        }
+    })
+    .catch(err => res.status(404).send("No user found with the id"));
+
 }
