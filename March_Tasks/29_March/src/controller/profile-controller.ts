@@ -39,7 +39,7 @@ export const readProfile = async(req:Request,res:Response) => {
     const {id} = req.params;
 
     ///checking for user with that id 
-    User.findOne({where:{id}})
+    User.findByPk(id)
     .then(data => {
         if(data){
             Profile.findAll({where:{}})
@@ -57,7 +57,19 @@ export const readProfile = async(req:Request,res:Response) => {
 
 // updtaing the profile corresponding to the user 
 export const updateProfile = async(req:Request,res:Response) => {
-    res.send("Read user profiles ")
+    const {id} = req.params;
+    const userid = req.params.id;
+
+    User.findByPk(id)
+    .then(user => {
+        if(user){
+            Profile.update(req.body, {where:{userId:userid}})
+            .then(data => res.status(201).send("Profile Updated Successfully"))
+            .catch(err => res.status(403).send("User not authorised to update"));
+        }
+    })
+    .catch(err => res.status(404).send("no user found with the given id"));
+
 }
 
 // deleting the profile corresponding to the user 
