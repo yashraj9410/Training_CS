@@ -39,7 +39,12 @@ export const signInUser = async(req:Request,res:Response) => {
     // comparing the password 
     if(data && await bcrypt.compare(password, data.password)){
 
-        // ceating a json web token for the user 
+        // ceating a json web token for the user verification 
+        // jwt has three components that are header , payload and the signature 
+        // the header contain the type and the algorithm used for encoding 
+        // payload cntains the data we are sending in the token 
+        // the signature conatin the accesstoken seret (here we have used 'yashraj1234' as the access token secret )
+        
         const accessToken = jwt.sign({
            data:{
             email:data.email,                        // this is the payload 
