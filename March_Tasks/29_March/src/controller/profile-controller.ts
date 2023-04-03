@@ -86,7 +86,7 @@ export const deleteProfile = async(req:Request,res:Response) => {
                 if(profiles){
                     res.status(200).send("Profile deleted successfully ");
                 }else {
-                    res.status(403).send("User not allowed to delete this profile");
+                    res.status(404).send("No profiles found for the user");
                 }
             })
             .catch(err => res.status(404).send("No user exist with this id "))
