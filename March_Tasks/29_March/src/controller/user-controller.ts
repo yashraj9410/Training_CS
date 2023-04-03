@@ -10,7 +10,7 @@ export const registerUser =async(req:Request,res:Response) => {
     
     // if there are no errors 
     const {email,password} = req.body ;
-    const hashedpass = await  bcrypt.hash(password,10); // hashing the password
+    //const hashedpass = await  bcrypt.hash(password,10); // hashing the password
 
     User.findOne({where:{
         email
@@ -20,8 +20,8 @@ export const registerUser =async(req:Request,res:Response) => {
             res.status(401).send("User is already present")
         }else{      
 
-             console.log(hashedpass)
-             User.create({email,password:hashedpass})
+             //console.log(hashedpass)
+             User.create({email,password})
             .then(data => res.status(201).send({data}))
             .catch(err => res.status(400).send("data not added to the database"))
         }

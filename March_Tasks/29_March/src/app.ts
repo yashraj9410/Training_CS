@@ -9,7 +9,7 @@ import db from './middleware/connection'
 // connecting to the database 
 try {
     db.authenticate();
-    db.sync({alter:true})
+    db.sync({force:true})
     .then(data => {
         console.log("Database Connected Successfully")
         startServer();
