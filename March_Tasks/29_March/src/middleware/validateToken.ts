@@ -15,6 +15,10 @@ export const verifyToken = async(req:Request,res:Response, next:NextFunction) =>
 
         if(decoded){
            console.log("Verified",decoded);       // send decoded as a request
+           const data = JSON.stringify(decoded);
+           const user_data = JSON.parse(data);
+            console.log(user_data.data.id);
+            //req.user = user_data.data.id;            // assigning the data to the req.body
             next();
         }
         else{
