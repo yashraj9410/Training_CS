@@ -19,7 +19,7 @@ import Profile from './profile-model';
     })
     declare password:string
 
-    @HasOne(()=> Profile)         // ceating a one to many asociation 
+    @HasOne(()=> Profile , {onDelete:'CASCADE'})         // ceating a one to many asociation 
     declare pofiles:Profile[]
 }
 

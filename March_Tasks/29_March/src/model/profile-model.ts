@@ -23,13 +23,13 @@ class Profile extends Model {
     })
      declare address:string
 
-    @ForeignKey(()=> User)
+    @ForeignKey(()=> User )
     @Column({
         type: DataType.INTEGER,
         allowNull:false,
     })
      declare userId:Number
-    @BelongsTo(()=> User )            // pofile belongs to the user 
+    @BelongsTo(()=> User)            // pofile belongs to the user 
      declare users:User
 }
 
