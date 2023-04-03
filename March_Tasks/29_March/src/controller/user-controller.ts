@@ -7,7 +7,7 @@ import jwt from 'jsonwebtoken';
 // ceating a new user 
 export const registerUser =async(req:Request,res:Response) => {
     console.log("in create User");
-    
+    console.log(req.user);
     // if there are no errors 
     const {email,password} = req.body ;
     //const hashedpass = await  bcrypt.hash(password,10); // hashing the password
@@ -61,8 +61,10 @@ export const signInUser = async(req:Request,res:Response) => {
 }
 
 export const deleteUser = (req:Request,res:Response) => {
-    const {id} = req.params;
 
+    const id = req.user?.id;
+    console.log(id)
+   
     // check if user exists 
     User.findByPk(id)
     .then(user => {

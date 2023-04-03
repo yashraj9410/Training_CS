@@ -14,11 +14,12 @@ export const verifyToken = async(req:Request,res:Response, next:NextFunction) =>
         const decoded = jwt.verify(token, 'yash1234');  // verifying the generated token using verify 
 
         if(decoded){
-           console.log("Verified",decoded);       // send decoded as a request
+                                                       // send decoded as a request
            const data = JSON.stringify(decoded);
            const user_data = JSON.parse(data);
-            console.log(user_data.data.id);
-            //req.user = user_data.data.id;            // assigning the data to the req.body
+           
+           req.user = user_data.data;        // assigning the data to the req.user
+           console.log(req.user)
             next();
         }
         else{
