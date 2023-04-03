@@ -9,8 +9,8 @@ router.use(verifyToken);  // verify the token for the current user when any requ
 
 // every request for profile will be private and made with user id only 
 router.post("/" , ProfileSchema.checkProfile ,  validateSchema , createProfile);
-router.get("/:id" , readProfile);
-router.put("/:id", ProfileSchema.checkProfile , validateSchema , updateProfile);
-router.delete("/:id", deleteProfile);
+router.get("/" , readProfile);
+router.put("/", ProfileSchema.checkProfile , validateSchema , updateProfile);
+router.delete("/", deleteProfile);
 
 export default router

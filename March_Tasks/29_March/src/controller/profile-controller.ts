@@ -8,17 +8,16 @@ import {Request,Response} from 'express'
 export const createProfile = async(req:Request,res:Response) => {
     console.log("in create Profile ")
 
-    const {id} = req.params
-    const userid = req.params.id;
+    const id = req.user?.id;
     const data = req.body;
     
      // checking if a profile already exists by the given user id (because we have a one to one relation )
-     Profile.findOne({where:{userId:userid}})
+     Profile.findOne({where:{userId:id}})
      .then(user => {
          if(user){
             return res.status(403).send("Profile Already exists for the user");
          }else{
-            data.userId = userid;    // the data.userid is the foreign key referencing to the user table 
+            data.userId = id;    // the data.userid is the foreign key referencing to the user table 
 
             User.findByPk(id)        // check if user exists by the id 
             .then(result => {
@@ -36,7 +35,7 @@ export const createProfile = async(req:Request,res:Response) => {
 
 // reading the profile corresponding to the user 
 export const readProfile = async(req:Request,res:Response) => {
-    const {id} = req.params;
+    const id = req.user?.id;
 
     ///checking for user with that id 
     User.findByPk(id)
@@ -57,13 +56,13 @@ export const readProfile = async(req:Request,res:Response) => {
 
 // updtaing the profile corresponding to the user 
 export const updateProfile = async(req:Request,res:Response) => {
-    const {id} = req.params;
-    const userid = req.params.id;
+
+    const id = req.user?.id;
 
     User.findByPk(id)
     .then(user => {
         if(user){
-            Profile.update(req.body, {where:{userId:userid}})
+            Profile.update(req.body, {where:{userId:id}})
             .then(data => res.status(201).send("Profile Updated Successfully"))
             .catch(err => res.status(403).send("User not authorised to update"));
         }
@@ -74,14 +73,15 @@ export const updateProfile = async(req:Request,res:Response) => {
 
 // deleting the profile corresponding to the user 
 export const deleteProfile = async(req:Request,res:Response) => {
-    const {id} = req.params;
-    const userid = req.params.id;
+
+    const id = req.user?.id;
+
 
     ///checking for user with that id 
     User.findOne({where:{id}})
     .then(data => {
         if(data){
-            Profile.destroy({where:{userId:userid}})
+            Profile.destroy({where:{userId:id}})
             .then(profiles => {
                 if(profiles){
                     res.status(200).send("Profile deleted successfully ");

@@ -14,13 +14,13 @@ export const verifyToken = async(req:Request,res:Response, next:NextFunction) =>
         const decoded = jwt.verify(token, 'yash1234');  // verifying the generated token using verify 
 
         if(decoded){
-                                                       // send decoded as a request
-           const data = JSON.stringify(decoded);
+
+           const data = JSON.stringify(decoded);   // send decoded as a request
            const user_data = JSON.parse(data);
-           
            req.user = user_data.data;        // assigning the data to the req.user
-           console.log(req.user)
-            next();
+           
+           next();
+           
         }
         else{
            return res.send("token validation failed for the user ")
