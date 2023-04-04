@@ -38,7 +38,7 @@ export const readUser = async(req:Request,res:Response) => {
                 }
             })
         })
-    } catch (error) {
+    } catch (error) {                                       // catch will work in case of transaction rollback
         res.status(500).send(error);
     }
 }
