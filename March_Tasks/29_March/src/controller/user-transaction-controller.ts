@@ -22,3 +22,5 @@ export const create = async(req:Request,res:Response) => {
         res.status(500).send(err);
     }
 }
+
+// the above is the example of managed transaction that performs auto-commit and rollback also 
