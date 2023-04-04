@@ -4,6 +4,7 @@ import express from 'express';
 const app =express();
 import user_router from './routes/user-routes'
 import admin_router from './routes/admin-routes'
+import task_router from './routes/task-routes'
 import db from './middleware/connection'
 
 // connecting to the database 
@@ -27,7 +28,8 @@ const startServer = () => {
 
     app.use("/api/user" , user_router );
     app.use("/api/admin" , admin_router );
-
+    app.use("/api/task" , task_router)
+    
     app.listen(3300, () => {
         console.log("listening at 3300");
     })

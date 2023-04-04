@@ -23,7 +23,7 @@ export const verifyToken = async(req:Request,res:Response, next:NextFunction) =>
            
         }
         else{
-           return res.send("token validation failed for the user ")
+           return res.send("token validation failed  ")
         }
     }else{
         return res.status(403).send("invalid token , user not authorised")
