@@ -19,14 +19,14 @@ export const register = async(req:Request,res:Response) => {
         })
     }
     catch(err){
-        res.status(500).send(err);
+        res.status(500).send(err);                                  // if command comes to this line then the transcation will be rollbacked 
     }
 }
 
 // the above is the example of managed transaction that performs auto-commit and rollback also 
 
 // read the users from th database
-export const read = async(req:Request,res:Response) => {
+export const readUser = async(req:Request,res:Response) => {
     try {
         await db.transaction(async(t) => {
             await User.findAll({where:{}})
@@ -45,5 +45,5 @@ export const read = async(req:Request,res:Response) => {
 
 // login for the user 
 export const login = async(req:Request,res:Response) => {
-    
+
 }
