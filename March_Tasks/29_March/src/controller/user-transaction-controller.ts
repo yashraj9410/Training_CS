@@ -24,3 +24,22 @@ export const create = async(req:Request,res:Response) => {
 }
 
 // the above is the example of managed transaction that performs auto-commit and rollback also 
+
+// read the users from th database
+export const read = async(req:Request,res:Response) => {
+    try {
+        await db.transaction(async(t) => {
+            await User.findAll({where:{}})
+            .then(data => {
+                if(data && data.length){
+                    res.status(200).send(data);
+                }else{
+                    res.status(404).send("Database is empty")
+                }
+            })
+        })
+    } catch (error) {
+        res.status(500).send(error);
+    }
+}
+
