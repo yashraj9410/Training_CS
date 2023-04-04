@@ -9,7 +9,7 @@ import db from '../middleware/connection';
 
 // using the db.transaction function 
 
-export const create = async(req:Request,res:Response) => {
+export const register = async(req:Request,res:Response) => {
     const data = req.body;
     try{
         await db.transaction(async(t) => {                           // here we have defined a transaction 
@@ -43,3 +43,7 @@ export const read = async(req:Request,res:Response) => {
     }
 }
 
+// login for the user 
+export const login = async(req:Request,res:Response) => {
+    
+}
