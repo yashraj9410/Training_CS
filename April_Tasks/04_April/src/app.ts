@@ -3,7 +3,7 @@
 import express from 'express';
 const app =express();
 import user_router from './routes/user-routes'
-import profile_router from './routes/profile-routes'
+import admin_router from './routes/admin-routes'
 import db from './middleware/connection'
 
 // connecting to the database 
@@ -26,7 +26,7 @@ const startServer = () => {
     app.use(express.urlencoded({extended:true}));
 
     app.use("/api/user" , user_router );
-    app.use("/api/profile" , profile_router );
+    app.use("/api/admin" , admin_router );
 
     app.listen(3300, () => {
         console.log("listening at 3300");

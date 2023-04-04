@@ -2,7 +2,7 @@ import {checkSchema,body, validationResult} from 'express-validator';  // using 
 import express from 'express'
 
 // checking some validations for the user schema and passing the error to the controller 
-export const UserSchema = [
+export const AdminSchema = [
     body('email').isEmail(),
     body('password').isLength({min:5}).withMessage('min length 5'),
 ] 
