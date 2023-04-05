@@ -13,18 +13,26 @@ export const createTask = (req:Request,res:Response) => {
     
     const data = req.body;
     const adminid = req.user?.id;
+    const email = req.user?.email;
+    
 
     //check for the user if exist 
-    User.findByPk(data.userId)
-    .then(user => {
-        if(user){                                     // if user exists 
-            data.adminId = adminid;
-            User.create(data)                         // create task for the user
-            .then(task=> res.status(201).send(task))
-            .catch(err => res.status(403).send("No Task Created , Forbidden"))
+    Admin.findOne({where:{id:adminid,email:email}})
+    .then(admin => {
+        if(admin){                                     // if admin exists ten check if  user exists 
+           User.findByPk(data.userId)
+           .then(user => {
+                if(user){
+                    data.adminId = adminid;
+                    Task.create(data)                         // create task for the user
+                    .then(task=> res.status(201).send(task))
+                    .catch(err => res.status(400).send("No Task Created"))
+                }
+           })
+           .catch(err => res.status(404).send("No user existe for the userId"))
         }
     })
-    .catch(err => res.status(404).send("No user exist with this userid"))
+    .catch(err => res.status(403).send("No admin exist with this adminId"))
 }
 
 // read task 
@@ -73,10 +81,11 @@ export const readTask = (req:Request, res:Response) => {
 // admin is only authorised to delete the task
 
 export const deleteTask = (req:Request,res:Response) => {
-    const {id} = req.params;
-    const adminid = req.user?.id;
+    const {id} = req.params;                                // task id from params
+    const adminid = req.user?.id;                           // admin id and email  from token payload
+    const email = req.user?.email;
 
-    Admin.findByPk(adminid)
+    Admin.findOne({where:{id:adminid,email:email}})
     .then(admin => {
         if(admin){
             Task.destroy({where:{
