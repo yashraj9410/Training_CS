@@ -30,7 +30,7 @@ export const createTask = (req:Request,res:Response) => {
 // read task 
 // this method can be accessed by both user and admin 
 // in case of admin they can read all the task they have created for the users 
-// users can only read task assigned on their id 
+// users can only read task assigned on their id's 
 export const readTask = (req:Request, res:Response) => {
 
     const id =req.user?.id; 
@@ -67,4 +67,33 @@ export const readTask = (req:Request, res:Response) => {
     })
     .catch(err => res.status(404).send("No user exists for this email"))
 
+}
+
+// delete task 
+// admin is only authorised to delete the task
+
+export const deleteTask = (req:Request,res:Response) => {
+    const {id} = req.params;
+    const adminid = req.user?.id;
+
+    Admin.findByPk(adminid)
+    .then(admin => {
+        if(admin){
+            Task.destroy({where:{
+                adminId:adminid,
+                id
+            }})
+            .then(result => res.status(200).send("task Deleted"))
+            .catch(err => res.status(404).send("No task deleted"))
+        }
+    })
+    .catch(err => res.status(403).send("Unauthorised admin , no admin found"))
+}
+
+
+// update task 
+// admin is only authorised to update the task
+
+export const updateTask = (req:Request,res:Response) => {
+    
 }
