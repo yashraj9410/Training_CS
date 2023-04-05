@@ -15,19 +15,14 @@ import bcrypt from 'bcrypt';
   declare description: string
 
   @ForeignKey(() => Admin)
-  @Column({
-
-  })
+  @Column
   declare adminId: number;
 
   @BelongsTo(() => Admin)
   declare admin: Admin;
 
   @ForeignKey(() => User)
-  @Column({
-    type:DataType.TEXT,
-    allowNull:false
-  })
+  @Column
   declare userId: number;
 
   @BelongsTo(() => User)

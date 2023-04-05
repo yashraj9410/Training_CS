@@ -21,7 +21,7 @@ import bcrypt from 'bcrypt';
     set password(value:string) {
         this.setDataValue('password' , bcrypt.hashSync(value,10));
     }   
-    @HasMany(()=> Task , {onDelete:'CASCADE'})         // ceating a one to many asociation 
+    @HasMany(()=> Task)         // ceating a one to many asociation 
     declare tasks:Task[]
 }
 
