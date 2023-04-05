@@ -52,8 +52,14 @@ export const readTask = (req:Request, res:Response) => {
             Task.findOne({where:{
                 userId:id
             }})
-            .then(task => res.status(200).send(task))     // if user exist then give the task assigned to the user 
-            .catch(err => res.status(404).send("no task assigned"))
+            .then(task => {
+                if(task){
+                    res.status(200).send(task)
+                }else{
+                    res.status(404).send("No task Assigned")
+                }
+            })     // if user exist then give the task assigned to the user 
+            .catch(err => res.status(403).send(err))
         }else{
             Admin.findOne({where:{            // if user not exist then check for admin
                 id:id,
