@@ -7,6 +7,11 @@ import admin_router from './routes/admin-routes'
 import task_router from './routes/task-routes'
 import db from './middleware/connection'
 
+// setting up swagger
+import swaggerUi from 'swagger-ui-express';
+import swaggerJsdoc from 'swagger-jsdoc';
+import { swaggerOptions } from '../src/utils/swaggerDef';
+
 // connecting to the database 
 try {
     db.authenticate();
@@ -30,6 +35,11 @@ const startServer = () => {
     app.use("/api/admin" , admin_router );
     app.use("/api/task" , task_router)
     
+    // setting up middlewre for swagger 
+    const specs = swaggerJsdoc(swaggerOptions);
+    app.use("/api/docs",  swaggerUi.serve, swaggerUi.setup(specs))
+
+    //setting up the server 
     app.listen(3300, () => {
         console.log("listening at 3300");
     })
