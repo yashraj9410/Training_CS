@@ -17,6 +17,22 @@ const router = express.Router();
  *              description: Registered User.
  *          400:
  *              description: Invalid Request 
+ * /api/user/login:
+ *  post:
+ *      description: Login for the user .
+ *      responses:
+ *          201:
+ *              description: Authenticated User , Generate Access Token.
+ *          401:
+ *              description: Authentication Failed.
+ * /api/user/delete:
+ *  delete:
+ *      description: Delete user .
+ *      responses:
+ *          200:
+ *              description: Authenticated User , Delete User from the table.
+ *          401:
+ *              description: Authentication Failed.
  */
 router.post("/", UserSchema,validateSchema, registerUser);      // registering user using the transaction controller 
 router.post("/login", signInUser);
