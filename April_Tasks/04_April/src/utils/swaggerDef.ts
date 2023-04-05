@@ -1,5 +1,5 @@
 import { Options } from 'swagger-jsdoc';
-import routes from '../routes/user-routes'
+
 //defining the swagger option
 export const swaggerOptions: Options = {
   definition: {
