@@ -28,6 +28,7 @@ try {
 
 // making the start server function 
 const startServer = () => {
+    const specs = swaggerJsdoc(swaggerOptions);
     app.use(express.json());
     app.use(express.urlencoded({extended:true}));
 
@@ -36,7 +37,7 @@ const startServer = () => {
     app.use("/api/task" , task_router)
     
     // setting up middlewre for swagger 
-    const specs = swaggerJsdoc(swaggerOptions);
+    
     app.use("/api/docs",  swaggerUi.serve, swaggerUi.setup(specs))
 
     //setting up the server 

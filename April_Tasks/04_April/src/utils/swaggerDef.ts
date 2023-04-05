@@ -11,7 +11,7 @@ export const swaggerOptions: Options = {
     },
     servers: [
       {
-        url: 'http://localhost:3300/api/user'
+        url: 'http://localhost:3300'
       }
     ]
   },
