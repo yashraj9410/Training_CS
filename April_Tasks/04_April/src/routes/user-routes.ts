@@ -11,10 +11,12 @@ const router = express.Router();
  * @swagger
  * /api/user:
  *  post:
- *      description: Creates a  user in the database
+ *      description: Creating a new user in the databse.
  *      responses:
- *          200:
- *              description:User has been created
+ *          201:
+ *              description: Registered User.
+ *          400:
+ *              description: Invalid Request 
  */
 router.post("/", UserSchema,validateSchema, registerUser);      // registering user using the transaction controller 
 router.post("/login", signInUser);

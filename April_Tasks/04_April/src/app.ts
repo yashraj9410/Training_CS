@@ -1,6 +1,7 @@
 // creating the server 
 // creating the server 
 import express from 'express';
+import path from 'path'
 const app =express();
 import user_router from './routes/user-routes'
 import admin_router from './routes/admin-routes'
@@ -10,7 +11,7 @@ import db from './middleware/connection'
 // setting up swagger
 import swaggerUi from 'swagger-ui-express';
 import swaggerJsdoc from 'swagger-jsdoc';
-import { swaggerOptions } from '../src/utils/swaggerDef';
+import { swaggerOptions } from './swaggerDef';
 
 // connecting to the database 
 try {
@@ -25,6 +26,7 @@ try {
 } catch (error) {
     console.log("database Not cconnected ");
 }
+
 
 // making the start server function 
 const startServer = () => {
