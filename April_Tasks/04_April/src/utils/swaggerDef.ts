@@ -1,5 +1,5 @@
 import { Options } from 'swagger-jsdoc';
-
+import routes from '../routes/user-routes'
 //defining the swagger option
 export const swaggerOptions: Options = {
   definition: {
@@ -11,7 +11,7 @@ export const swaggerOptions: Options = {
     },
     servers: [
       {
-        url: 'http://localhost:3300'
+        url: 'http://localhost:3300/api/user'
       }
     ]
   },

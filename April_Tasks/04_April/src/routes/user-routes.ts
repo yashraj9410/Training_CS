@@ -7,6 +7,16 @@ import {verifyToken} from '../middleware/validateToken'
 
 const router = express.Router();
 
+/**
+ * @swagger
+ * /api/user:
+ *   post:
+ *     summary: Returns a created user 
+ *     responses:
+ *       201: Created User
+ *            
+ *               
+ */
 router.post("/", UserSchema,validateSchema, registerUser);      // registering user using the transaction controller 
 router.post("/login", signInUser);
 router.delete('/delete', verifyToken,  deleteUser)   // proivate route for delete user 
