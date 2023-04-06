@@ -3,6 +3,7 @@ import path from 'path'
 //defining the swagger option
 export const swaggerOptions: Options = {
   definition: {
+    openapi: "3.0.0",
     info: {
       title: 'Express API with Swagger',
       version: '1.0.0',

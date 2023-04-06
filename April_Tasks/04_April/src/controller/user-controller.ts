@@ -19,7 +19,7 @@ export const registerUser =async(req:Request,res:Response) => {
     }})
     .then(isPresent => {
         if(isPresent){
-            res.status(401).send("User is already present")
+            res.status(400).send("User is already present")
         }else{      
 
              //console.log(hashedpass)

@@ -21,38 +21,66 @@ const router = express.Router();
 //  *           type: string
 //  *           description: The user's email.
 //  *         password:
-//  *           type:string
-//  *           description:User Password
+//  *           type: string
+//  *           description: User Password
 //  */
 
 /**
  * @swagger
  * /api/user:
  *  post:
- *      description: Creating a new user in the database.
+ *      summary: Creating a new user in the database.
+ *      requestBody:
+ *        required: true
+ *        content: 
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                email:
+ *                  type: string
+ *                  example: yash@yash.com
+ *                password:
+ *                  type: string
+ *                  example: 12345
  *      responses:
  *          201:
  *              description: Registered User.
- *              schema:
- *                type: object
- *                properties:
- *                  id:
- *                    type: integer
- *                    example: 1
- *                  email:
- *                    type: string
- *                    example: yash@yash.com
- *                  password:
- *                    type: string
- *                    example: 12345456
+ *              content:
+ *                application/json:
+ *                  schema:
+ *                    type: object
+ *                    properties:
+ *                      id:
+ *                        type: integer
+ *                        example: 1
+ *                      email:
+ *                        type: string
+ *                        example: yash@yash.com
+ *                      password:
+ *                        type: string
+ *                        example: asdasdfasdfkjasbnakjdbqbqawaDSIADKJNNMLMMDEbiBSEde
  *          400:
  *              description: Invalid Request , Invalid email ,password.
  * /api/user/login:
  *  post:
- *      description: Login for the user .
+ *      summary: Login for the user .
+ *      requestBody:
+ *        required: true
+ *        content: 
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                email:
+ *                  type: string
+ *                  example: yash@yash.com
+ *                password:
+ *                  type: string
+ *                  example: 12345
  *      responses:
  *          201:
- *              description: Authenticated User , Generate Access Token.
+ *              description: Authenticated User , Generated Access Token.
  *          401:
  *              description: Authentication Failed.
  * /api/user/delete:
