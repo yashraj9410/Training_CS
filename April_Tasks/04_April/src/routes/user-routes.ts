@@ -27,9 +27,13 @@ const router = express.Router();
 
 /**
  * @swagger
+ * tags:
+ *   name: User
+ *   description: API's to manage the user register , login , delete
  * /api/user:
  *  post:
  *      summary: Creating a new user in the database.
+ *      tags: [User]
  *      requestBody:
  *        required: true
  *        content: 
@@ -65,6 +69,7 @@ const router = express.Router();
  * /api/user/login:
  *  post:
  *      summary: Login for the user .
+ *      tags: [User]
  *      requestBody:
  *        required: true
  *        content: 
@@ -88,6 +93,7 @@ const router = express.Router();
  *      security:
  *        - bearerAuth: []
  *      summary: Delete a user .
+ *      tags: [User]
  *      responses:
  *          200:
  *              description: Authenticated User , Delete User from the table.
