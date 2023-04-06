@@ -75,19 +75,24 @@ const router = express.Router();
  *          404:
  *              description: No user/admin found for the credentials(id,email).
  *          
- * /api/user/{id}:
+ * /api/task/{id}:
  *  delete:
  *      security:
  *        - bearerAuth: []
  *      summary: Delete a task using task id.
  *      tags: [Task]
+ *      parameters:
+ *        - in: path
+ *          name: id
+ *          required: true
+ *          description: The Task id.
  *      responses:
  *          200:
  *              description: task Deleted.
  *          403:
  *              description: Unauthorised Admin, Forbidden action.
  *          404:
- *              description:No Task found.
+ *              description: No Task found.
  */
 
 // creating the task routes 
