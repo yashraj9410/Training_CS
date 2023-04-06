@@ -10,8 +10,9 @@ const router = express.Router();
 // creating the jsdoc swagger comment for the task routes 
 /**
  * @swagger
- * tags: Task
- * description: Api to manage tasks apis.
+ * tags:
+ *   name: Task
+ *   description: Api to manage tasks creatin , display , delete .
  * /api/task:
  *  post:
  *      security:
