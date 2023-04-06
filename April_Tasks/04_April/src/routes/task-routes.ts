@@ -13,7 +13,7 @@ const router = express.Router();
  * @swagger
  * tags: Task
  * description: Api to manage tasks apis.
- * /:
+ * /api/task:
  *  post:
  *      security:
  *        - bearerAuth: []
@@ -52,6 +52,30 @@ const router = express.Router();
  *              description: No user found for the userId.
  *          403:
  *              description: Action is forbidden , unauthorised.
+ *  get:
+ *      security:
+ *        - bearerAuth: []
+ *      summary:  Displaying the created task to admin/user.
+ *      tags: [Task]
+ *      responses:
+ *          200:
+ *              description: Task will be displayed for user/admin.If request is made by the user then only the task corresponding to that user will displayed >If request is made by the admin then all the task created by the admin will be displayed.
+ *              content:
+ *                application/json:
+ *                  schema:
+ *                    type: object
+ *                    properties:
+ *                      description:
+ *                        type: string
+ *                        example: description of the task created
+ *                      userId:
+ *                        type: integer
+ *                        example: 1
+ *          403:
+ *              description: Forbidden action.
+ *          404:
+ *              description: No user/admin found for the credentials(id,email).
+ *          
  *      
  */
 router.use(verifyToken);
