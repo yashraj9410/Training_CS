@@ -82,10 +82,12 @@ const router = express.Router();
  *          201:
  *              description: Authenticated User , Generated Access Token.
  *          401:
- *              description: Authentication Failed.
+ *              description: Authentication Failed , Invalid Username , password.
  * /api/user/delete:
  *  delete:
- *      description: Delete user .
+ *      security:
+ *        - bearerAuth: []
+ *      summary: Delete a user .
  *      responses:
  *          200:
  *              description: Authenticated User , Delete User from the table.
