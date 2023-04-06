@@ -7,16 +7,46 @@ import {verifyToken} from '../middleware/validateToken'
 
 const router = express.Router();
 
+// /**
+//  * @swagger
+//  * components:
+//  *   schemas:
+//  *     User:
+//  *       type: object
+//  *       properties:
+//  *         id:
+//  *           type: integer
+//  *           description: The user ID.
+//  *         email:
+//  *           type: string
+//  *           description: The user's email.
+//  *         password:
+//  *           type:string
+//  *           description:User Password
+//  */
+
 /**
  * @swagger
  * /api/user:
  *  post:
- *      description: Creating a new user in the databse.
+ *      description: Creating a new user in the database.
  *      responses:
  *          201:
  *              description: Registered User.
+ *              schema:
+ *                type: object
+ *                properties:
+ *                  id:
+ *                    type: integer
+ *                    example: 1
+ *                  email:
+ *                    type: string
+ *                    example: yash@yash.com
+ *                  password:
+ *                    type: string
+ *                    example: 12345456
  *          400:
- *              description: Invalid Request 
+ *              description: Invalid Request , Invalid email ,password.
  * /api/user/login:
  *  post:
  *      description: Login for the user .
