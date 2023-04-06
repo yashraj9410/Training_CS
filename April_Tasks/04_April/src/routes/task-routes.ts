@@ -3,7 +3,6 @@ import express from 'express'
 import { TaskSchema,validateSchema } from '../middleware/schema-validator'
 import {verifyToken} from '../middleware/validateToken'
 import { createTask, deleteTask, readTask } from '../controller/task-controller';
-//import { read } from 'fs';
 
 const router = express.Router();
 
@@ -76,8 +75,22 @@ const router = express.Router();
  *          404:
  *              description: No user/admin found for the credentials(id,email).
  *          
- *      
+ * /api/user/{id}:
+ *  delete:
+ *      security:
+ *        - bearerAuth: []
+ *      summary: Delete a task using task id.
+ *      tags: [Task]
+ *      responses:
+ *          200:
+ *              description: task Deleted.
+ *          403:
+ *              description: Unauthorised Admin, Forbidden action.
+ *          404:
+ *              description:No Task found.
  */
+
+// creating the task routes 
 router.use(verifyToken);
 router.post("/", TaskSchema.checkTask ,validateSchema, createTask);      // registering user using the transaction controller 
 router.get("/", readTask);
