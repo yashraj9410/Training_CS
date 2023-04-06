@@ -9,6 +9,15 @@ export const swaggerOptions: Options = {
       version: '1.0.0',
       description: 'A sample API to demonstrate Swagger with Express and TypeScript'
     },
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: 'http',
+          scheme: 'bearer',
+          bearerFormat: 'JWT',
+        },
+      },
+    },
     servers: [
       {
         url: 'http://localhost:3300'
