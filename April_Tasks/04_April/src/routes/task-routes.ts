@@ -45,6 +45,7 @@ const router = express.Router();
  *                        example: description of the task created
  *                      userId:
  *                        type: integer
+ *                        example: 1
  *          400:
  *              description: Bad Request , task not created .
  *          404:
