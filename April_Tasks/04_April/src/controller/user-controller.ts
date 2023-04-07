@@ -6,7 +6,8 @@ import {Request, Response} from 'express'
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import db from '../middleware/connection'
-import {QueryTypes} from 'sequelize-typescript'
+// import { Sequelize, QueryTypes } from 'sequelize-typescript';
+
 // ceating a new user 
 export const registerUser =async(req:Request,res:Response) => {
     console.log("in create User");
@@ -83,6 +84,6 @@ export const deleteUser = (req:Request,res:Response) => {
 
 // creating custom query using sequelize.query
 
-export const getusers = async(req:Request,res:Response) => {
-    const users = await db.query("SELECT * from `Users`",{type:QueryTypes.SELECT})
-}
+// export const getusers = async(req:Request,res:Response) => {
+//     const users = await db.query("SELECT * from `Users`",{type:QueryTypes.SELECT})
+// }
