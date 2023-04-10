@@ -1,6 +1,6 @@
 // defining routes for the task 
 import express from 'express'
-import {deleteUser, registerUser , signInUser} from '../controller/user-controller';
+import {deleteUser, registerUser , signInUser, userTask} from '../controller/user-controller';
 import {UserSchema,validateSchema } from '../middleware/schema-validator'
 import {verifyToken} from '../middleware/validateToken'
 //import { read } from 'fs';
@@ -104,5 +104,6 @@ router.post("/", UserSchema,validateSchema, registerUser);      // registering u
 router.post("/login", signInUser);
 router.delete('/delete', verifyToken,  deleteUser)   // proivate route for delete user 
 
+router.get("/showtask" ,verifyToken, userTask);
 
 export default router ;
