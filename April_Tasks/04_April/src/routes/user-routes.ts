@@ -104,6 +104,6 @@ router.post("/", UserSchema,validateSchema, registerUser);      // registering u
 router.post("/login", signInUser);
 router.delete('/delete', verifyToken,  deleteUser)   // proivate route for delete user 
 
-router.get("/showtask" ,verifyToken, userTask);
+router.get("/showtask" ,verifyToken, userTask);      // using the eager loading 
 
 export default router ;

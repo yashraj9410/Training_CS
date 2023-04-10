@@ -101,5 +101,5 @@ router.use(verifyToken);
 router.post("/", TaskSchema.checkTask ,validateSchema, createTask);      // registering user using the transaction controller 
 router.get("/", readTask);
 router.delete("/:id", deleteTask)
-router.get("/show", getAll);
+router.get("/show", getAll);  // using raw queries 
 export default router ;
