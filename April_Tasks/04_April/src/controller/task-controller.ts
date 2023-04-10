@@ -118,3 +118,19 @@ export const getAll = async(req:Request,res:Response) => {
     const tasks = await db.query(`SELECT * FROM Tasks WHERE adminID = ${id}`, {type:QueryTypes.SELECT});
     res.status(200).send(tasks);
 } 
+
+
+// using the sequelize literals to generate number of task created by any admin
+export const taskCount = (req:Request , res:Response) => {
+    const id = req.user?.id;
+    Task.findAll({
+        attributes:{include:[
+            [
+                db.literal(`(Select Count(*) from Tasks where adminID = ${id})`),
+                `taskcount`
+            ]
+        ]
+        },
+        order:[db.literal(`taskCount`) , `DESC`]
+    })
+}

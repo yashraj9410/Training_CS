@@ -92,6 +92,7 @@ export const getusers = async(req:Request,res:Response) => {
 
 // finding user along with the task using the eager loading
 // eager loading is the process of fetching data from various models eg the ,mai n model an then asociated model to th emkain models 
+// eager loading makes use of single query and gives the whole data of the two asociated tables 
 
 export const userTask = (req:Request, res:Response) => {
     const id = req.user?.id;
