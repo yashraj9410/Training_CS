@@ -109,6 +109,9 @@ export const deleteTask = (req:Request,res:Response) => {
 // update task 
 // admin is only authorised to update the task
 
-export const updateTask = (req:Request,res:Response) => {
+// getting all the tasks 
+export const getAll = (req:Request,res:Response) => {
+    const id = req.user?.id
+
     
 }
