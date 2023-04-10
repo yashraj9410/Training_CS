@@ -5,6 +5,8 @@
  import User from '../model/user-model'
  import Task from '../model/task-model'
 import {Request, Response} from 'express'
+import db from '../middleware/connection'
+import { QueryTypes } from 'sequelize'
 
 
 // creating a task for the user (only allowed for admins)
@@ -110,8 +112,9 @@ export const deleteTask = (req:Request,res:Response) => {
 // admin is only authorised to update the task
 
 // getting all the tasks 
-export const getAll = (req:Request,res:Response) => {
+export const getAll = async(req:Request,res:Response) => {
     const id = req.user?.id
 
-    
+    const tasks = await db.query(`SELECT * FROM Tasks WHERE adminID = ${id}`, {type:QueryTypes.SELECT});
+    res.status(200).send(tasks);
 }
