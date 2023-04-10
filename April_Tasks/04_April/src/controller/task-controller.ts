@@ -51,7 +51,7 @@ export const readTask = (req:Request, res:Response) => {
     }})
     .then(user => {
         if(user){
-            Task.findOne({where:{
+            Task.findAll({where:{
                 userId:id
             }})
             .then(task => {
@@ -121,16 +121,16 @@ export const getAll = async(req:Request,res:Response) => {
 
 
 // using the sequelize literals to generate number of task created by any admin
-export const taskCount = (req:Request , res:Response) => {
+export const taskCount = async(req:Request , res:Response) => {
     const id = req.user?.id;
-    Task.findAll({
+    await Task.findAll({
         attributes:{include:[
             [
                 db.literal(`(Select Count(*) from Tasks where adminID = ${id})`),
                 `taskcount`
             ]
         ]
-        },
-        order:[db.literal(`taskCount`) , `DESC`]
+        }
     })
+    .then(data => res.send(data));
 }
