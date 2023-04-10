@@ -104,7 +104,7 @@ router.delete("/:id", deleteTask)
 
 router.get("/show", getAll);  // using raw queries to display all the tasks to the admin 
 
-// getting task counts for any admin using the sequelize.literal
+// getting task counts for any admin using the sequelize.literal , subqueries
 router.get("/taskcount" , taskCount);
 
 // exporting the routes
