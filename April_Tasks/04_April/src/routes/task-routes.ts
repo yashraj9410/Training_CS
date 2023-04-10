@@ -2,7 +2,7 @@
 import express from 'express'
 import { TaskSchema,validateSchema } from '../middleware/schema-validator'
 import {verifyToken} from '../middleware/validateToken'
-import { createTask, deleteTask, getAll, readTask } from '../controller/task-controller';
+import { createTask, deleteTask, getAll, readTask, taskCount } from '../controller/task-controller';
 
 const router = express.Router();
 
@@ -101,5 +101,11 @@ router.use(verifyToken);
 router.post("/", TaskSchema.checkTask ,validateSchema, createTask);      // registering user using the transaction controller 
 router.get("/", readTask);
 router.delete("/:id", deleteTask)
-router.get("/show", getAll);  // using raw queries 
+
+router.get("/show", getAll);  // using raw queries to display all the tasks to the admin 
+
+// getting task counts for any admin using the sequelize.literal
+router.get("/taskcount" , taskCount);
+
+// exporting the routes
 export default router ;
