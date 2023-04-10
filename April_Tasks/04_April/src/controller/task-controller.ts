@@ -124,12 +124,13 @@ export const getAll = async(req:Request,res:Response) => {
 export const taskCount = async(req:Request , res:Response) => {
     const id = req.user?.id;
     await Task.findAll({
-        attributes:{include:[
-            [
-                db.literal(`(Select Count(*) from Tasks where adminID = ${id})`),
-                `taskcount`
+        attributes:{
+            include:[
+                [
+                    db.literal(`(Select Count(*) from Tasks where adminID = ${id})`),
+                    `taskcount`
+                ]
             ]
-        ]
         }
     })
     .then(data => res.send(data));
