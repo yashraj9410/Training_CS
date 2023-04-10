@@ -117,4 +117,4 @@ export const getAll = async(req:Request,res:Response) => {
 
     const tasks = await db.query(`SELECT * FROM Tasks WHERE adminID = ${id}`, {type:QueryTypes.SELECT});
     res.status(200).send(tasks);
-}
+} 
