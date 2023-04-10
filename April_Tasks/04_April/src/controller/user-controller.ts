@@ -7,6 +7,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import db from '../middleware/connection'
 import { QueryTypes } from 'sequelize';
+import Task from '../model/task-model';
 
 // ceating a new user 
 export const registerUser =async(req:Request,res:Response) => {
@@ -86,4 +87,13 @@ export const deleteUser = (req:Request,res:Response) => {
 
 export const getusers = async(req:Request,res:Response) => {
     const users = await db.query("SELECT * from `Users`",{type:QueryTypes.SELECT})
+}
+
+
+// finding user along with the task using the eager loading
+
+export const userTask = (req:Request, res:Response) => {
+    const id = req.user?.id;
+    const user = User.findByPk(id,{include:Task})
+    res.status(200).send(user);
 }
