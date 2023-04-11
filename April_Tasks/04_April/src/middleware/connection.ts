@@ -3,6 +3,7 @@ import config from '../config/dbconfig';
 import User from '../model/user-model'
 import Admin from '../model/admin-model'
 import Task from '../model/task-model'
+import Task_Status from '../model/taskStatus-model';
 // creating a new connection instance for database 
 
 const db = new Sequelize({
@@ -12,7 +13,7 @@ const db = new Sequelize({
     password: config.password,
     host:config.host,
     port:config.port,
-    models:[User,Admin,Task]      // either we can add model here 
+    models:[User,Admin,Task , Task_Status]      // either we can add model here 
 });
 
 // db.addModels([__dirname, '../models'])

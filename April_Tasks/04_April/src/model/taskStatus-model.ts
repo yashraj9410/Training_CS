@@ -24,3 +24,5 @@ class Task_Status extends Model {
     @BelongsTo(() => Task)
     declare task:Task
 }
+
+export default Task_Status
