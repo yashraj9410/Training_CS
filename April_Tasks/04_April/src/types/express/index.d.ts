@@ -4,7 +4,7 @@ declare global {
   namespace Express {
     interface Request {
       user?: Record<string,any>,
-      admin?: Record<string,any>
+      task?: Record<string,any>
     }
   }
 }
