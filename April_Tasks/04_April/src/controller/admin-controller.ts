@@ -9,7 +9,6 @@ import jwt from 'jsonwebtoken';
 // ceating a new Admin 
 export const registerAdmin =async(req:Request,res:Response) => {
     console.log("in create Admin");
-    console.log(req.admin);
     
     const {email,password} = req.body ;
 
@@ -56,16 +55,16 @@ export const signInAdmin = async(req:Request,res:Response) => {
 
 export const deleteAdmin = (req:Request,res:Response) => {
 
-    const id = req.admin?.id;
+    const id = req.user?.id;
     console.log(id)
    
     // check if Admin exists 
     Admin.findByPk(id)
     .then(admin => {
         if(admin){
-            Admin.destroy({where:{id}})
+            Admin.destroy({where:{id:id}})
             .then(data => res.status(200).send("Admin deleted"))
-            .catch(err => res.status(401).send("Admin not deleted"))
+            .catch(err => res.status(401).send(err))
         }
     })
     .catch(err => res.status(404).send("No Admin found with the id"));
