@@ -6,6 +6,7 @@ const app =express();
 import user_router from './routes/user-routes'
 import admin_router from './routes/admin-routes'
 import task_router from './routes/task-routes'
+import taskStatus_routes from './routes/taskStatus-route'
 import db from './middleware/connection'
 
 // setting up swagger
@@ -37,7 +38,7 @@ const startServer = () => {
     app.use("/api/user" , user_router );
     app.use("/api/admin" , admin_router );
     app.use("/api/task" , task_router)
-    
+    app.use("/api/taskStatus" , taskStatus_routes);
     // setting up middlewre for swagger 
     
     app.use("/api/docs",  swaggerUi.serve, swaggerUi.setup(specs))
