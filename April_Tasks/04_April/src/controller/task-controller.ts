@@ -133,5 +133,6 @@ export const taskCount = async(req:Request , res:Response) => {
             ]
         }
     })
-    .then(data => res.send(data));
+    .then(data => res.status(200).send(data))
+    .catch(err => res.status(401).send("Some eroor in counting the task "))
 }
