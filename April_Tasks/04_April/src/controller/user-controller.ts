@@ -96,7 +96,14 @@ export const getusers = async(req:Request,res:Response) => {
 
 export const userTask = (req:Request, res:Response) => {
     const id = req.user?.id;
-    User.findByPk(id,{include:Task})
-    .then(data => res.send(data))
-   
+    // User.findByPk(id,{include:Task})
+    // .then(data => res.send(data))         // only return a single task
+
+    Task.findAll({
+        where:{
+            userID:id
+        },
+        include:User
+    })
+    .then(data => res.status(200).send(data));
 }
