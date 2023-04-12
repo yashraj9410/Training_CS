@@ -46,3 +46,17 @@ export const change_task_status = (req:Request, res:Response) => {
     })
     .catch(err => res.status(404).send("No task status found please create a task status before updating"))
 }
+
+// deleting a task status
+export const delete_task_status = (req:Request, res:Response) => {
+    const taskid = req.params.id;
+    Task_Status.findByPk(taskid)
+    .then(task => {
+        if(task){
+            Task_Status.destroy({where:{taskId:taskid}})
+            .then(data => res.status(200).send("Task Status deleted"))
+            .catch(err => res.status(401).send("Task Status not deleted successfully"))
+        }
+    })
+    .catch(err => res.status(404).send("No task status found please create a task status before deleting"))
+}
