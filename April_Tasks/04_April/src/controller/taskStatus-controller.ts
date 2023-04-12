@@ -68,7 +68,8 @@ export const delete_task_status = (req:Request, res:Response) => {
 // User.finbypk(id , include:[
 //     {
 //         model:User,
-//         required:true
+//         required:true    --> this will create a inner join 
+//         right:true       --> this will ccreate right outer join , NOTE: required must be false in order to use right outer join
 //     }
 // ])  
 
