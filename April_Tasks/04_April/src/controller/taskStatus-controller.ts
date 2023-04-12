@@ -62,8 +62,19 @@ export const delete_task_status = (req:Request, res:Response) => {
     .catch(err => res.status(404).send("No task status found please create a task status before deleting"))
 }
 
-// get all the details of user , task , task status
+// by default sequelize include uses left outer join but we can make it use inner join by specyfying the required property of include to true
+// eg>
 
+// User.finbypk(id , include:[
+//     {
+//         model:User,
+//         required:true
+//     }
+// ])  
+
+//the above code will make the use of inner join 
+
+// get all the details of user , task , task status
 export const get_all_details = (req:Request, res:Response) => {
     const taskid = req.params.id;
 
