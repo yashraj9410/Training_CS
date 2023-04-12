@@ -9,6 +9,6 @@ const router = express.Router();
 router.use(verifyToken);
 router.post("/", set_Task_Status); // create status
 router.put("/", change_task_status); // update status
-router.delete("/", delete_task_status); // update status
+router.delete("/:id", delete_task_status); // update status
 
 export default router;
