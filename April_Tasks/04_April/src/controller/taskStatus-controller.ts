@@ -67,7 +67,7 @@ export const delete_task_status = (req:Request, res:Response) => {
 export const get_all_details = (req:Request, res:Response) => {
     const taskid = req.params.id;
 
-    Task.findByPk(taskid , {include:[Task_Status , User]})
+    Task.findByPk(taskid , {include:[User, Task_Status]})
     .then(task => res.status(200).send(task))
-    .catch(err => res.status(200).send("No task details found"))
+    .catch(err => res.status(404).send(err))
 }
