@@ -1,6 +1,7 @@
 //  making controller for the taskStatus model 
 import Task_Status from '../model/taskStatus-model'
 import Task from '../model/task-model'
+import User from '../model/user-model'
 import {Request, Response} from 'express'
 import db from '../middleware/connection'
 
@@ -59,4 +60,14 @@ export const delete_task_status = (req:Request, res:Response) => {
         }
     })
     .catch(err => res.status(404).send("No task status found please create a task status before deleting"))
+}
+
+// get all the details of user , task , task status
+
+export const get_all_details = (req:Request, res:Response) => {
+    const taskid = req.params.id;
+
+    Task.findByPk(taskid , {include:[Task_Status , User]})
+    .then(task => res.status(200).send(task))
+    .catch(err => res.status(200).send("No task details found"))
 }
