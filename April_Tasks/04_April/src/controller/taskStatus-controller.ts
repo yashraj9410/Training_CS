@@ -7,7 +7,6 @@ import db from '../middleware/connection'
 
 // setting the task status 
 export const set_Task_Status = (req: Request, res: Response) => {
-    const status = req.body.isCompleted;   // fetching the status from body
     const taskid = req.body.id;            // getting the task id 
 
     Task.findByPk(taskid)
