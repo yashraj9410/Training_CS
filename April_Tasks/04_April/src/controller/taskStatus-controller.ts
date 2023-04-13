@@ -61,7 +61,7 @@ export const delete_task_status = (req: Request, res: Response) => {
         })
         .catch(err => res.status(404).send("No task status found please create a task status before deleting"))
 }
-
+ 
 // by default sequelize include uses left outer join but we can make it use inner join by specyfying the required property of include to true
 // eg>
 
