@@ -20,7 +20,7 @@ export const set_Task_Status = (req: Request, res: Response) => {
                         } else {
                             Task_Status.create({
                                 description: task.description,
-                                isCompleted: status,
+                                isCompleted: task.status === "New" || task.status === "Ongoing" ? false : true,
                                 taskId: taskid
                             })
                                 .then(data => res.status(201).send("task_status created"))
@@ -37,15 +37,22 @@ export const set_Task_Status = (req: Request, res: Response) => {
 export const change_task_status = (req: Request, res: Response) => {
     const taskid = req.body.taskid;
 
-    Task_Status.findByPk(taskid)
+    Task.findByPk(taskid)
         .then(task => {
             if (task) {
-                Task_Status.update({ isCompleted: req.body.status }, { where: { taskId: taskid } })
+
+                // first making status update in the task table (main table )
+                Task.update({status:req.body.status},{where:{taskId:taskid}})
+                .then(data => res.status(201).send("task updated"))
+                .catch(err => res.send("Status not updated"))
+
+                // then update the referencing table 
+                Task_Status.update({ isCompleted: task.status === "New" || task.status === "Ongoing" ? false : true }, { where: { taskId: taskid } })
                     .then(data => res.status(200).send("Task status Updated"))
-                    .catch(err => res.status(401).send("Task not updated successfully"))
+                    .catch(err => res.status(401).send("Task_Status not updated successfully"))
             }
         })
-        .catch(err => res.status(404).send("No task status found please create a task status before updating"))
+        .catch(err => res.status(404).send("No task  found please create a task  before updating"))
 }
 
 // deleting a task status
@@ -61,7 +68,7 @@ export const delete_task_status = (req: Request, res: Response) => {
         })
         .catch(err => res.status(404).send("No task status found please create a task status before deleting"))
 }
- 
+
 // by default sequelize include uses left outer join but we can make it use inner join by specyfying the required property of include to true
 // eg>
 

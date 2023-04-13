@@ -54,7 +54,7 @@ export const readTask = (req:Request, res:Response) => {
                 userId:id
             }})
             .then(task => {
-                if(task ){
+                if(task){
                     res.status(200).send(task)
                 }else{
                     res.status(404).send("No task Assigned")
