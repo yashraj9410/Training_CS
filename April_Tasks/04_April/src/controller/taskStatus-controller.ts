@@ -86,8 +86,10 @@ export const delete_task_status = (req: Request, res: Response) => {
 // get all the details of user , task , task status
 export const get_all_details = (req: Request, res: Response) => {
     const taskid = req.params.id;
+    const id = req.user?.id;
 
     Task_Status.findByPk(taskid, { include:User })
         .then(task => res.status(200).send(task))
         .catch(err => res.status(404).send(err))
+        
 }
