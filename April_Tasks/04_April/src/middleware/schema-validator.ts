@@ -22,9 +22,6 @@ export const TaskSchema = {
                 errorMessage:('Description should be of atleast 3 letters')
             },
             errorMessage:("Please give a proper description")
-        },
-        status:{
-            isString:true
         }
     })
     

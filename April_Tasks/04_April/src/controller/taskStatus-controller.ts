@@ -41,14 +41,16 @@ export const change_task_status = (req: Request, res: Response) => {
             if (task) {
 
                 // first making status update in the task table (main table )
-                Task.update({status:req.body.status},{where:{taskId:taskid}})
-                .then(data => res.status(201).send("task updated"))
-                .catch(err => res.send("Status not updated"))
-
-                // then update the referencing table 
-                Task_Status.update({ isCompleted: task.status === "New" || task.status === "Ongoing" ? false : true }, { where: { taskId: taskid } })
-                    .then(data => res.status(200).send("Task status Updated"))
-                    .catch(err => res.status(401).send("Task_Status not updated successfully"))
+                Task.update({status:req.body.status},{where:{id:taskid}})
+                .then(data => {
+                    if(data){
+                        // then update the referencing table 
+                        Task_Status.update({ isCompleted: task.status === "New" || task.status === "Ongoing" ? false : true }, { where: { taskId: taskid } })
+                         .then(data => res.status(200).send("Task status Updated"))
+                         .catch(err => res.status(401).send("Task_Status not updated successfully"))
+                    }
+                })
+                .catch(err => res.send("canot updatethe main table"))
             }
         })
         .catch(err => res.status(404).send("No task  found please create a task  before updating"))
