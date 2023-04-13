@@ -5,7 +5,7 @@ import User from '../model/user-model'
 import {Request, Response} from 'express'
 import db from '../middleware/connection'
 
-
+// setting the task status 
 export const set_Task_Status = (req:Request,res:Response) => {
     const status = req.body.isCompleted;   // fetching the status from body
     const taskid = req.body.id;            // getting the task id 
@@ -33,7 +33,7 @@ export const set_Task_Status = (req:Request,res:Response) => {
 } 
 
 
-// change task status functionf for the user/admin 
+// change task status function for the user/admin 
 export const change_task_status = (req:Request, res:Response) => {
     const taskid = req.body.taskid;
 
