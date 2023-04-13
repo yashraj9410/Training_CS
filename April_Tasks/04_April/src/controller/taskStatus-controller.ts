@@ -17,7 +17,7 @@ export const set_Task_Status = (req:Request,res:Response) => {
             .then(present => {
                 if(present){
                     res.status(400).send("taskstatus is already present")
-                }else{
+                } else {
                     Task_Status.create({
                         description:task.description,
                         isCompleted:status,
