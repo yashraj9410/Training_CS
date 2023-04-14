@@ -7,6 +7,7 @@
 import {Request, Response} from 'express'
 import db from '../middleware/connection'
 import { QueryTypes } from 'sequelize'
+import Task_Status from '../model/taskStatus-model'
 
 
 // creating a task for the user (only allowed for admins)
@@ -155,4 +156,25 @@ export const taskCount = async(req:Request , res:Response) => {
     })
     .then(data => res.status(200).send(data))
     .catch(err => res.status(401).send("Some eroor in counting the task "))
+}
+
+// change task status to complete 
+// the function is going to take task id from params and then call the method basis on the task id to change statusId to 2 i.e completed 
+export const change_task_status = (req:Request, res:Response) => {
+    const { id } = req.params;
+
+    Task.findByPk(id)
+    .then(task => {
+        if(task){
+            Task_Status.findOne({where:{status:"Completed"}})
+            .then(data => {
+                if(data){
+                    task.statusId = data.id
+                    res.status(201).send("Task Status Updated Successfully")
+                }
+            })
+            .catch(err => res.status(404).send("No status found for Completed"))
+        }
+    })
+    .catch(err => res.status(404).send("No task found for the given task id"))
 }
