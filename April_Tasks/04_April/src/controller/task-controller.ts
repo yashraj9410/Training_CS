@@ -51,9 +51,18 @@ export const readTask = (req:Request, res:Response) => {
     }})
     .then(user => {
         if(user){
-            Task.findAll({where:{
-                userId:id
-            }})
+            Task.findAll({
+                where:{userId:id},
+                // creating a virtual field isCompleted that returns a boolean value
+                attributes:{
+                    include:[
+                        [
+                            db.literal(`CASE When "statusId"  = (SELECT "id" FROM "Task_Statuses" WHERE "status" = 'Completed') THEN true ELSE false END`),
+                            `isCompleted`
+                        ]
+                    ]
+                }
+            })   // adding literal along witha virtual field 
             .then(tasks => {
                 if(tasks){
                     res.status(200).send(tasks)
@@ -63,13 +72,24 @@ export const readTask = (req:Request, res:Response) => {
             })     // if user exist then give the task assigned to the user 
             .catch(err => res.status(403).send(err))
         }else{
-            Admin.findOne({where:{            // if user not exist then check for admin
+            Admin.findOne({
+                where:{            // if user not exist then check for admin
                 id:id,
                 email:email
             }})
             .then(admin => {
                 if(admin){
-                    Task.findAll({where:{}})       // if admin exist then send all the task created 
+                    Task.findAll({
+                        where:{},
+                        attributes:{
+                            include:[
+                                [
+                                    db.literal(`CASE When "statusId"  = (SELECT "id" FROM "Task_Statuses" WHERE "status" = 'Completed') THEN true ELSE false END`),
+                                    `isCompleted`
+                                ]
+                            ]
+                        }
+                    })       // if admin exist then send all the task created 
                     .then(tasks => {
                         if(tasks && tasks.length){
                             res.status(200).send(tasks);
