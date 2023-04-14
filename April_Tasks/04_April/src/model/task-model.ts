@@ -32,14 +32,14 @@ import bcrypt from 'bcrypt';
   @Column
   declare userId: number;
 
-  @BelongsTo(() => User)      // every task will have an instance of admin
+  @BelongsTo(() => User)      // every task will have an instance of user
   declare user: User;
 
   @ForeignKey(() => Task_Status)
   @Column
   declare statusId: number;
 
-  @BelongsTo(() => Task_Status)    // every task will have an instance of admin
+  @BelongsTo(() => Task_Status)    // every task will have an instance of task_status
   declare taskstatus: Task_Status;
 }
 
