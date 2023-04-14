@@ -6,8 +6,6 @@ import { verifyToken } from "../middleware/validateToken";
 
 const router = express.Router();
 
-router.use(verifyToken);   // verifying the token
-
 router.post("/", set_Task_Status); // create status
 
 export default router;
