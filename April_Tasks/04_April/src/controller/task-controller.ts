@@ -53,9 +53,9 @@ export const readTask = (req:Request, res:Response) => {
             Task.findAll({where:{
                 userId:id
             }})
-            .then(task => {
-                if(task){
-                    res.status(200).send(task)
+            .then(tasks => {
+                if(tasks){
+                    res.status(200).send(tasks)
                 }else{
                     res.status(404).send("No task Assigned")
                 }
@@ -69,9 +69,9 @@ export const readTask = (req:Request, res:Response) => {
             .then(admin => {
                 if(admin){
                     Task.findAll({where:{}})       // if admin exist then send all the task created 
-                    .then(task => {
-                        if(task && task.length){
-                            res.status(200).send(task);
+                    .then(tasks => {
+                        if(tasks && tasks.length){
+                            res.status(200).send(tasks);
                         }
                     })
                     .catch(err =>  res.status(404).send("No Task Created Yet"))
