@@ -1,7 +1,6 @@
 // creating the server 
 // creating the server 
 import express from 'express';
-import path from 'path'
 const app =express();
 import user_router from './routes/user-routes'
 import admin_router from './routes/admin-routes'

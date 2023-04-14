@@ -5,5 +5,5 @@ export default {
     port:1433,
     user:"sa",
     password:"1234",
-    db:"admin_user_task",
+    db:"admin_user_tasks",
 }
