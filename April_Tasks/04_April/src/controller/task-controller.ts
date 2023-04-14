@@ -29,7 +29,7 @@ export const createTask = (req:Request,res:Response) => {
                 if(user){
                     Task.create({description,userId, adminId:adminid, statusId})                         // create task for the user
                     .then(task=> res.status(201).send(task))
-                    .catch(err => res.status(400).send("No Task Created"))
+                    .catch(err => res.status(400).send(err))
                 }
            })
            .catch(err => res.status(404).send("No user existe for the userId"))
@@ -58,7 +58,7 @@ export const readTask = (req:Request, res:Response) => {
                 attributes:{
                     include:[
                         [
-                            db.literal(`CASE When "statusId"  = (SELECT "id" FROM "Task_Statuses" WHERE "status" = 'Completed') THEN true ELSE false END`),
+                            db.literal(`CASE When "statusId"  = (SELECT "id" FROM "Task_Statuses" WHERE "status" = 'Completed') THEN 'true' ELSE 'false' END`),
                             `isCompleted`
                         ]
                     ]
@@ -85,7 +85,7 @@ export const readTask = (req:Request, res:Response) => {
                         attributes:{
                             include:[
                                 [
-                                    db.literal(`CASE When "statusId"  = (SELECT "id" FROM "Task_Statuses" WHERE "status" = 'Completed') THEN true ELSE false END`),
+                                    db.literal(`CASE WHEN "statusId" = (SELECT "id" FROM "Task_Statuses" WHERE "status" = 'Completed') THEN 'true' ELSE 'false' END`),
                                     `isCompleted`
                                 ]
                             ]
@@ -96,7 +96,7 @@ export const readTask = (req:Request, res:Response) => {
                             res.status(200).send(tasks);
                         }
                     })
-                    .catch(err =>  res.status(404).send("No Task Created Yet"))
+                    .catch(err =>  res.status(404).send(err))
                 }
             })
             .catch(err => res.status(404).send("No admin found for the email"))
