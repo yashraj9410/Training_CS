@@ -1,6 +1,6 @@
 // model for the user 
 // creating the user-model 
-import {Table , Column , BelongsTo , HasOne, DataType, ForeignKey , Model} from 'sequelize-typescript'
+import {Table , Column , BelongsTo , HasOne, DataType, ForeignKey , Model, HasMany} from 'sequelize-typescript'
 import Task from './task-model';
 import bcrypt from 'bcrypt';
 
@@ -21,7 +21,7 @@ import bcrypt from 'bcrypt';
     set password(value:string) {
         this.setDataValue('password' , bcrypt.hashSync(value,10));
     }   
-    @HasOne(()=> Task , {onDelete:'CASCADE'})         // ceating a one to many asociation 
+    @HasMany(()=> Task , {onDelete:'CASCADE'})         // ceating a one to many asociation 
     declare task:Task
 }
 

@@ -21,22 +21,26 @@ import bcrypt from 'bcrypt';
   })
   declare status:string
 
-  @ForeignKey(() => Admin)
-  @Column
+  @ForeignKey(() => Admin) 
+  @Column 
   declare adminId: number;
 
-  @BelongsTo(() => Admin)
+  @BelongsTo(() => Admin)      // every task will have an instance of admin
   declare admin: Admin;
 
-  @ForeignKey(() => User)
+  @ForeignKey(() => User)   
   @Column
   declare userId: number;
 
-  @BelongsTo(() => User)
+  @BelongsTo(() => User)      // every task will have an instance of admin
   declare user: User;
 
-  @HasOne(()=> Task_Status , {onDelete:'CASCADE'})         // ceating a one to many asociation 
-    declare task_status:Task_Status
+  @ForeignKey(() => Task_Status)
+  @Column
+  declare statusId: number;
+
+  @BelongsTo(() => Task_Status)    // every task will have an instance of admin
+  declare taskstatus: Task_Status;
 }
 
 export default Task

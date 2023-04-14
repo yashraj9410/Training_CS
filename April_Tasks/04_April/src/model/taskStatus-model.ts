@@ -12,18 +12,8 @@ class Task_Status extends Model {
         type:DataType.TEXT,
         allowNull:false
     })
-    declare description:string
-    @Column({
-        type:DataType.BOOLEAN,
-        allowNull:false      
-    })
-    declare isCompleted:boolean
+    declare status:string
 
-    @ForeignKey(() => Task)
-    @Column({})
-    declare taskId:Number
-    @BelongsTo(() => Task)
-    declare task:Task
 }
  
 export default Task_Status
