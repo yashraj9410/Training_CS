@@ -1,73 +1,15 @@
 //  making controller for the taskStatus model 
 import Task_Status from '../model/taskStatus-model'
-import Task from '../model/task-model'
-import User from '../model/user-model'
 import { Request, Response } from 'express'
-import db from '../middleware/connection'
 
 // setting the task status 
 export const set_Task_Status = (req: Request, res: Response) => {
-    const taskid = req.body.id;            // getting the task id to create its status 
 
-    Task.findByPk(taskid)
-        .then(task => {
-            if (task) {
-                Task_Status.findByPk(taskid)
-                    .then(present => {
-                        if (present) {
-                            res.status(400).send("taskstatus is already present")
-                        } else {
-                            Task_Status.create({
-                                description: task.description,
-                                isCompleted: task.status === "New" || task.status === "Ongoing" ? false : true,
-                                taskId: taskid
-                            })
-                                .then(data => res.status(201).send("task_status created"))
-                                .catch(err => res.status(400).send("Task status not created , bad request"))
-                        }
-                    })
-            }
-        })
-        .catch(err => res.status(404).send("No task exist with the given id "))
-}
+    // creating the task statuses
+    Task_Status.bulkCreate([{status:"In Progress"} , {status:"Completed"}])
+    .then(data => res.status(201).send(data))
+    .catch(err => res.status(500).send("No Task Status Created"))
 
-
-// change task status function for the user/admin 
-export const change_task_status = (req: Request, res: Response) => {
-    const taskid = req.body.id;    // providing the id of the task to be updated 
-
-    Task.findByPk(taskid)
-        .then(task => {
-            if (task) {
-
-                // first making status update in the task table (main table )
-                Task.update({status:req.body.status},{where:{id:taskid}})
-                .then(data => {
-                    if(data){
-                        // then update the referencing table 
-                        Task_Status.update({ isCompleted: task.status === "New" || task.status === "Ongoing" ? false : true }, { where: { taskId: taskid } })
-                         .then(data => res.status(200).send("Task status Updated"))
-                         .catch(err => res.status(401).send("Task_Status not updated successfully"))
-                    }
-                })
-                .catch(err => res.send("canot updatethe main table"))
-            }
-        })
-        .catch(err => res.status(404).send("No task  found please create a task  before updating"))
-}
-
-// deleting a task status
-export const delete_task_status = (req: Request, res: Response) => {
-    const taskid = req.params.id;
-    Task_Status.findByPk(taskid)
-        .then(task => {
-            if (task) {
-                Task_Status.destroy({ where: { taskId: taskid } })
-                    .then(data => res.status(200).send("Task Status deleted"))
-                    .catch(err => res.status(401).send("Task Status not deleted successfully"))
-            }
-        })
-        .catch(err => res.status(404).send("No task status found please create a task status before deleting"))
 }
 
 // by default sequelize include uses left outer join but we can make it use inner join by specyfying the required property of include to true
@@ -80,16 +22,3 @@ export const delete_task_status = (req: Request, res: Response) => {
 //         right:true       --> this will ccreate right outer join , NOTE: required must be false in order to use right outer join
 //     }
 // ])  
-
-//the above code will make the use of inner join 
-
-// get all the details of user , task , task status
-export const get_all_details = (req: Request, res: Response) => {
-    const taskid = req.params.id;
-    const id = req.user?.id;
-
-    Task_Status.findByPk(taskid)
-        .then(task => res.status(200).send(task))
-        .catch(err => res.status(404).send(err))
-        
-}
