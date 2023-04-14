@@ -13,11 +13,12 @@ import { QueryTypes } from 'sequelize'
 // whenever a task will be created there should be a user which exists in the database to which the task is assigned 
 export const createTask = (req:Request,res:Response) => {
     
-    const {description,userId} = req.body;
+    const {description,userId , statusId} = req.body;
+
+    // fetching details from the token validation
     const adminid = req.user?.id;
     const email = req.user?.email;
     
-
     //check for the user if exist 
     Admin.findOne({where:{id:adminid,email:email}})
     .then(admin => {
@@ -25,7 +26,7 @@ export const createTask = (req:Request,res:Response) => {
            User.findByPk(userId)
            .then(user => {
                 if(user){
-                    Task.create({description,userId, adminId:adminid, status:"New"})                         // create task for the user
+                    Task.create({description,userId, adminId:adminid, statusId})                         // create task for the user
                     .then(task=> res.status(201).send(task))
                     .catch(err => res.status(400).send("No Task Created"))
                 }
