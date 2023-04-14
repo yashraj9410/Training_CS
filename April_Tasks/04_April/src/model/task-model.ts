@@ -15,12 +15,6 @@ import bcrypt from 'bcrypt';
   })
   declare description: string
   
-  @Column({
-    type:DataType.TEXT,
-    allowNull:false
-  })
-  declare status:string
-
   @ForeignKey(() => Admin) 
   @Column 
   declare adminId: number;
