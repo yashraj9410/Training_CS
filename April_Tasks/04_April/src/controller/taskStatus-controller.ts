@@ -7,7 +7,7 @@ import db from '../middleware/connection'
 
 // setting the task status 
 export const set_Task_Status = (req: Request, res: Response) => {
-    const taskid = req.body.id;            // getting the task id 
+    const taskid = req.body.id;            // getting the task id to create its status 
 
     Task.findByPk(taskid)
         .then(task => {
@@ -34,7 +34,7 @@ export const set_Task_Status = (req: Request, res: Response) => {
 
 // change task status function for the user/admin 
 export const change_task_status = (req: Request, res: Response) => {
-    const taskid = req.body.taskid;
+    const taskid = req.body.id;    // providing the id of the task to be updated 
 
     Task.findByPk(taskid)
         .then(task => {
@@ -88,7 +88,7 @@ export const get_all_details = (req: Request, res: Response) => {
     const taskid = req.params.id;
     const id = req.user?.id;
 
-    Task_Status.findByPk(taskid, { include:User })
+    Task_Status.findByPk(taskid)
         .then(task => res.status(200).send(task))
         .catch(err => res.status(404).send(err))
         
