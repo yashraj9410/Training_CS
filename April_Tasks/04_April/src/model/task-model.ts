@@ -33,8 +33,13 @@ import bcrypt from 'bcrypt';
   @Column
   declare statusId: number;
 
+  // get isComplete():boolean {          // this function will set the statusId value when called 
+  //   return this.statusId === 2 ;
+  // } 
+
   @BelongsTo(() => Task_Status)    // every task will have an instance of task_status
   declare taskstatus: Task_Status;
 }
+
 
 export default Task
