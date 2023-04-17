@@ -42,6 +42,7 @@ export const createTask = (req:Request,res:Response) => {
 // this method can be accessed by both user and admin 
 // in case of admin they can read all the task they have created for the users 
 // users can only read task assigned on their id's 
+// created a virtual field isCompleted that returns true or false based on the statusId in the task table 
 export const readTask = (req:Request, res:Response) => {
 
     const id =req.user?.id; 
