@@ -90,7 +90,8 @@ export const readTask = (req:Request, res:Response) => {
                                     `isCompleted`
                                 ]
                             ]
-                        }
+                        },
+                        include:User
                     })       // if admin exist then send all the task created 
                     .then(tasks => {
                         if(tasks && tasks.length){
@@ -170,8 +171,9 @@ export const change_task_status = (req:Request, res:Response) => {
             Task_Status.findOne({where:{status:"Completed"}})
             .then(data => {
                 if(data){
-                    task.statusId = data.id
-                    res.status(201).send("Task Status Updated Successfully")
+                    Task.update({statusId:data.id},{where:{id}})
+                    .then(updated => res.status(200).send("updated"))
+                    .catch(err => res.status(403).send(err))
                 }
             })
             .catch(err => res.status(404).send("No status found for Completed"))
