@@ -2,10 +2,14 @@
 // creating the server 
 import express from 'express';
 const app =express();
+
+// routes for all models
 import user_router from './routes/user-routes'
 import admin_router from './routes/admin-routes'
 import task_router from './routes/task-routes'
 import taskStatus_routes from './routes/taskStatus-route'
+
+// database instance 
 import db from './middleware/connection'
 
 // setting up swagger
