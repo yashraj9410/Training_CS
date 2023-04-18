@@ -45,8 +45,11 @@ export const signInAdmin = async(req:Request,res:Response) => {
            } 
         },'yash1234',{expiresIn:"10m"});              // "yash1234" is the access token secret 
 
-        res.status(200).json({accessToken});           
+        res.status(200).json({accessToken});
 
+        // if we want to send bearer token directly to the header authorisation
+        // res.status(200).header('Authorization',`Bearer ${accessToken}`).json({ message: 'Login successful' });           
+ 
     }else{
         res.status(401).send("Invalid email or password")
     }
