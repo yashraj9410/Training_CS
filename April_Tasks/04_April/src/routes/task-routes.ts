@@ -100,7 +100,7 @@ const router = express.Router();
 router.use(verifyToken);
 router.post("/", TaskSchema.checkTask ,validateSchema, createTask);      // registering user using the transaction controller 
 router.get("/", readTask);  // read the created task 
-router.delete("/:id", deleteTask)  
+router.delete("/:id", deleteTask)  // delete a task according to the task id 
 router.put("/:id/complete" , change_task_status)  // update the status of the task 
 
 
