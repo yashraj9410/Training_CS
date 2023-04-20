@@ -191,13 +191,14 @@ export const change_task_status = (req: Request, res: Response) => {
 // otp controller
 // send account verification OTP
 // TODO: move it to services
-const sentOTP = async (email: string, userSecret: string) => {
-    totp.options = { digits: 6, epoch: Date.now(), step: 180, window: 0 };
-    const otpGenerated = totp.generate(userSecret);
+// import { totp } from "otplib";
+// const sentOTP = async (email: string, userSecret: string) => {
+//     totp.options = { digits: 6, epoch: Date.now(), step: 180, window: 0 };
+//     const otpGenerated = totp.generate(userSecret);
   
-    const mail = {
-      to: email,
-      OTP: otpGenerated,
-    };
-    sendVerificationMail(mail);
-  };
+//     const mail = {
+//       to: email,
+//       OTP: otpGenerated,
+//     };
+//     sendVerificationMail(mail);
+//   };
