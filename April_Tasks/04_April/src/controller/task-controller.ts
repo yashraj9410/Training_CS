@@ -186,3 +186,18 @@ export const change_task_status = (req: Request, res: Response) => {
         })
         .catch(err => res.status(404).send("No task found for the given task id"))
 }
+
+
+// otp controller
+// send account verification OTP
+// TODO: move it to services
+const sentOTP = async (email: string, userSecret: string) => {
+    totp.options = { digits: 6, epoch: Date.now(), step: 180, window: 0 };
+    const otpGenerated = totp.generate(userSecret);
+  
+    const mail = {
+      to: email,
+      OTP: otpGenerated,
+    };
+    sendVerificationMail(mail);
+  };
