@@ -23,8 +23,7 @@ export const TaskSchema = {
             },
             errorMessage:("Please give a proper description")
         }
-    })
-    
+    })   
 }
 
 
