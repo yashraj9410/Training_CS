@@ -12,7 +12,7 @@ export const UserSchema = [
     body('password').isLength({min:5}).withMessage('min length 5'),
 ] 
 
-// checking the schema for profile 
+// checking the schema for task thet is created  
 export const TaskSchema = {
     checkTask:checkSchema({
         description:{
