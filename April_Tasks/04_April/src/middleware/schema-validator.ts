@@ -9,7 +9,7 @@ export const AdminSchema = [
     body('password').isLength({min:5}).withMessage('min length 5'),
 ] 
 
-
+// validator for the user schema 
 export const UserSchema = [
     body('email').isEmail(),
     body('password').isLength({min:5}).withMessage('min length 5'),
