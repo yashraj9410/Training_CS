@@ -39,5 +39,5 @@ export const validateSchema = (req:express.Request,res:express.Response , next: 
         return res.status(400).json(err.array());
     }
 
-    next();  // pass the control to the next handler function
+    next();  // pass the control to the next handler function in the route
 }
