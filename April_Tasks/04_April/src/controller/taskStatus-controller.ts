@@ -13,7 +13,6 @@ export const set_Task_Status = (req: Request, res: Response) => {
 }
 
 // by default sequelize include uses left outer join but we can make it use inner join by specyfying the required property of include to true
-// eg>
 
 // User.finbypk(id , include:[
 //     {
