@@ -3,7 +3,7 @@
 import {Table , Column , BelongsTo , HasOne, DataType, ForeignKey , Model, HasMany, AllowNull} from 'sequelize-typescript'
 import Task from './task-model'
 
-// creatuing a new model to maintian the status of the task 
+// creatuing a new model to maintian the status of the task that is in progress and completed 
 @Table({
     timestamps:false
 })
