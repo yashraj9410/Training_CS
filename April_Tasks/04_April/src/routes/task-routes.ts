@@ -105,7 +105,7 @@ router.put("/:id/complete" , change_task_status)  // update the status of the ta
 
 
 // getting task counts for any admin using the sequelize.literal , subqueries
-router.get("/taskcount" , taskCount);
+router.get("/taskcount" , taskCount);  // counts all the task and creates a virtual field 
 router.get("/show", getAll);  // using raw queries to display all the tasks to the admin 
 
 // exporting the routes
