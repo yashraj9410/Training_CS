@@ -13,6 +13,7 @@ admin.initializeApp({
 const messaging = admin.messaging();
 
 
+// creating api for sending the notification
 export const sendNotification = async (req:Request , res:Response ) => {
     const appToken = req.body.token;
 
@@ -24,5 +25,7 @@ export const sendNotification = async (req:Request , res:Response ) => {
       token: appToken
     };
 
-    
+   await messaging.send(message)
+         .then( data => res.status(200).send(`Notification: ${data}`))
+         .catch(err => res.status(400).send(`Some error occured in sending notification  Error: ${err}`))
 }
