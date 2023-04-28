@@ -8,6 +8,7 @@ import user_router from './routes/user-routes'
 import admin_router from './routes/admin-routes'
 import task_router from './routes/task-routes'
 import taskStatus_routes from './routes/taskStatus-route'
+import notification_routes from './routes/notification-routes'
 
 // database instance 
 import db from './middleware/connection'
@@ -42,6 +43,7 @@ const startServer = () => {
     app.use("/api/admin" , admin_router );
     app.use("/api/task" , task_router)
     app.use("/api/taskStatus" , taskStatus_routes);
+    app.use("/api/notification" , notification_routes);
     // setting up middlewre for swagger 
     
     app.use("/api/docs",  swaggerUi.serve, swaggerUi.setup(specs))
