@@ -3,6 +3,6 @@ import { sendNotification } from '../firebase/noification';
 
 const router = express.Router();
 
-router.post("/notification", sendNotification); // create task_status table
+router.post("/", sendNotification); // create task_status table
 
 export default router;
