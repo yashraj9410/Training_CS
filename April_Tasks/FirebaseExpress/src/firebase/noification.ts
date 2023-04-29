@@ -16,7 +16,7 @@ firebaseSetup();
 // Create an instance of the Firebase Messaging service
 const messaging = admin.messaging();
 
-// creating api for sending the notification
+// creating api for push notification service using the fcm web token
 export const sendNotification = async (req:Request , res:Response ) => {
     const appToken = req.body.token;
     
