@@ -19,7 +19,8 @@ const messaging = admin.messaging();
 // creating api for sending the notification
 export const sendNotification = async (req:Request , res:Response ) => {
     const appToken = req.body.token;
-
+    
+    // message contains the payload and the fcm app token 
     const message = {
       notification: {
         title: 'New Notification',
