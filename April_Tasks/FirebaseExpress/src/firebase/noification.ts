@@ -28,6 +28,7 @@ export const sendNotification = async (req:Request , res:Response ) => {
         title: 'New Notification',
         body: 'This is a test notification'
       },
+      // this is the fcm app token of the device
       token: appToken
     };
 
