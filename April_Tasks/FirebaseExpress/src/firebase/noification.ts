@@ -3,6 +3,7 @@ import { Request , Response , NextFunction } from 'express'
 import * as admin from 'firebase-admin';
 const serviceAccount = require("./private/serviceAccountKey.json");
 
+// making a firebse instance 
 function firebaseSetup(){
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount as admin.ServiceAccount),
