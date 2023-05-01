@@ -22,6 +22,8 @@ export const sendNotification = async (req:Request , res:Response ) => {
     
     // message contains the payload and the fcm app token 
     const message = {
+
+      // we can also call the notification from the body 
       notification: {
         title: 'New Notification',
         body: 'This is a test notification'
