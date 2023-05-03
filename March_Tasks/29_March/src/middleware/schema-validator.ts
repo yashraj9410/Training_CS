@@ -32,13 +32,6 @@ export const ProfileSchema = {
                 errorMessage:('Please enter compete address')
             },
         },
-        // userid:{
-        //     isNumeric:true,
-        //     isLength:{
-        //         options:{min:1},
-        //         errorMessage:("enter a valid user id ")
-        //     }
-        // }
     })
     
 }
