@@ -75,3 +75,26 @@ const FeedbackSchema = new Schema(
 const FeedbackModel = model<IFeedback>('Feedback', FeedbackSchema);
 
 export default FeedbackModel;
+
+
+// {
+//   "user_id": "123",
+//   "deliveryagent_id": "456",
+//   "client_id": "789",
+//   "product_id": "001",
+//   "template_id": "xyz",
+//   "rating": 4,
+//   "comment": "I really liked the product!",
+//   "feedback_type": "positive",
+//   "feedback_language": "english",
+//   "additional_fields": {
+//     "quantity": 2,
+//     "delivery_experience": "good",
+//     "product_support_experience": "excellent"
+//   },
+//   "qa_answers": {
+//     "Q1": "The quality of the product was excellent!",
+//     "Q2": "The delivery experience was good."
+//   }
+// }
+

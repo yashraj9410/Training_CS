@@ -48,3 +48,23 @@ const FeedbackTemplateSchema: Schema = new Schema(
 const FeedbackTemplate = mongoose.model<IFeedbackTemplate>('FeedbackTemplate', FeedbackTemplateSchema);
 
 export default FeedbackTemplate;
+
+
+// {
+//     "name": "Product Feedback Template",
+//     "type": "product",
+//     "fields": {
+//       "quantity": "number",
+//       "delivery_experience": "string",
+//       "customer_support_experience": "string"
+//     },
+//     "requiredFields": {
+//       "rating": true,
+//       "comment": true,
+//       "feedback_type": false,
+//       "feedback_language": false
+//     },
+//     "qas": {
+//       "Q1": "What do you think about the quality of the product?",
+//       "Q2": "How was your experience with the delivery of the product?"
+//     }
