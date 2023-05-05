@@ -48,6 +48,7 @@ export const FeedbackTemplateSchema = {
             errorMessage: 'Invalid client ID'
           },
           product_id: {
+            optional:true,
             isMongoId: true,
             errorMessage: 'Invalid product ID'
           },
