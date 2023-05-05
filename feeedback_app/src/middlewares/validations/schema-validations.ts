@@ -38,10 +38,12 @@ export const FeedbackTemplateSchema = {
             errorMessage: 'Invalid user ID'
           },
           deliveryagent_id: {
+            optional:true,
             isMongoId: true,
             errorMessage: 'Invalid delivery agent ID'
           },
           client_id: {
+            optional:true,
             isMongoId: true,
             errorMessage: 'Invalid client ID'
           },
