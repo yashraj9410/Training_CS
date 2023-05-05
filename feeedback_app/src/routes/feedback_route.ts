@@ -1,11 +1,24 @@
-// import express from "express";
-// const router = express.Router();
+import express from "express";
+const router = express.Router();
 
-// import {  } from "../controller/feedback_template_controller";
-// import { Validate }  from "../middlewares/validations/schema-validations";
-
-// router.get("/", );
-// router.post("/" , Validate.checkFeedback, );
+import { createFeedback, getFeedback  } from "../controller/feedback-controller";
+import { Validate, validateSchema }  from "../middlewares/validations/schema-validations";
 
 
-// export default router;
+router.get("/", getFeedback);
+
+router.post(
+    "/", 
+    Validate.checkFeedback, 
+    validateSchema, 
+    createFeedback 
+    );
+
+router.put(
+    "/", 
+    Validate.checkFeedback, 
+    validateSchema, 
+    createFeedback 
+    );    
+
+export default router;
