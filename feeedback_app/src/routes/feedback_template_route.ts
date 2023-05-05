@@ -6,6 +6,7 @@ import { Validate , validateSchema }  from "../middlewares/validations/schema-va
 
 
 router.get("/", getTemplates);
+
 // new template
 router.post(
     "/",
