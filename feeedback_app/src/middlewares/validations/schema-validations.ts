@@ -32,7 +32,60 @@ export const FeedbackTemplateSchema = {
       }
     }),
     checkFeedback:checkSchema({
-        
+        user_id: {
+            optional:true,
+            isMongoId: true,
+            errorMessage: 'Invalid user ID'
+          },
+          deliveryagent_id: {
+            isMongoId: true,
+            errorMessage: 'Invalid delivery agent ID'
+          },
+          client_id: {
+            isMongoId: true,
+            errorMessage: 'Invalid client ID'
+          },
+          product_id: {
+            isMongoId: true,
+            errorMessage: 'Invalid product ID'
+          },
+          template_id: {
+            isMongoId: true,
+            errorMessage: 'Invalid feedback template ID'
+          },
+          rating: {
+            isNumeric: true,
+            isInt: {
+              options: { min: 1, max: 5 },
+              errorMessage: 'Rating should be between 1 and 5'
+            },
+            errorMessage: 'Invalid rating'
+          },
+          comment: {
+            optional: true,
+            isString: true,
+            errorMessage: 'Comment should be a string'
+          },
+          feedback_type: {
+            optional: true,
+            isString: true,
+            errorMessage: 'Feedback type should be a string'
+          },
+          feedback_language: {
+            optional: true,
+            isString: true,
+            errorMessage: 'Feedback language should be a string'
+          },
+          additional_fields: {
+            optional: true,
+            isObject: true,
+            errorMessage: 'Additional fields should be an object'
+          },
+          qas: {
+            optional: true,
+            isObject: true,
+            errorMessage: 'QAs should be an object'
+          }
     })
   };
 
