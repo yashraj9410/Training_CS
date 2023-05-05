@@ -52,11 +52,11 @@ const FeedbackSchema = new Schema(
     },
     feedback_type: 
     { 
-      type: String 
+      type: Number 
     },
     feedback_language: 
     { 
-      type: String 
+      type: Number 
     },
     additional_fields: 
     { 

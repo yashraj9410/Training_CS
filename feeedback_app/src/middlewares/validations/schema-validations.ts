@@ -72,12 +72,12 @@ export  const Validate = {
           },
           feedback_type: {
             optional: true,
-            isString: true,
+            isNumeric: true,
             errorMessage: 'Feedback type should be a string'
           },
           feedback_language: {
             optional: true,
-            isString: true,
+            isNumeric: true,
             errorMessage: 'Feedback language should be a string'
           },
           additional_fields: {
