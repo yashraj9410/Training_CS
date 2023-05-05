@@ -4,7 +4,7 @@ import { checkSchema, body, validationResult } from 'express-validator';
 
 
 // making checkScema for feedback , feedback Template
-export const FeedbackTemplateSchema = {
+export  const Validate = {
     checkFeedbackTemplate: checkSchema({
       type: {
         isString: true,
