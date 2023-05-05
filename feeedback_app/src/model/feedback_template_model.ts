@@ -31,12 +31,12 @@ const FeedbackTemplateSchema: Schema = new Schema(
         type: Map, 
         of: String 
     },
-    clientId: 
+    client_id: 
     { 
         type: Schema.Types.ObjectId, 
         ref: 'Client' 
     },
-    userId: 
+    user_id: 
     { 
         type: Schema.Types.ObjectId, 
         ref: 'User' 

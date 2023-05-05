@@ -1,9 +1,9 @@
 // connecting to the mongodb atlas 
 import mongoose from 'mongoose';
 
-const connect_db = () => {
+const connect_db = async() => {
 
-    mongoose.connect("mongodb+srv://yashraj7011:12345@feedbackmanagement.llintv8.mongodb.net/test")
+    await mongoose.connect("mongodb+srv://yashraj7011:12345@feedbackmanagement.llintv8.mongodb.net/test")
     .then(res => console.log("databse connected success fully"))
     .catch(err => console.log(`Databse not connected : ${err}`))
 }

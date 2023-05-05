@@ -22,4 +22,30 @@ export const getTemplates =  async( req:Request , res:Response ) => {
 }
 
 // create new feedback template 
-export const
+export const createtemplate = async( req:Request , res: Response) => {
+
+    try {
+        
+        //creating new template for feedback 
+        FeedbackTemplate.create(req.body)
+        .then(data => res.status(200).send(data))
+        .catch(err => res.status(400).send(err))
+         
+    } catch (error) {
+
+        res.status(500).send("Error in creating template")
+
+    }
+}
+
+// update template 
+export const updateTemplate = async( req:Request , res:Response) => {
+
+     
+}
+
+
+// delete a template 
+export const deleteTemplate = async(req:Request, res:Response) => {
+
+}
