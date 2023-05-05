@@ -40,8 +40,18 @@ export const createtemplate = async( req:Request , res: Response) => {
 
 // update template 
 export const updateTemplate = async( req:Request , res:Response) => {
+    const template_id = req.params.id;
 
-     
+    try {
+
+        await FeedbackTemplate.findByIdAndUpdate(template_id, req.body)
+        .then(data => res.status(200).send(data))
+        .catch(err => res.status(404).send(err))
+        
+    } catch (error) {
+        res.status(500).send("Error occured in updating the template")
+    }
+
 }
 
 
