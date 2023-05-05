@@ -27,6 +27,7 @@ export  const Validate = {
         errorMessage: 'QAs should be an object'
       },
       client_id: {
+        optional:true,
         isMongoId: true,
         errorMessage: 'Invalid client ID'
       }
@@ -97,7 +98,7 @@ export  const Validate = {
 export const validateSchema = (req:express.Request,res:express.Response , next: express.NextFunction) => {
 
     const err = validationResult(req);
-
+   
     if(!err.isEmpty()){
         return res.status(400).json(err.array());
     }
