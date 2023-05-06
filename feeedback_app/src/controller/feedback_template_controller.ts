@@ -57,6 +57,8 @@ export const updateTemplate = async( req:Request , res:Response) => {
 
 // delete a template 
 export const deleteTemplate = async(req:Request, res:Response) => {
+
+    const template_id = req.params.id;
     try {
         
         FeedbackTemplate.deleteOne(template_id)
