@@ -37,7 +37,13 @@ export const createFeedback = async( req:Request, res:Response ) => {
 
 // create a feedback
 export const updateFeedback = async( req:Request, res:Response ) => {
-    
+    const feedback_data = req.body
+
+    try {
+        
+    } catch (error) {
+        
+    }
 }
 
 // create a feedback
