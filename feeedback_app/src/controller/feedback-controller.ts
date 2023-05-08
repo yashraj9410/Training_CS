@@ -38,11 +38,15 @@ export const createFeedback = async( req:Request, res:Response ) => {
 // create a feedback
 export const updateFeedback = async( req:Request, res:Response ) => {
     const feedback_data = req.body
-
+    const id = req.params.id
     try {
-        
+
+        FeedbackModel.findByIdAndUpdate(id , req.body)
+        .then(data => res.status(200).send("Feedback Updated Successfully"))
+        .catch(err => res.status(404).send("No Feedback Found with the given id "))
+
     } catch (error) {
-        
+        res.status(500).send(`Internal Server Error : ${error}`)
     }
 }
 
