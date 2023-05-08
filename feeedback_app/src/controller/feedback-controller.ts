@@ -24,10 +24,7 @@ export const createFeedback = async( req:Request, res:Response ) => {
 
     try {
         
-        feedback_data.feedback_type = feedback_type.UserToClient;
-        await FeedbackModel.create(req.body)
-        .then(data => res.status(201).send(data))
-        .catch(err => res.status(400).send(err))
+       
 
     } catch (error) {
         res.status(500).send("internal server error")
