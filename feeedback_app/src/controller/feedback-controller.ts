@@ -41,7 +41,7 @@ export const updateFeedback = async( req:Request, res:Response ) => {
     const id = req.params.id
     try {
 
-        FeedbackModel.findByIdAndUpdate(id , req.body)
+        FeedbackModel.findByIdAndUpdate(id , feedback_data)
         .then(data => res.status(200).send("Feedback Updated Successfully"))
         .catch(err => res.status(404).send("No Feedback Found with the given id "))
 
@@ -50,7 +50,18 @@ export const updateFeedback = async( req:Request, res:Response ) => {
     }
 }
 
-// create a feedback
+// delete a feedback
 export const deleteFeedback = async( req:Request, res:Response ) => {
-    
+    const feedback_id = req.params.id
+
+    try {
+        
+        FeedbackModel.findByIdAndDelete(feedback_id)
+        .then(data => res.status(200).send("Deleted Feedback"))
+        .catch(err => res.status(404).send("No Feedback Found"))
+
+    } catch (error) {
+        res.status(500).send("Internal Server Error")
+        
+    }
 }
