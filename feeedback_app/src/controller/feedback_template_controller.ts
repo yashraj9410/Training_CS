@@ -61,7 +61,7 @@ export const deleteTemplate = async(req:Request, res:Response) => {
     const template_id = req.params.id;
     try {
         
-        FeedbackTemplate.deleteOne({template_id})
+        FeedbackTemplate.findByIdAndDelete(template_id)
         .then(data => res.status(200).send(data))
         .catch(err => res.status(404).send(err))
 
