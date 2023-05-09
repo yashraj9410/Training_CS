@@ -9,6 +9,9 @@ import feedback_router from './routes/feedback_route'
 // importing the  db config 
 import connect_db from './db/db-connect';
 
+//importing swagger modules for documentation
+import swaggerJsdoc from "swagger-jsdoc";
+import swaggerUi from "swagger-ui-express";
 
 
 // connect db function 
@@ -38,3 +41,29 @@ const server_config = () => {
 
 // start the server 
 start_server();
+
+
+// making swagger configurations
+const options = {
+    definition: {
+      openapi: "3.0.0",
+      info: {
+        title: "Feedback Management Swagger UI",
+        version: "0.1.0",
+        description: "Feedback Management API ",
+      },
+      servers: [
+        {
+          url: "http://localhost:4000",
+        },
+      ],
+    },
+    apis: ["./routes/*.ts" , "./src/documentation/*.yaml"],
+  };
+  
+  const specs = swaggerJsdoc(options);
+  server.use(
+    "/swagger", 
+    swaggerUi.serve,
+    swaggerUi.setup(specs, { explorer: true })
+  );
