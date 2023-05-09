@@ -1,5 +1,5 @@
 paths:
-  /api/feedback_template:
+  /api/feedbackTemplate:
     get:
       summary: Retrieves all feedback templates
       tags:
