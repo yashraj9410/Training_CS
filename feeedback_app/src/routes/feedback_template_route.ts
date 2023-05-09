@@ -23,5 +23,6 @@ router.put(
     updateTemplate
     );
 
+router.delete("/:id" , deleteTemplate);
 
 export default router;
