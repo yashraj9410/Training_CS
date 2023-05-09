@@ -25,12 +25,12 @@ export const createFeedback = async( req:Request, res:Response ) => {
     const template_type = req.body?.template_type;
 
     //searhing for an existing template for the given template type
-    const feedback_template = await FeedbackTemplate.findOne(template_type);
+    const feedback_template = await FeedbackTemplate.findOne({type:template_type});
     const template_id = feedback_template?._id;
 
     // creating the template id for the feedback template of the given type 
     feedback_data.template_id = template_id;
-    
+
     try {
         
         feedback_data.feedback_type = feedback_type.UserToClient;
