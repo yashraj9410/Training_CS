@@ -2,6 +2,7 @@
 import { Request, Response } from 'express'
 import FeedbackModel from '../model/feedback_model'
 import { feedback_type } from '../middlewares/enums/feedback_type_enum' 
+import FeedbackTemplate from '../model/feedback_template_model'
 
 // create a feedback
 export const getFeedback = async( req:Request, res:Response ) => {
@@ -21,7 +22,15 @@ export const getFeedback = async( req:Request, res:Response ) => {
 export const createFeedback = async( req:Request, res:Response ) => {
 
     const feedback_data = req.body;
+    const template_type = req.body?.template_type;
 
+    //searhing for an existing template for the given template type
+    const feedback_template = await FeedbackTemplate.findOne(template_type);
+    const template_id = feedback_template?._id;
+
+    // creating the template id for the feedback template of the given type 
+    feedback_data.template_id = template_id;
+    
     try {
         
         feedback_data.feedback_type = feedback_type.UserToClient;
