@@ -1,0 +1,179 @@
+paths:
+  /api/feedback:
+    get:
+      summary: Retrieves all feedback templates
+      tags:
+        - Feedback
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FeedbackSchema'
+        500:
+          description: Internal Server Error
+        404:
+          description: No record found
+        401:
+          description: User un-authorized
+      security:
+        - JWTAuth: []
+    post:
+      summary: Create a new feedback template
+      tags:
+        - Feedback
+      security:
+        - JWTAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FeedbackSchema"
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FeedbackSchema"
+        '400':
+          description: Invalid request body
+        '500':
+          description: Internal Server Error
+  /api/feedback/{id}:
+    put:
+      summary: Update a feedback
+      tags:
+        - Feedback
+      security:
+        - JWTAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: ID of the feedback template to update
+          schema:
+            type: string
+      requestBody:
+        description: Feedback to update
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FeedbackSchema"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FeedbackSchema"
+        500:
+          description: Internal Server Error
+        404:
+          description: No record found
+    delete:
+        summary: Delete a feedback  by ID
+        tags:
+          - Feedback 
+        security:
+          - JWTAuth: []
+        parameters:
+          - in: path
+            name: id
+            required: true
+            description: ID of the feedback  to delete
+            schema:
+              type: string
+        responses:
+          '200':
+            description: Feedback  successfully deleted
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/FeedbackSchema'
+          500:
+            description: Internal Server Error
+          404:
+            description: No record found
+components:
+  schemas:
+    FeedbackSchema:
+      type: object
+      properties:
+        user_id:
+          type: string
+          description: ID of the user who gave the feedback.
+          example: 612f45d5fa301d5f77e5d5af
+        deliveryagent_id:
+          type: string
+          description: ID of the delivery agent for whom the feedback is given.
+          example: 613f54d5fa301d5f77e5d5af
+        client_id:
+          type: string
+          description: ID of the client for whom the feedback is given.
+          example: 611f44d5fa301d5f77e5d5af
+        product_id:
+          type: string
+          description: ID of the product for which the feedback is given.
+          example: 614f45d5fa301d5f77e5d5af
+        template_id:
+          type: string
+          description: ID of the feedback template used for the feedback.
+          example: 615f45d5fa301d5f77e5d5af
+        rating:
+          type: number
+          description: Numeric rating given in the feedback.
+          example: 4.5
+        comment:
+          type: string
+          description: Optional comment given in the feedback.
+          example: "The delivery was fast and efficient."
+        feedback_type:
+          type: number
+          description: Type of feedback given.
+          example: 1
+        feedback_language:
+          type: number
+          description: Language in which the feedback is given.
+          example: 1
+        additional_fields:
+          type: object
+          description: Additional fields given in the feedback.
+          example:
+            field1: "value1"
+            field2: "value2"
+        qas:
+          type: object
+          description: Questions and answers given in the feedback.
+          example:
+            Q1: "A1"
+            Q2: "A2"
+      required:
+        - user_id
+        - rating
+      example:
+        user_id: 612f45d5fa301d5f77e5d5af
+        deliveryagent_id: 613f54d5fa301d5f77e5d5af
+        client_id: 611f44d5fa301d5f77e5d5af
+        product_id: 614f45d5fa301d5f77e5d5af
+        template_id: 615f45d5fa301d5f77e5d5af
+        rating: 4.5
+        comment: "The delivery was fast and efficient."
+        feedback_type: 1
+        feedback_language: 1
+        additional_fields:
+          field1: "value1"
+          field2: "value2"
+        qas:
+          Q1: "A1"
+          Q2: "A2"
+  securitySchemes:
+    JWTAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
