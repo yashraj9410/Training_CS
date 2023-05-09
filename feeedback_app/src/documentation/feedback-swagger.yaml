@@ -1,7 +1,7 @@
 paths:
   /api/feedback:
     get:
-      summary: Retrieves all feedback templates
+      summary: Retrieves all feedbacks
       tags:
         - Feedback
       responses:
@@ -22,7 +22,7 @@ paths:
       security:
         - JWTAuth: []
     post:
-      summary: Create a new feedback template
+      summary: Create a new feedback 
       tags:
         - Feedback
       security:
