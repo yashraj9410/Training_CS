@@ -13,7 +13,7 @@ const FeedbackTemplateSchema: Schema = new Schema(
   {
     type: 
     { 
-        type: String,
+        type: Number,
         required: true 
     },
     fields: 

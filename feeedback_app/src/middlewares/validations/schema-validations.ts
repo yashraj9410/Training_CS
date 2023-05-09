@@ -7,10 +7,10 @@ import { checkSchema, body, validationResult } from 'express-validator';
 export  const Validate = {
     checkFeedbackTemplate: checkSchema({
       type: {
-        isString: true,
+        isNumeric: true,
         isLength: {
-          options: { min: 3 },
-          errorMessage: 'Type should be at least 3 characters long'
+          options: { min: 1 , max:1 },
+          errorMessage: 'Type should have a numeric enum value'
         },
         errorMessage: 'Please enter a valid type'
       },

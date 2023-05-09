@@ -12,7 +12,11 @@ export const getTemplates =  async( req:Request , res:Response ) => {
 
         // fetching data 
         const templates = await FeedbackTemplate.find()
-        res.status(200).send(templates);
+
+        if(templates.length)
+            res.status(200).send(templates);
+        else
+            res.status(404).send("No feedback templates found")
 
     } catch (error) {
 
