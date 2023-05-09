@@ -1,0 +1,168 @@
+paths:
+  /api/feedback_template:
+    get:
+      summary: Retrieves all feedback templates
+      tags:
+        - Feedback Template
+      responses:
+        200:
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FeedbackTemplate'
+        500:
+          description: Internal Server Error
+        404:
+          description: No record found
+        401:
+          description: User un-authorized
+      security:
+        - JWTAuth: []
+    post:
+      summary: Create a new feedback template
+      tags:
+        - Feedback Template
+      security:
+        - JWTAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FeedbackTemplate"
+      responses:
+        '201':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FeedbackTemplate"
+        '400':
+          description: Invalid request body
+        '500':
+          description: Internal Server Error
+  /api/feedbackTemplate/{id}:
+    put:
+      summary: Update a feedback template
+      tags:
+        - Feedback Template
+      security:
+        - JWTAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          description: ID of the feedback template to update
+          schema:
+            type: string
+      requestBody:
+        description: Feedback template object to update
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FeedbackTemplate"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FeedbackTemplate"
+        500:
+          description: Internal Server Error
+        404:
+          description: No record found
+    delete:
+        summary: Delete a feedback template by ID
+        tags:
+          - Feedback Template
+        security:
+          - JWTAuth: []
+        parameters:
+          - in: path
+            name: id
+            required: true
+            description: ID of the feedback template to delete
+            schema:
+              type: string
+        responses:
+          '200':
+            description: Feedback template successfully deleted
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/FeedbackTemplate'
+          500:
+            description: Internal Server Error
+          404:
+            description: No record found
+components:
+  schemas:
+    FeedbackTemplate:
+      type: object
+      required:
+        - type
+      properties:
+        _id:
+          type: string
+          description: The unique identifier for the feedback template.
+        type:
+          type: string
+          description: The type of feedback template.
+        fields:
+          type: object
+          additionalProperties:
+            type: string
+            description: The value of each field in the feedback template.
+          description: The fields in the feedback template.
+        requiredFields:
+          type: object
+          additionalProperties:
+            type: boolean
+            description: Whether each field in the feedback template is required.
+          description: The required fields in the feedback template.
+        qas:
+          type: object
+          additionalProperties:
+            type: string
+            description: The question associated with each field in the feedback template.
+          description: The questions and answers associated with each field in the feedback template.
+        client_id:
+          type: string
+          description: The unique identifier for the client associated with the feedback template.
+        user_id:
+          type: string
+          description: The unique identifier for the user associated with the feedback template.
+        createdAt:
+          type: string
+          format: date-time
+          description: The timestamp of the creation of the feedback template.
+        updatedAt:
+          type: string
+          format: date-time
+          description: The timestamp of the last update of the feedback template.
+      example:
+        _id: 617f814ef139c17f53e4e1c4
+        type: performance
+        fields:
+          Field 1: Description of Field 1
+          Field 2: Description of Field 2
+        requiredFields:
+          Field 1: true
+          Field 2: false
+        qas:
+          Question 1: Answer 1
+          Question 2: Answer 2
+        clientId: 617f814ef139c17f53e4e1c5
+        userId: 617f814ef139c17f53e4e1c6
+        createdAt: '2022-05-11T10:35:20.543Z'
+        updatedAt: '2022-05-11T10:35:20.543Z'
+  securitySchemes:
+    JWTAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
