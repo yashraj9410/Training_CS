@@ -1,7 +1,7 @@
 import express from "express";
 const router = express.Router();
 
-import { createFeedback, getFeedback  } from "../controller/feedback-controller";
+import { createFeedback, deleteFeedback, getFeedback, updateFeedback  } from "../controller/feedback-controller";
 import { Validate, validateSchema }  from "../middlewares/validations/schema-validations";
 
 
@@ -18,7 +18,9 @@ router.put(
     "/", 
     Validate.checkFeedback, 
     validateSchema, 
-    createFeedback 
+    updateFeedback 
     );    
+
+router.delete("/:id" , deleteFeedback);
 
 export default router;
