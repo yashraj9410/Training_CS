@@ -12,7 +12,15 @@ export  const Validate = {
           options: { min: 1 , max:1 },
           errorMessage: 'Type should have a numeric enum value'
         },
-        errorMessage: 'Please enter a valid type'
+        custom: {
+          options: (value, { req, location, path }) => {
+            if (![1, 2, 3].includes(parseInt(value))) {
+              throw new Error('Type should have a value of 1, 2, or 3');
+            }
+            return true;
+        },
+      },
+        errorMessage: 'Please enter a valid type value'
       },
       fields: {
         isObject: true,
@@ -54,6 +62,7 @@ export  const Validate = {
             errorMessage: 'Invalid product ID'
           },
           template_id: {
+            optional:true,
             isMongoId: true,
             errorMessage: 'Invalid feedback template ID'
           },

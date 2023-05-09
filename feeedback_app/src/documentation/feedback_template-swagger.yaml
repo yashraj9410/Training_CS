@@ -116,7 +116,7 @@ components:
         fields:
           type: object
           additionalProperties:
-            type: string
+            type: number
             description: The value of each field in the feedback template.
           description: The fields in the feedback template.
         requiredFields:
@@ -147,16 +147,16 @@ components:
           description: The timestamp of the last update of the feedback template.
       example:
         _id: 617f814ef139c17f53e4e1c4
-        type: performance
+        type: 1
         fields:
-          Field 1: Description of Field 1
-          Field 2: Description of Field 2
+          quantity: number
+          customer_experience: string
         requiredFields:
-          Field 1: true
-          Field 2: false
+          rating: true
+          comment: false
         qas:
-          Question 1: Answer 1
-          Question 2: Answer 2
+          Question 1: What do you think about the quality of the product?
+          Question 2: How was your experience with the delivery of the product?
         clientId: 617f814ef139c17f53e4e1c5
         userId: 617f814ef139c17f53e4e1c6
         createdAt: '2022-05-11T10:35:20.543Z'

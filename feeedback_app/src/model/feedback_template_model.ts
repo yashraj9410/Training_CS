@@ -5,8 +5,8 @@ interface IFeedbackTemplate extends Document {
   fields: Record<string, string>;
   requiredFields: Record<string, boolean>;
   qas: Record<string, string>;
-  clientId: string;
-  userId: string;
+  client_id: string;
+  user_id: string;
 }
 
 const FeedbackTemplateSchema: Schema = new Schema(

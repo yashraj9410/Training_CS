@@ -167,11 +167,11 @@ components:
         feedback_type: 1
         feedback_language: 1
         additional_fields:
-          field1: "value1"
-          field2: "value2"
+          quantity: "5"
+          customer_experience: "good"
         qas:
-          Q1: "A1"
-          Q2: "A2"
+          Q1: "Quality was good"
+          Q2: "good experince"
   securitySchemes:
     JWTAuth:
       type: http
